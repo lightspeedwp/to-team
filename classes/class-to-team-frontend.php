@@ -22,6 +22,12 @@ class TO_Team_Frontend extends TO_Team{
 	 */
 	public function __construct() {
 		add_filter( 'to_entry_class', array( $this, 'entry_class') );
+
+		if(!class_exists('LSX_Template_Redirects')){
+			require_once( TO_TEAM_PATH . 'classes/class-template-redirects.php' );
+		}	
+		$this->redirects = new LSX_Template_Redirects(TO_TEAM_PATH,array('team'));
+		add_action( 'lsx_team_content', array( $this->redirects, 'content_part' ), 10 , 2 );				
 	}	
 
 	/**

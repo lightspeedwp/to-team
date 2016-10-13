@@ -34,9 +34,20 @@ if (!class_exists( 'TO_Team' ) ) {
 			}			
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-admin.php');
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-frontend.php');
+			require_once(TO_TEAM_PATH . '/includes/template-tags.php');
 
 			add_action( 'init', array( $this, 'register_post_types' ) );
-		}		
+		}
+
+		/**
+		 * Adds our post types to an array via a filter
+		 */
+		public function plugin_path($path,$post_type){
+			if(false !== $this->post_types && array_key_exists($post_type,$this->post_types)){
+				$path = TO_TEAM_PATH;
+			}
+			return $path;
+		}					
 
 		/**
 		 * Register the landing pages post type.
