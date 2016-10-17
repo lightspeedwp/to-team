@@ -22,7 +22,7 @@ class TO_Team_Admin extends TO_Team{
 	 * Constructor
 	 */
 	public function __construct() {
-		add_action('init',array($this,'init'));
+		add_action('init',array($this,'init'),20);
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes') );
 	}
 
@@ -32,7 +32,9 @@ class TO_Team_Admin extends TO_Team{
 	 * @since 0.1.0
 	 */
 	public function init() {
-		$this->taxonomies = apply_filters('to_taxonomy_admin_taxonomies',$this->taxonomies);
+		if(function_exists('to_get_taxonomies')){
+			$this->taxonomies = array_keys(to_get_taxonomies());
+		}
 		add_filter('to_taxonomy_widget_taxonomies', array( $this, 'widget_taxonomies' ),10,1 );
 
 		if(false !== $this->taxonomies){
@@ -40,9 +42,8 @@ class TO_Team_Admin extends TO_Team{
 			add_action( 'edit_term',   array( $this, 'save_meta' ), 10, 2 );
 			foreach($this->taxonomies as $taxonomy){
 				add_action( "{$taxonomy}_edit_form_fields", array( $this, 'add_expert_form_field' ),3,1 );
-				
 			}			
-		}		
+		}	
 	}	
 
 	/**
@@ -101,8 +102,6 @@ class TO_Team_Admin extends TO_Team{
 		return $meta_boxes;
 	
 	}	
-
-
 
 	/**
 	 * Output the form field for this metadata when adding a new term
