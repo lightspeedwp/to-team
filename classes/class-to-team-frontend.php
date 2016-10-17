@@ -36,8 +36,9 @@ class TO_Team_Frontend extends TO_Team{
 	public function entry_class( $classes ) {
 		global $to_archive;
 		if(1 !== $to_archive){$to_archive = false;}
-		if(is_main_query() && is_singular($this->plugin_slug) && false === $to_archive){
-			$classes[] = 'col-sm-9';
+
+		if(is_main_query() && is_singular('team') && false === $to_archive){
+			$classes[] = 'col-sm-12';	
 		}
 		return $classes;
 	}	

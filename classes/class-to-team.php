@@ -21,6 +21,12 @@ if (!class_exists( 'TO_Team' ) ) {
 		/** @var string */
 		public $plugin_slug = 'to-team';
 
+		/** @var string */
+		public $post_type = 'team';
+
+		/** @var array */
+		public $post_types = array('accommodation','destination','tour');
+
 		/**
 		 * Constructor
 		 */

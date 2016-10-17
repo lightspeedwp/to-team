@@ -22,9 +22,29 @@ class TO_Team_Admin extends TO_Team{
 	 * Constructor
 	 */
 	public function __construct() {
+		add_action('init',array($this,'init'));
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes') );
-		add_action( 'to_framework_team_tab_general_settings_bottom', array($this,'general_settings'), 10 , 1 );
 	}
+
+	/**
+	 * Output the form field for this metadata when adding a new term
+	 *
+	 * @since 0.1.0
+	 */
+	public function init() {
+		$this->taxonomies = apply_filters('to_taxonomy_admin_taxonomies',$this->taxonomies);
+		add_filter('to_taxonomy_widget_taxonomies', array( $this, 'widget_taxonomies' ),10,1 );
+
+		if(false !== $this->taxonomies){
+			add_action( 'create_term', array( $this, 'save_meta' ), 10, 2 );
+			add_action( 'edit_term',   array( $this, 'save_meta' ), 10, 2 );
+			foreach($this->taxonomies as $taxonomy){
+				add_action( "{$taxonomy}_edit_form_fields", array( $this, 'add_expert_form_field' ),3,1 );
+				
+			}			
+		}		
+	}	
+
 	/**
 	 * Registers the Team metaboxes
 	 * @author  {your-name}
@@ -81,35 +101,66 @@ class TO_Team_Admin extends TO_Team{
 		return $meta_boxes;
 	
 	}	
+
+
+
 	/**
-	 * Adds the team specific options
+	 * Output the form field for this metadata when adding a new term
+	 *
+	 * @since 0.1.0
 	 */
-	public function general_settings() {
+	public function add_expert_form_field( $term = false ) {
+		if ( is_object( $term ) ) {
+			$value = get_term_meta( $term->term_id, 'expert', true );
+		} else {
+			$value = false;
+		}
+
+		$experts = get_posts(
+			array(
+				'post_type' => 'team',
+				'posts_per_page' => -1,
+				'orderby' => 'menu_order',
+				'order' => 'ASC',
+			)
+		);
 		?>
-			<?php
-				$experts = get_posts(
-					array(
-						'post_type' => 'team',
-						'posts_per_page' => -1,
-						'orderby' => 'menu_order',
-						'order' => 'ASC',
-					)
-				);
-			?>
-			<tr class="form-field">
-				<th scope="row" colspan="2"><label><h3>Extra</h3></label></th>
-			</tr>
-			<tr class="form-field-wrap">
-				<th scope="row">
-					<label> Select your consultants</label>
-				</th>
-				<td>
-					<?php foreach ( $experts as $expert ) : ?>
-						<label for="expert-<?php echo esc_attr( $expert->ID ); ?>"><input type="checkbox" {{#if expert-<?php echo esc_attr( $expert->ID ); ?>}} checked="checked" {{/if}} name="expert-<?php echo esc_attr( $expert->ID ); ?>" id="expert-<?php echo esc_attr( $expert->ID ); ?>" value="<?php echo esc_attr( $expert->ID ); ?>" /> <?php echo esc_html( $expert->post_title ); ?></label><br>
-					<?php endforeach ?>
-				</td>
-			</tr>	
+
+		<tr class="form-field form-required term-expert-wrap">
+			<th scope="row">
+				<label for="expert"><?php _e( 'Expert','tour-operator' ) ?></label>
+			</th>
+
+			<td>
+				<select name="expert" id="expert" aria-required="true">
+					<option value=""><?php _e( 'None','tour-operator' ) ?></option>
+
+					<?php
+						foreach ( $experts as $expert ) {
+							echo '<option value="'. $expert->ID .'"'. selected( $value, $expert->ID, FALSE ) .'>'. $expert->post_title .'</option>';
+						}
+					?>
+				</select>
+			</td>
+		</tr>
+
 		<?php
-	}	
+	}
+	/**
+	 * Saves the Taxnomy term banner image
+	 *
+	 * @since 0.1.0
+	 *
+	 * @param  int     $term_id
+	 * @param  string  $taxonomy
+	 */
+	public function save_meta( $term_id = 0, $taxonomy = '' ) {	
+		$meta = ! empty( $_POST[ 'expert' ] ) ? $_POST[ 'expert' ] : '';
+		if ( empty( $meta ) ) {
+			delete_term_meta( $term_id, 'expert' );
+		} else {
+			update_term_meta( $term_id, 'expert', $meta );
+		}
+	}			
 }
 new TO_Team_Admin();
