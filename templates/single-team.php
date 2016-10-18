@@ -8,9 +8,9 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area <?php echo esc_attr( to_main_class() ); ?>">
+	<div id="primary" class="content-area <?php echo esc_attr( lsx_main_class() ); ?>">
 
-		<?php to_content_before(); ?>
+		<?php lsx_content_before(); ?>
 		
 		<main id="main" class="site-main" role="main">
 
@@ -20,7 +20,7 @@ get_header(); ?>
 		 * 
 		 *  - Lsx_Tour_Operators::to_single_header() - 100
 		 */
-			to_content_top();
+			lsx_content_top();
 		?>
 		
 		<section class="team-navigation">
@@ -97,11 +97,11 @@ get_header(); ?>
 		
 		<?php to_videos('<section id="videos"><h2 class="section-title">'.__('Videos','tour-operator').'</h2>','</section>'); ?>
 		
-		<?php to_content_bottom(); ?>
+		<?php lsx_content_bottom(); ?>
 
 		</main><!-- #main -->			
 
-		<?php to_content_after(); ?>
+		<?php lsx_content_after(); ?>
 
 	</div><!-- #primary -->
 

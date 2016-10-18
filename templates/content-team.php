@@ -7,10 +7,10 @@
  */
 ?>
 
-<?php to_entry_before(); ?>
+<?php lsx_entry_before(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php to_entry_top(); ?>
+	<?php lsx_entry_top(); ?>
 
 	<?php if(is_archive()) { ?>
 		<div class="col-sm-3">
@@ -42,7 +42,7 @@
 				</header><!-- .entry-header -->				
 	<?php }	?>	
 		
-			<div <?php to_entry_class('entry-content'); ?>>
+			<div <?php lsx_entry_class('entry-content'); ?>>
 				<?php if(is_single() || to_is_single_disabled()) { ?>
 					<div class="single-main-info">
 						<h3><?php esc_html_e('Summary','tour-operator');?></h3>
@@ -100,8 +100,8 @@
 	</div>
 	<?php }	?>
 
-	<?php to_entry_bottom(); ?>
+	<?php lsx_entry_bottom(); ?>
 	
 </article><!-- #post-## -->
 
-<?php to_entry_after();
+<?php lsx_entry_after();
