@@ -93,10 +93,10 @@ if (!class_exists( 'TO_Team' ) ) {
 				'menu_position'      => 40,
 			    'query_var'          => true,
 			    'rewrite'            => array('slug'=>'team'),
-			    'capability_type'    => 'page',
+			    'capability_type'    => 'post',
 			    'has_archive'        => 'team',
 			    'hierarchical'       => false,
-	            'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes' )
+	            'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' )
 			);
 
 			register_post_type( 'team', $args );	
