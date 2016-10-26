@@ -42,7 +42,7 @@
 				</header><!-- .entry-header -->				
 	<?php }	?>	
 		
-			<div <?php lsx_entry_class('entry-content'); ?>>
+			<div <?php to_entry_class('entry-content'); ?>>
 				<?php if(is_single() || to_is_single_disabled()) { ?>
 					<div class="single-main-info">
 						<h3><?php esc_html_e('Summary','tour-operator');?></h3>
