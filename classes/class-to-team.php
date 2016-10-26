@@ -31,7 +31,7 @@ if (!class_exists( 'TO_Team' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			$this->options = get_option('_lsx_lsx-settings',false);
+			$this->options = get_option('_to_settings',false);
 			if(false !== $this->options && isset($this->options[$this->plugin_slug]) && !empty($this->options[$this->plugin_slug])){
 				$this->options = $this->options[$this->plugin_slug];
 			}
@@ -70,7 +70,7 @@ if (!class_exists( 'TO_Team' ) ) {
 			    'add_new_item'       => _x( 'Add New Team Member', 'tour-operator' ),
 			    'edit_item'          => _x( 'Edit', 'tour-operator' ),
 			    'new_item'           => _x( 'New', 'tour-operator' ),
-			    'all_items'          => _x( 'Team Members', 'tour-operator' ),
+			    'all_items'          => _x( 'All Team Members', 'tour-operator' ),
 			    'view_item'          => _x( 'View', 'tour-operator' ),
 			    'search_items'       => _x( 'Search the Team', 'tour-operator' ),
 			    'not_found'          => _x( 'No team members found', 'tour-operator' ),
@@ -89,7 +89,8 @@ if (!class_exists( 'TO_Team' ) ) {
 			    'public'             => true,
 			    'publicly_queryable' => true,
 			    'show_ui'            => true,
-			    'show_in_menu'       => true,
+			    'show_in_menu'       => 'tour-operator',
+				'menu_position'      => 40,
 			    'query_var'          => true,
 			    'rewrite'            => array('slug'=>'team'),
 			    'capability_type'    => 'page',
