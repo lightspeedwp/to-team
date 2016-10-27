@@ -23,6 +23,7 @@ class TO_Team_Admin extends TO_Team{
 	 */
 	public function __construct() {
 		add_action('init',array($this,'init'),20);
+		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes') );
 	}
 
@@ -45,6 +46,54 @@ class TO_Team_Admin extends TO_Team{
 			}			
 		}	
 	}	
+
+	/**
+	 * Register the landing pages post type.
+	 *
+	 *
+	 * @return    null
+	 */
+	public function register_post_types() {
+	
+		$labels = array(
+		    'name'               => _x( 'Team', 'to-team' ),
+		    'singular_name'      => _x( 'Team Member', 'to-team' ),
+		    'add_new'            => _x( 'Add New', 'to-team' ),
+		    'add_new_item'       => _x( 'Add New Team Member', 'to-team' ),
+		    'edit_item'          => _x( 'Edit', 'to-team' ),
+		    'new_item'           => _x( 'New', 'to-team' ),
+		    'all_items'          => _x( 'Team', 'to-team' ),
+		    'view_item'          => _x( 'View', 'to-team' ),
+		    'search_items'       => _x( 'Search the Team', 'to-team' ),
+		    'not_found'          => _x( 'No team member found', 'to-team' ),
+		    'not_found_in_trash' => _x( 'No team member found in Trash', 'to-team' ),
+		    'parent_item_colon'  => '',
+		    'menu_name'          => _x( 'Team', 'to-team' ),
+			'featured_image'	=> _x( 'Profile Picture', 'to-team' ),
+			'set_featured_image'	=> _x( 'Set Profile Picture', 'to-team' ),
+			'remove_featured_image'	=> _x( 'Remove profile picture', 'to-team' ),
+			'use_featured_image'	=> _x( 'Use as profile picture', 'to-team' ),								
+		);
+
+		$args = array(
+            'menu_icon'          =>'dashicons-id-alt',
+		    'labels'             => $labels,
+		    'public'             => true,
+		    'publicly_queryable' => true,
+		    'show_ui'            => true,
+		    'show_in_menu'       => 'tour-operator',
+			'menu_position'      => 40,
+		    'query_var'          => true,
+		    'rewrite'            => array('slug'=>'team'),
+		    'capability_type'    => 'post',
+		    'has_archive'        => 'team',
+		    'hierarchical'       => false,
+            'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' )
+		);
+
+		register_post_type( 'team', $args );	
+		
+	}		
 
 	/**
 	 * Registers the Team metaboxes
@@ -127,12 +176,12 @@ class TO_Team_Admin extends TO_Team{
 
 		<tr class="form-field form-required term-expert-wrap">
 			<th scope="row">
-				<label for="expert"><?php _e( 'Expert','tour-operator' ) ?></label>
+				<label for="expert"><?php _e( 'Expert','to-team' ) ?></label>
 			</th>
 
 			<td>
 				<select name="expert" id="expert" aria-required="true">
-					<option value=""><?php _e( 'None','tour-operator' ) ?></option>
+					<option value=""><?php _e( 'None','to-team' ) ?></option>
 
 					<?php
 						foreach ( $experts as $expert ) {
@@ -140,6 +189,8 @@ class TO_Team_Admin extends TO_Team{
 						}
 					?>
 				</select>
+
+				<?php wp_nonce_field( 'to_team_save_term_expert', 'to_team_term_expert_nonce' ); ?>
 			</td>
 		</tr>
 
@@ -154,11 +205,21 @@ class TO_Team_Admin extends TO_Team{
 	 * @param  string  $taxonomy
 	 */
 	public function save_meta( $term_id = 0, $taxonomy = '' ) {	
-		$meta = ! empty( $_POST[ 'expert' ] ) ? $_POST[ 'expert' ] : '';
-		if ( empty( $meta ) ) {
-			delete_term_meta( $term_id, 'expert' );
-		} else {
-			update_term_meta( $term_id, 'expert', $meta );
+		if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['expert'] ) ) {
+			return;
+		}
+
+		if ( check_admin_referer( 'to_team_save_term_expert', 'to_team_term_expert_nonce' ) ) {
+			$meta = ! empty( sanitize_text_field(wp_unslash($_POST[ 'expert' ])) ) ? sanitize_text_field(wp_unslash($_POST[ 'expert' ]))	: '';
+			if ( empty( $meta ) ) {
+				delete_term_meta( $term_id, 'expert' );
+			} else {
+				update_term_meta( $term_id, 'expert', $meta );
+			}
 		}
 	}			
 }

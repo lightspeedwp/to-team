@@ -281,7 +281,7 @@ function to_team_accommodation(){
 				'from'			=>	'accommodation',
 				'to'			=>	'team',
 				'column'		=>	'12',
-				'before'		=>	'<section id="accommodation"><h2 class="section-title">'.__(to_get_post_type_section_title('accommodation', '', 'Featured Accommodations'),'tour-operator').'</h2>',
+				'before'		=>	'<section id="accommodation"><h2 class="section-title">'.__(to_get_post_type_section_title('accommodation', '', 'Featured Accommodations'),'to-team').'</h2>',
 				'after'			=>	'</section>'
 		);
 		to_connected_panel_query($args);
@@ -302,7 +302,7 @@ function to_team_tours(){
 				'from'			=>	'tour',
 				'to'			=>	'team',
 				'column'		=>	'12',
-				'before'		=>	'<section id="tours"><h2 class="section-title">'.__(to_get_post_type_section_title('tour', '', 'Featured Tours'),'tour-operator').'</h2>',
+				'before'		=>	'<section id="tours"><h2 class="section-title">'.__(to_get_post_type_section_title('tour', '', 'Featured Tours'),'to-team').'</h2>',
 				'after'			=>	'</section>'
 		);
 		to_connected_panel_query($args);

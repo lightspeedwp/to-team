@@ -45,12 +45,12 @@
 			<div <?php to_entry_class('entry-content'); ?>>
 				<?php if(is_single() || to_is_single_disabled()) { ?>
 					<div class="single-main-info">
-						<h3><?php esc_html_e('Summary','tour-operator');?></h3>
+						<h3><?php esc_html_e('Summary','to-team');?></h3>
 						<div class="meta taxonomies">
-							<?php to_team_role('<div class="meta role">'.__('Role','tour-operator').': ','</div>'); ?>
-							<?php to_connected_tours('<div class="meta tours">'.__('Tours','tour-operator').': ','</div>'); ?>
-							<?php to_connected_accommodation('<div class="meta accommodation">'.__('Accommodation','tour-operator').': ','</div>'); ?>						
-							<?php to_connected_destinations('<div class="meta destination">'.__('Location','tour-operator').': ','</div>'); ?>	
+							<?php to_team_role('<div class="meta role">'.__('Role','to-team').': ','</div>'); ?>
+							<?php to_connected_tours('<div class="meta tours">'.__('Tours','to-team').': ','</div>'); ?>
+							<?php to_connected_accommodation('<div class="meta accommodation">'.__('Accommodation','to-team').': ','</div>'); ?>						
+							<?php to_connected_destinations('<div class="meta destination">'.__('Location','to-team').': ','</div>'); ?>	
 						</div>
 						<?php to_sharing(); ?>
 					</div>
@@ -91,7 +91,7 @@
 		</div>
 		<div class="col-sm-4">
 			<div class="team-details">
-				<?php to_team_role('<div class="meta role">'.__('Role','tour-operator').': ','</div>'); ?>
+				<?php to_team_role('<div class="meta role">'.__('Role','to-team').': ','</div>'); ?>
 				<?php to_team_contact_number('<div class="meta contact-number"><i class="fa fa-phone orange"></i> ','</div>'); ?>
 				<?php to_team_contact_email('<div class="meta email"><i class="fa fa-envelope orange"></i> ','</div>'); ?>
 				<?php to_team_social_profiles('<div class="social-links">','</div>'); ?>		    

@@ -48,12 +48,12 @@ get_header(); ?>
 						$gallery_id = get_post_meta(get_the_ID(),'gallery',true);
 					}
 					if(false !== $gallery_id && '' !== $gallery_id){ ?>
-						<li><a href="#gallery"><?php esc_html_e('Gallery','tour-operator');?></a></li>
+						<li><a href="#gallery"><?php esc_html_e('Gallery','to-team');?></a></li>
 					<?php } ?>
 					<?php 
 					$videos = get_post_meta(get_the_ID(),'videos',true);
 					if(false !== $videos && '' !== $videos){ ?>
-						<li><a href="#videos"><?php esc_html_e('Videos','tour-operator');?></a></li>
+						<li><a href="#videos"><?php esc_html_e('Videos','to-team');?></a></li>
 					<?php } ?>								
 				</ul>
 			</div>
@@ -82,7 +82,7 @@ get_header(); ?>
 		if($test){
 			?>
 			<section id="gallery">
-				<h2 class="section-title"><?php esc_html_e('Gallery','tour-operator'); ?></h2>	
+				<h2 class="section-title"><?php esc_html_e('Gallery','to-team'); ?></h2>	
 				<?php 
 					if ( function_exists( 'Envira_Gallery' ) ) {
 						to_content('content', 'envira');
@@ -95,7 +95,7 @@ get_header(); ?>
 		}
 		?>		
 		
-		<?php to_videos('<section id="videos"><h2 class="section-title">'.__('Videos','tour-operator').'</h2>','</section>'); ?>
+		<?php to_videos('<section id="videos"><h2 class="section-title">'.__('Videos','to-team').'</h2>','</section>'); ?>
 		
 		<?php lsx_content_bottom(); ?>
 

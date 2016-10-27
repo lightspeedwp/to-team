@@ -1,0 +1,139 @@
+# Copyright (C) 2016 to-team
+# This file is distributed under the same license as the to-team package.
+msgid ""
+msgstr ""
+"Project-Id-Version: to-team\n"
+"Report-Msgid-Bugs-To: https://www.lsdev.biz/product/tour-operator-team/issues\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Language-Team: LightSpeed <webmaster@lsdev.biz>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: classes/class-to-team-admin.php:59, classes/class-to-team-admin.php:65, classes/class-to-team-admin.php:71
+msgctxt "to-team"
+msgid "Team"
+msgstr ""
+
+#: classes/class-to-team-admin.php:60
+msgctxt "to-team"
+msgid "Team Member"
+msgstr ""
+
+#: classes/class-to-team-admin.php:61
+msgctxt "to-team"
+msgid "Add New"
+msgstr ""
+
+#: classes/class-to-team-admin.php:62
+msgctxt "to-team"
+msgid "Add New Team Member"
+msgstr ""
+
+#: classes/class-to-team-admin.php:63
+msgctxt "to-team"
+msgid "Edit"
+msgstr ""
+
+#: classes/class-to-team-admin.php:64
+msgctxt "to-team"
+msgid "New"
+msgstr ""
+
+#: classes/class-to-team-admin.php:66
+msgctxt "to-team"
+msgid "View"
+msgstr ""
+
+#: classes/class-to-team-admin.php:67
+msgctxt "to-team"
+msgid "Search the Team"
+msgstr ""
+
+#: classes/class-to-team-admin.php:68
+msgctxt "to-team"
+msgid "No team member found"
+msgstr ""
+
+#: classes/class-to-team-admin.php:69
+msgctxt "to-team"
+msgid "No team member found in Trash"
+msgstr ""
+
+#: classes/class-to-team-admin.php:72
+msgctxt "to-team"
+msgid "Profile Picture"
+msgstr ""
+
+#: classes/class-to-team-admin.php:73
+msgctxt "to-team"
+msgid "Set Profile Picture"
+msgstr ""
+
+#: classes/class-to-team-admin.php:74
+msgctxt "to-team"
+msgid "Remove profile picture"
+msgstr ""
+
+#: classes/class-to-team-admin.php:75
+msgctxt "to-team"
+msgid "Use as profile picture"
+msgstr ""
+
+#: classes/class-to-team-admin.php:179
+msgid "Expert"
+msgstr ""
+
+#: classes/class-to-team-admin.php:184
+msgid "None"
+msgstr ""
+
+#: classes/class-to-team.php:71
+msgid "Team"
+msgstr ""
+
+#: classes/class-to-team.php:74
+msgid "Team Member"
+msgstr ""
+
+#: includes/template-tags.php:284
+msgid "to_get_post_type_section_titleaccommodation"
+msgstr ""
+
+#: includes/template-tags.php:305
+msgid "to_get_post_type_section_titletour"
+msgstr ""
+
+#: templates/content-team.php:48
+msgid "Summary"
+msgstr ""
+
+#: templates/content-team.php:50, templates/content-team.php:94
+msgid "Role"
+msgstr ""
+
+#: templates/content-team.php:51
+msgid "Tours"
+msgstr ""
+
+#: templates/content-team.php:52
+msgid "Accommodation"
+msgstr ""
+
+#: templates/content-team.php:53
+msgid "Location"
+msgstr ""
+
+#: templates/single-team.php:51, templates/single-team.php:85
+msgid "Gallery"
+msgstr ""
+
+#: templates/single-team.php:56, templates/single-team.php:98
+msgid "Videos"
+msgstr ""

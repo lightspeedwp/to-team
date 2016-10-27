@@ -21,28 +21,59 @@ if (!class_exists( 'TO_Team' ) ) {
 		/** @var string */
 		public $plugin_slug = 'to-team';
 
-		/** @var string */
-		public $post_type = 'team';
+		/**
+		 * The post types the plugin registers
+		 */
+		public $post_types = false;	
 
-		/** @var array */
-		public $post_types = array('accommodation','destination','tour');
+		/**
+		 * The singular post types the plugin registers
+		 */
+		public $post_types_singular = false;	
+
+		/**
+		 * An array of the post types slugs plugin registers
+		 */
+		public $post_type_slugs = false;		
 
 		/**
 		 * Constructor
 		 */
 		public function __construct() {
-			$this->options = get_option('_to_settings',false);
-			if(false !== $this->options && isset($this->options[$this->plugin_slug]) && !empty($this->options[$this->plugin_slug])){
-				$this->options = $this->options[$this->plugin_slug];
+			//Set the variables
+			$this->set_vars();
+			add_action('init',array($this,'load_plugin_textdomain'));
+
+			if(false !== $this->post_types){
+				add_filter( 'to_framework_post_types', array( $this, 'post_types_filter') );
+				add_filter( 'to_post_types', array( $this, 'post_types_filter') );
+				add_filter( 'to_post_types_singular', array( $this, 'post_types_singular_filter') );
+				add_filter('to_settings_path',array( $this, 'plugin_path'),10,2);
 			}
-			else{
-				$this->options = false;
-			}			
+
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-admin.php');
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-frontend.php');
 			require_once(TO_TEAM_PATH . '/includes/template-tags.php');
+		}
+	
+		/**
+		 * Load the plugin text domain for translation.
+		 */
+		public function load_plugin_textdomain() {
+			load_plugin_textdomain( 'to-team', FALSE, basename( TO_TEAM_PATH ) . '/languages');
+		}
 
-			add_action( 'init', array( $this, 'register_post_types' ) );
+		/**
+		 * Sets the plugins variables
+		 */
+		public function set_vars() {
+			$this->post_types = array(
+				'team' => __( 'Team','to-team' )
+			);
+			$this->post_types_singular = array(
+				'team' => __( 'Team Member','to-team' )
+			);
+			$this->post_type_slugs = array_keys($this->post_types);			
 		}
 
 		/**
@@ -53,55 +84,44 @@ if (!class_exists( 'TO_Team' ) ) {
 				$path = TO_TEAM_PATH;
 			}
 			return $path;
-		}					
+		}
 
 		/**
-		 * Register the landing pages post type.
-		 *
-		 *
-		 * @return    null
+		 * Adds our post types to an array via a filter
 		 */
-		public function register_post_types() {
-		
-			$labels = array(
-			    'name'               => _x( 'Team', 'tour-operator' ),
-			    'singular_name'      => _x( 'Team Member', 'tour-operator' ),
-			    'add_new'            => _x( 'Add New', 'tour-operator' ),
-			    'add_new_item'       => _x( 'Add New Team Member', 'tour-operator' ),
-			    'edit_item'          => _x( 'Edit', 'tour-operator' ),
-			    'new_item'           => _x( 'New', 'tour-operator' ),
-			    'all_items'          => _x( 'All Team Members', 'tour-operator' ),
-			    'view_item'          => _x( 'View', 'tour-operator' ),
-			    'search_items'       => _x( 'Search the Team', 'tour-operator' ),
-			    'not_found'          => _x( 'No team members found', 'tour-operator' ),
-			    'not_found_in_trash' => _x( 'No team members found in Trash', 'tour-operator' ),
-			    'parent_item_colon'  => '',
-			    'menu_name'          => _x( 'Team', 'tour-operator' ),
-				'featured_image'	=> _x( 'Profile Picture', 'tour-operator' ),
-				'set_featured_image'	=> _x( 'Set Profile Picture', 'tour-operator' ),
-				'remove_featured_image'	=> _x( 'Remove profile picture', 'tour-operator' ),
-				'use_featured_image'	=> _x( 'Use as profile picture', 'tour-operator' ),								
-			);
+		public function post_types_slugs_filter($post_types){
+			if(is_array($post_types)){
+				$post_types = array_merge($post_types,$this->post_type_slugs);
+			}else{
+				$post_types = $this->post_type_slugs;
+			}
+			return $post_types;
+		}
 
-			$args = array(
-	            'menu_icon'          =>'dashicons-id-alt',
-			    'labels'             => $labels,
-			    'public'             => true,
-			    'publicly_queryable' => true,
-			    'show_ui'            => true,
-			    'show_in_menu'       => 'tour-operator',
-				'menu_position'      => 40,
-			    'query_var'          => true,
-			    'rewrite'            => array('slug'=>'team'),
-			    'capability_type'    => 'post',
-			    'has_archive'        => 'team',
-			    'hierarchical'       => false,
-	            'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' )
-			);
+		/**
+		 * Adds our post types to an array via a filter
+		 */
+		public function post_types_filter($post_types){
+			if(is_array($post_types) && is_array($this->post_types)){
+				$post_types = array_merge($post_types,$this->post_types);
+			}elseif(is_array($this->post_types)){
+				$post_types = $this->post_types;
+			}
+			return $post_types;
+		}	
 
-			register_post_type( 'team', $args );	
-			
-		}		
+		/**
+		 * Adds our post types to an array via a filter
+		 */
+		public function post_types_singular_filter($post_types_singular){
+			if(is_array($post_types_singular) && is_array($this->post_types_singular)){
+				$post_types_singular = array_merge($post_types_singular,$this->post_types_singular);
+			}elseif(is_array($this->post_types_singular)){
+				$post_types_singular = $this->post_types_singular;
+			}
+			return $post_types_singular;
+		}
+
 	}
 	new TO_Team();
 }
