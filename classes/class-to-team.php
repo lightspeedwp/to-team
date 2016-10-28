@@ -54,7 +54,7 @@ if (!class_exists( 'TO_Team' ) ) {
 			//Set the variables
 			$this->set_vars();
 
-			// Make TO last plugin to load + flush_rewrite_rules()
+			// Make TO last plugin to load
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
 			
 			add_action('init',array($this,'load_plugin_textdomain'));
@@ -73,6 +73,10 @@ if (!class_exists( 'TO_Team' ) ) {
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-admin.php');
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-frontend.php');
 			require_once(TO_TEAM_PATH . '/includes/template-tags.php');
+
+			// flush_rewrite_rules()
+			register_activation_hook( TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
+			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
 		}
 		
 		/**
@@ -176,7 +180,7 @@ if (!class_exists( 'TO_Team' ) ) {
 		}
 	
 		/**
-		 * Make TO last plugin to load + flush_rewrite_rules().
+		 * Make TO last plugin to load.
 		 */
 		public function activated_plugin() {
 			if ( $plugins = get_option( 'active_plugins' ) ) {
@@ -191,7 +195,26 @@ if (!class_exists( 'TO_Team' ) ) {
 					}
 				}
 			}
+		}
+	
+		/**
+		 * On plugin activation
+		 */
+		public function register_activation_hook() {
+			if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
+				set_transient( '_tour_operators_team_flush_rewrite_rules', 1, 30 );
+			}
+		}
+		
+		/**
+		 * On plugin activation (check)
+		 */
+		public function register_activation_hook_check() {
+			if ( ! get_transient( '_tour_operators_team_flush_rewrite_rules' ) ) {
+				return;
+			}
 
+			delete_transient( '_tour_operators_team_flush_rewrite_rules' );
 			flush_rewrite_rules();
 		}
 

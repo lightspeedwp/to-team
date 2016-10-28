@@ -94,11 +94,11 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: classes/class-to-team.php:100
+#: classes/class-to-team.php:104
 msgid "Team"
 msgstr ""
 
-#: classes/class-to-team.php:103
+#: classes/class-to-team.php:107
 msgid "Team Member"
 msgstr ""
 
