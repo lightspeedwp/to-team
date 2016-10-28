@@ -10,6 +10,17 @@
  */
 
 /**
+ * Find the content part in the plugin
+ *
+ * @package 	to-team
+ * @subpackage	template-tag
+ * @category 	content
+ */
+function to_team_content($slug, $name = null) {
+	do_action('to_team_content',$slug, $name);
+}
+
+/**
  * Outputs the current team members role, must be used in a loop.
  * 
  * @param		$before	| string

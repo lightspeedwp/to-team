@@ -14,7 +14,7 @@ global $disable_placeholder;
 			<?php if(!to_is_single_disabled()){ ?>
 				<a href="<?php the_permalink(); ?>">
 			<?php } ?>
-				<?php to_thumbnail( 'lsx-thumbnail-wide' ); ?>
+				<?php lsx_thumbnail( 'lsx-thumbnail-wide' ); ?>
 			<?php if(!to_is_single_disabled()){ ?>
 				</a>
 			<?php } ?>

@@ -102,11 +102,11 @@ msgstr ""
 msgid "Team Member"
 msgstr ""
 
-#: includes/template-tags.php:284
+#: includes/template-tags.php:295
 msgid "to_get_post_type_section_titleaccommodation"
 msgstr ""
 
-#: includes/template-tags.php:305
+#: includes/template-tags.php:316
 msgid "to_get_post_type_section_titletour"
 msgstr ""
 

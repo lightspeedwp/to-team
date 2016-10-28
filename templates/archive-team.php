@@ -31,7 +31,7 @@ get_header(); ?>
 			<div class="row">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<div class="panel col-sm-12">
-						<?php to_content( 'content', 'team' ); ?>
+						<?php to_team_content( 'content', 'team' ); ?>
 					</div>
 				<?php endwhile; ?>
 			</div>

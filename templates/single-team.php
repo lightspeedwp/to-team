@@ -62,7 +62,7 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section id="summary">
 				<div class="row">
-					<?php to_content('content', 'team'); ?>
+					<?php to_team_content('content', 'team'); ?>
 				</div>
 			</section>
 		<?php endwhile; // end of the loop. ?>
