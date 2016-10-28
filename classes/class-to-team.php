@@ -3,22 +3,23 @@
  * TO_Team
  *
  * @package   TO_Team
- * @author    {your-name}
+ * @author    LightSpeed
  * @license   GPL-2.0+
  * @link      
  * @copyright {year} LightSpeedDevelopment
  */
 if (!class_exists( 'TO_Team' ) ) {
-
 	/**
 	 * Main plugin class.
 	 *
 	 * @package TO_Team
-	 * @author  {your-name}
+	 * @author  LightSpeed
 	 */	
 	class TO_Team {
 		
-		/** @var string */
+		/**
+		 * The plugins id
+		 */
 		public $plugin_slug = 'to-team';
 
 		/**
@@ -34,7 +35,17 @@ if (!class_exists( 'TO_Team' ) ) {
 		/**
 		 * An array of the post types slugs plugin registers
 		 */
-		public $post_type_slugs = false;		
+		public $post_type_slugs = false;			
+
+		/**
+		 * The taxonomies the plugin registers
+		 */
+		public $taxonomies = false;				
+
+		/**
+		 * The taxonomies the plugin registers (plural)
+		 */
+		public $taxonomies_plural = false;			
 
 		/**
 		 * Constructor
@@ -42,6 +53,10 @@ if (!class_exists( 'TO_Team' ) ) {
 		public function __construct() {
 			//Set the variables
 			$this->set_vars();
+
+			// Make TO last plugin to load + flush_rewrite_rules()
+			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
+			
 			add_action('init',array($this,'load_plugin_textdomain'));
 
 			if(false !== $this->post_types){
@@ -50,10 +65,24 @@ if (!class_exists( 'TO_Team' ) ) {
 				add_filter( 'to_post_types_singular', array( $this, 'post_types_singular_filter') );
 				add_filter('to_settings_path',array( $this, 'plugin_path'),10,2);
 			}
+			if(false !== $this->taxonomies){
+				add_filter( 'to_framework_taxonomies', array( $this, 'taxonomies_filter') );
+				add_filter( 'to_framework_taxonomies_plural', array( $this, 'taxonomies_plural_filter') );
+			}	
 
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-admin.php');
 			require_once(TO_TEAM_PATH . '/classes/class-to-team-frontend.php');
 			require_once(TO_TEAM_PATH . '/includes/template-tags.php');
+		}
+		
+		/**
+		 * Include the post type for the search integration
+		 */
+		public function init(){
+			if(class_exists('LSX_SEARCH')){
+				add_filter( 'lsx_search_post_types', array( $this, 'post_types_filter') );
+				add_filter( 'lsx_search_taxonomies', array( $this, 'taxonomies_filter') );	
+			}
 		}
 	
 		/**
@@ -120,6 +149,50 @@ if (!class_exists( 'TO_Team' ) ) {
 				$post_types_singular = $this->post_types_singular;
 			}
 			return $post_types_singular;
+		}
+
+		/**
+		 * Adds our taxonomies to an array via a filter
+		 */
+		public function taxonomies_filter($taxonomies){
+			if(is_array($taxonomies) && is_array($this->taxonomies)){
+				$taxonomies = array_merge($taxonomies,$this->taxonomies);
+			}elseif(is_array($this->taxonomies)){
+				$taxonomies = $this->taxonomies;
+			}
+			return $taxonomies;
+		}
+
+		/**
+		 * Adds our taxonomies_plural to an array via a filter
+		 */
+		public function taxonomies_plural_filter($taxonomies_plural){
+			if(is_array($taxonomies_plural) && is_array($this->taxonomies_plural)){
+				$taxonomies_plural = array_merge($taxonomies_plural,$this->taxonomies_plural);
+			}elseif(is_array($this->taxonomies_plural)){
+				$taxonomies_plural = $this->taxonomies_plural;
+			}
+			return $taxonomies_plural;
+		}
+	
+		/**
+		 * Make TO last plugin to load + flush_rewrite_rules().
+		 */
+		public function activated_plugin() {
+			if ( $plugins = get_option( 'active_plugins' ) ) {
+				$search = preg_grep( '/.*\/tour-operator\.php/', $plugins );
+				$key = array_search( $search, $plugins );
+
+				if ( is_array( $search ) && count( $search ) ) {
+					foreach ( $search as $key => $path ) {
+						array_splice( $plugins, $key, 1 );
+						array_push( $plugins, $path );
+						update_option( 'active_plugins', $plugins );
+					}
+				}
+			}
+
+			flush_rewrite_rules();
 		}
 
 	}
