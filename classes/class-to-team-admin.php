@@ -126,22 +126,7 @@ class TO_Team_Admin extends TO_Team{
 		}
 		
 		if(class_exists('TO_Field_Pattern')){ $fields = array_merge($fields,TO_Field_Pattern::videos()); }		
-	
-		/*$fields[] = array( 'id' => 'accommodation_title',  'name' => 'Accommodation', 'type' => 'title' );
-		$fields[] = array( 'id' => 'accommodation_to_team', 'name' => 'Accommodation', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'accommodation','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'activity_title',  'name' => 'Activities', 'type' => 'title' );
-		$fields[] = array( 'id' => 'activity_to_team', 'name' => 'Activity', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'activity','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true );
-		$fields[] = array( 'id' => 'destinations_title',  'name' => 'Destinations', 'type' => 'title' );
-		$fields[] = array( 'id' => 'destination_to_team', 'name' => 'Destinations', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'destination','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'review_title',  'name' => 'Reviews', 'type' => 'title' );
-		$fields[] = array( 'id' => 'review_to_team', 'name' => 'Reviews', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'review','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'specials_title',  'name' => 'Specials', 'type' => 'title' );
-		$fields[] = array( 'id' => 'special_to_team', 'name' => 'Specials', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'special','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'tours_title',  'name' => 'Tours', 'type' => 'title' );
-		$fields[] = array( 'id' => 'tour_to_team', 'name' => 'Tours', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'tour','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'vehicle_title',  'name' => 'Vehicles', 'type' => 'title' );
-		$fields[] = array( 'id' => 'vehicle_to_team', 'name' => 'Vehicles', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'vehicles','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );*/
-		
+
 		$meta_boxes[] = array(
 				'title' => 'LSX Tour Operators',
 				'pages' => 'team',
