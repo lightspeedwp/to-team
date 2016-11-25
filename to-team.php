@@ -58,11 +58,14 @@ function to_team_api_admin_init(){
 			$data['email'] = $options['general']['to-team_email'];
 		}		
 	}
-
+	$instance = get_option( 'lsx_api_instance', false );
+	if(false === $instance){
+		$instance = LSX_API_Manager::generatePassword();
+	}
 	$api_array = array(
 		'product_id'	=>		'TO Team',
 		'version'		=>		'1.0.0',
-		'instance'		=>		get_option('lsx_api_instance',false),
+		'instance'		=>		$instance,
 		'email'			=>		$data['email'],
 		'api_key'		=>		$data['api_key'],
 		'file'			=>		'to-team.php'
