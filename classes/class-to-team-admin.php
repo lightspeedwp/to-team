@@ -44,7 +44,9 @@ class TO_Team_Admin extends TO_Team{
 			foreach($this->taxonomies as $taxonomy){
 				add_action( "{$taxonomy}_edit_form_fields", array( $this, 'add_expert_form_field' ),3,1 );
 			}			
-		}	
+		}
+
+		add_action( 'to_framework_team_tab_content', array($this,'general_settings'), 10 , 2 );
 	}	
 
 	/**
@@ -206,6 +208,36 @@ class TO_Team_Admin extends TO_Team{
 				update_term_meta( $term_id, 'expert', $meta );
 			}
 		}
-	}			
+	}
+
+
+	/**
+	 * Adds the team specific options
+	 */
+	public function general_settings($post_type=false,$tab=false) {
+		if('general' !== $tab){ return false; }
+		?>
+		<?php
+		$experts = get_posts(
+			array(
+				'post_type' => 'team',
+				'posts_per_page' => -1,
+				'orderby' => 'menu_order',
+				'order' => 'ASC',
+			)
+		);
+		?>
+		<tr class="form-field-wrap">
+			<th scope="row">
+				<label> Select your consultants</label>
+			</th>
+			<td>
+				<?php foreach ( $experts as $expert ) : ?>
+					<label for="expert-<?php echo $expert->ID ?>"><input type="checkbox" {{#if expert-<?php echo $expert->ID ?>}} checked="checked" {{/if}} name="expert-<?php echo $expert->ID ?>" id="expert-<?php echo $expert->ID ?>" value="<?php echo $expert->ID ?>" /> <?php echo $expert->post_title ?></label><br>
+				<?php endforeach ?>
+			</td>
+		</tr>
+		<?php
+	}
 }
 new TO_Team_Admin();
