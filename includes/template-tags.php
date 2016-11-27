@@ -210,13 +210,15 @@ function to_team_member_panel($before="",$after=""){
 	}
 
 	if ( false === $team_id ) {
-		global $to_operators;
+		global $tour_operator;
 		$tab = 'team';
 		$start_with = 'expert-';
 		$team_ids = array();
+
+
 		
-		if ( is_object( $to_operators ) && isset( $to_operators->options[$tab] ) && is_array( $to_operators->options[$tab] ) ) {
-			foreach ( $to_operators->options[$tab] as $key => $value ) {
+		if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) ) {
+			foreach ( $tour_operator->options[$tab] as $key => $value ) {
 				if ( substr( $key, 0, strlen( $start_with ) ) === $start_with ) {
 					$team_ids[] = $value;
 				}
