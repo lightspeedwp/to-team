@@ -21,6 +21,10 @@ define('TO_TEAM_CORE',  __FILE__ );
 define('TO_TEAM_URL',  plugin_dir_url( __FILE__ ) );
 define('TO_TEAM_VER',  '1.0.0' );
 
+if(!defined('TEAM_ARCHIVE_URL')){
+	define('TEAM_ARCHIVE_URL',  'team-members' );
+}
+
 /**
  * Runs once when the plugin is activated.
  */
