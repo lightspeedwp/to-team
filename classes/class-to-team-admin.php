@@ -127,10 +127,13 @@ class TO_Team_Admin extends TO_Team{
 			$fields[] = array( 'id' => 'gallery', 'name' => 'Gallery images', 'type' => 'image', 'repeatable' => true, 'show_size' => false );
 		}
 		
-		if(class_exists('TO_Field_Pattern')){ $fields = array_merge($fields,TO_Field_Pattern::videos()); }		
+		if(class_exists('TO_Field_Pattern')){ $fields = array_merge($fields,TO_Field_Pattern::videos()); }
+
+		//Allow the addons to add additional fields.
+		$fields = apply_filters('to_team_custom_fields',$fields);
 
 		$meta_boxes[] = array(
-				'title' => 'LSX Tour Operators',
+				'title' => 'Tour Operator Plugin',
 				'pages' => 'team',
 				'fields' => $fields
 		);		
