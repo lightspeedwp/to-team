@@ -1,12 +1,12 @@
 <?php
 /*
  * Plugin Name:	Tour Operator Team
- * Plugin URI:	{plugin-url}
- * Description:	{plugin-description}
- * Author:		{your-name}
+ * Plugin URI:	https://www.lsdev.biz/product/tour-operator-team/
+ * Description:	Real peoples' faces go a long way to building trust with your clients. The Team Extension allows your business's staff to be added as Team Members with their own profile which can be associated with specific destinations and tours.
+ * Author:		LightSpeed
  * Version: 	1.0.0
- * Author URI: 	{your-url}
- * License: 	GPL2+
+ * Author URI: 	https://www.lsdev.biz/
+ * License: 	GPL3+
  * Text Domain: to-team
  * Domain Path: /languages/
  */
