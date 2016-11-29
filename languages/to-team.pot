@@ -16,81 +16,81 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: classes/class-to-team-admin.php:59, classes/class-to-team-admin.php:65, classes/class-to-team-admin.php:71
+#: classes/class-to-team-admin.php:61, classes/class-to-team-admin.php:67, classes/class-to-team-admin.php:73
 msgctxt "to-team"
 msgid "Team"
 msgstr ""
 
-#: classes/class-to-team-admin.php:60
+#: classes/class-to-team-admin.php:62
 msgctxt "to-team"
 msgid "Team Member"
 msgstr ""
 
-#: classes/class-to-team-admin.php:61
+#: classes/class-to-team-admin.php:63
 msgctxt "to-team"
 msgid "Add New"
 msgstr ""
 
-#: classes/class-to-team-admin.php:62
+#: classes/class-to-team-admin.php:64
 msgctxt "to-team"
 msgid "Add New Team Member"
 msgstr ""
 
-#: classes/class-to-team-admin.php:63
+#: classes/class-to-team-admin.php:65
 msgctxt "to-team"
 msgid "Edit"
 msgstr ""
 
-#: classes/class-to-team-admin.php:64
+#: classes/class-to-team-admin.php:66
 msgctxt "to-team"
 msgid "New"
 msgstr ""
 
-#: classes/class-to-team-admin.php:66
+#: classes/class-to-team-admin.php:68
 msgctxt "to-team"
 msgid "View"
 msgstr ""
 
-#: classes/class-to-team-admin.php:67
+#: classes/class-to-team-admin.php:69
 msgctxt "to-team"
 msgid "Search the Team"
 msgstr ""
 
-#: classes/class-to-team-admin.php:68
+#: classes/class-to-team-admin.php:70
 msgctxt "to-team"
 msgid "No team member found"
 msgstr ""
 
-#: classes/class-to-team-admin.php:69
+#: classes/class-to-team-admin.php:71
 msgctxt "to-team"
 msgid "No team member found in Trash"
 msgstr ""
 
-#: classes/class-to-team-admin.php:72
+#: classes/class-to-team-admin.php:74
 msgctxt "to-team"
 msgid "Profile Picture"
 msgstr ""
 
-#: classes/class-to-team-admin.php:73
+#: classes/class-to-team-admin.php:75
 msgctxt "to-team"
 msgid "Set Profile Picture"
 msgstr ""
 
-#: classes/class-to-team-admin.php:74
+#: classes/class-to-team-admin.php:76
 msgctxt "to-team"
 msgid "Remove profile picture"
 msgstr ""
 
-#: classes/class-to-team-admin.php:75
+#: classes/class-to-team-admin.php:77
 msgctxt "to-team"
 msgid "Use as profile picture"
 msgstr ""
 
-#: classes/class-to-team-admin.php:164
+#: classes/class-to-team-admin.php:169
 msgid "Expert"
 msgstr ""
 
-#: classes/class-to-team-admin.php:169
+#: classes/class-to-team-admin.php:174
 msgid "None"
 msgstr ""
 
@@ -102,11 +102,11 @@ msgstr ""
 msgid "Team Member"
 msgstr ""
 
-#: includes/template-tags.php:295
+#: includes/template-tags.php:298
 msgid "to_get_post_type_section_titleaccommodation"
 msgstr ""
 
-#: includes/template-tags.php:316
+#: includes/template-tags.php:319
 msgid "to_get_post_type_section_titletour"
 msgstr ""
 
