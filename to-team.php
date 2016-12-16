@@ -45,13 +45,13 @@ if(!class_exists('LSX_API_Manager')){
  *	Grabs the email and api key from the LSX Search Settings.
  */ 
 function lsx_to_team_options_pages_filter($pages){
-	$pages[] = 'to-settings';
+	$pages[] = 'lsx-to-settings';
 	return $pages;
 }
 add_filter('lsx_api_manager_options_pages','lsx_to_team_options_pages_filter',10,1);
 
 function lsx_to_team_api_admin_init(){
-	$options = get_option('_to_settings',false);
+	$options = get_option('_lsx-to_settings',false);
 	$data = array('api_key'=>'','email'=>'');
 
 	if(false !== $options && isset($options['general'])){
