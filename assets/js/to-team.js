@@ -1,4 +1,4 @@
-TO_Team = {
+LSX_TO_Team = {
 	initThis: function() {
 		this.firstFunction();
 	},
@@ -8,5 +8,5 @@ TO_Team = {
 };
 
 jQuery(document).ready( function() {
-	TO_Team.initThis();
+	LSX_TO_Team.initThis();
 });

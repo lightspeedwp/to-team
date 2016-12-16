@@ -169,7 +169,7 @@ class LSX_API_Manager {
 		add_action( "in_plugin_update_message-".$this->file,array($this,'plugin_update_message'),10,2);
 
 		if ( class_exists( 'Tour_Operator' ) ) {
-			add_action( 'to_framework_api_tab_content', array( $this, 'dashboard_tabs' ), 1, 1 );
+			add_action( 'lsx_to_framework_api_tab_content', array( $this, 'dashboard_tabs' ), 1, 1 );
 		} else {
 			add_action( 'lsx_framework_api_tab_content', array( $this, 'dashboard_tabs' ), 1, 1 );
 		}

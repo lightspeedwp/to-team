@@ -1,21 +1,21 @@
 <?php
 /**
- * TO_Team
+ * LSX_TO_Team
  *
- * @package   TO_Team
+ * @package   LSX_TO_Team
  * @author    LightSpeed
  * @license   GPL-2.0+
  * @link      
  * @copyright {year} LightSpeedDevelopment
  */
-if (!class_exists( 'TO_Team' ) ) {
+if (!class_exists( 'LSX_TO_Team' ) ) {
 	/**
 	 * Main plugin class.
 	 *
-	 * @package TO_Team
+	 * @package LSX_TO_Team
 	 * @author  LightSpeed
 	 */	
-	class TO_Team {
+	class LSX_TO_Team {
 		
 		/**
 		 * The plugins id
@@ -60,22 +60,22 @@ if (!class_exists( 'TO_Team' ) ) {
 			add_action('init',array($this,'load_plugin_textdomain'));
 
 			if(false !== $this->post_types){
-				add_filter( 'to_framework_post_types', array( $this, 'post_types_filter') );
-				add_filter( 'to_post_types', array( $this, 'post_types_filter') );
-				add_filter( 'to_post_types_singular', array( $this, 'post_types_singular_filter') );
-				add_filter('to_settings_path',array( $this, 'plugin_path'),10,2);
+				add_filter( 'lsx_to_framework_post_types', array( $this, 'post_types_filter') );
+				add_filter( 'lsx_to_post_types', array( $this, 'post_types_filter') );
+				add_filter( 'lsx_to_post_types_singular', array( $this, 'post_types_singular_filter') );
+				add_filter('lsx_to_settings_path',array( $this, 'plugin_path'),10,2);
 			}
 			if(false !== $this->taxonomies){
-				add_filter( 'to_framework_taxonomies', array( $this, 'taxonomies_filter') );
-				add_filter( 'to_framework_taxonomies_plural', array( $this, 'taxonomies_plural_filter') );
+				add_filter( 'lsx_to_framework_taxonomies', array( $this, 'taxonomies_filter') );
+				add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'taxonomies_plural_filter') );
 			}	
 
-			require_once(TO_TEAM_PATH . '/classes/class-to-team-admin.php');
-			require_once(TO_TEAM_PATH . '/classes/class-to-team-frontend.php');
-			require_once(TO_TEAM_PATH . '/includes/template-tags.php');
+			require_once(LSX_TO_TEAM_PATH . '/classes/class-to-team-admin.php');
+			require_once(LSX_TO_TEAM_PATH . '/classes/class-to-team-frontend.php');
+			require_once(LSX_TO_TEAM_PATH . '/includes/template-tags.php');
 
 			// flush_rewrite_rules()
-			register_activation_hook( TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
+			register_activation_hook( LSX_TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
 		}
 		
@@ -93,7 +93,7 @@ if (!class_exists( 'TO_Team' ) ) {
 		 * Load the plugin text domain for translation.
 		 */
 		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-team', FALSE, basename( TO_TEAM_PATH ) . '/languages');
+			load_plugin_textdomain( 'to-team', FALSE, basename( LSX_TO_TEAM_PATH ) . '/languages');
 		}
 
 		/**
@@ -114,7 +114,7 @@ if (!class_exists( 'TO_Team' ) ) {
 		 */
 		public function plugin_path($path,$post_type){
 			if(false !== $this->post_types && array_key_exists($post_type,$this->post_types)){
-				$path = TO_TEAM_PATH;
+				$path = LSX_TO_TEAM_PATH;
 			}
 			return $path;
 		}
@@ -219,5 +219,5 @@ if (!class_exists( 'TO_Team' ) ) {
 		}
 
 	}
-	new TO_Team();
+	new LSX_TO_Team();
 }

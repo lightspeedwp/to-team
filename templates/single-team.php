@@ -18,7 +18,7 @@ get_header(); ?>
 		/**
 		 * Hooked
 		 * 
-		 *  - Lsx_Tour_Operators::to_single_header() - 100
+		 *  - Lsx_Tour_Operators::lsx_to_single_header() - 100
 		 */
 			lsx_content_top();
 		?>
@@ -62,14 +62,14 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section id="summary">
 				<div class="row">
-					<?php to_team_content('content', 'team'); ?>
+					<?php lsx_to_team_content('content', 'team'); ?>
 				</div>
 			</section>
 		<?php endwhile; // end of the loop. ?>
 		
-		<?php to_team_accommodation(); ?>
+		<?php lsx_to_team_accommodation(); ?>
 		
-		<?php to_team_tours(); ?>		
+		<?php lsx_to_team_tours(); ?>		
 		
 		<?php 
 		if(class_exists('Envira_Gallery')){
@@ -85,7 +85,7 @@ get_header(); ?>
 				<h2 class="section-title"><?php esc_html_e('Gallery','to-team'); ?></h2>	
 				<?php 
 					if ( function_exists( 'Envira_Gallery' ) ) {
-						to_content('content', 'envira');
+						lsx_to_content('content', 'envira');
 					} else {
 						echo do_shortcode( '[gallery ids="'. implode(',',$gallery_id) .'" type="square" size="medium" columns="4" link="file"]' );
 					}
@@ -95,7 +95,7 @@ get_header(); ?>
 		}
 		?>		
 		
-		<?php to_videos('<section id="videos"><h2 class="section-title">'.__('Videos','to-team').'</h2>','</section>'); ?>
+		<?php lsx_to_videos('<section id="videos"><h2 class="section-title">'.__('Videos','to-team').'</h2>','</section>'); ?>
 		
 		<?php lsx_content_bottom(); ?>
 

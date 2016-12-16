@@ -21,9 +21,9 @@ LSX starter plugin for building LSX theme extensions and LSX Tour Operators plug
  * Tour Operator Team		|	LSX Starter Plugin
  * {plugin-url}			|	https://github.com/lightspeeddevelopment/lsx-starter-plugin
  * to-team		|	lsx-starter-plugin
- * TO_TEAM		|	LSX_STARTER_PLUGIN
- * to_team		|	lsx_starter_plugin
- * TO_Team			|	LSX_Starter_Plugin
+ * LSX_TO_TEAM		|	LSX_STARTER_PLUGIN
+ * lsx_to_team		|	lsx_starter_plugin
+ * LSX_TO_Team			|	LSX_Starter_Plugin
 
 
 ## Post Type

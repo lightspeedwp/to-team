@@ -103,11 +103,11 @@ msgid "Team Member"
 msgstr ""
 
 #: includes/template-tags.php:298
-msgid "to_get_post_type_section_titleaccommodation"
+msgid "lsx_to_get_post_type_section_titleaccommodation"
 msgstr ""
 
 #: includes/template-tags.php:319
-msgid "to_get_post_type_section_titletour"
+msgid "lsx_to_get_post_type_section_titletour"
 msgstr ""
 
 #: templates/content-team.php:48

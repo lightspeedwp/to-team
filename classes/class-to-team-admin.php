@@ -1,8 +1,8 @@
 <?php
 /**
- * TO_Team_Admin
+ * LSX_TO_Team_Admin
  *
- * @package   TO_Team_Admin
+ * @package   LSX_TO_Team_Admin
  * @author    {your-name}
  * @license   GPL-2.0+
  * @link      
@@ -12,11 +12,11 @@
 /**
  * Main plugin class.
  *
- * @package TO_Team_Admin
+ * @package LSX_TO_Team_Admin
  * @author  {your-name}
  */
 
-class TO_Team_Admin extends TO_Team{	
+class LSX_TO_Team_Admin extends LSX_TO_Team{	
 
 	/**
 	 * Constructor
@@ -33,10 +33,10 @@ class TO_Team_Admin extends TO_Team{
 	 * @since 0.1.0
 	 */
 	public function init() {
-		if(function_exists('to_get_taxonomies')){
-			$this->taxonomies = array_keys(to_get_taxonomies());
+		if(function_exists('lsx_to_get_taxonomies')){
+			$this->taxonomies = array_keys(lsx_to_get_taxonomies());
 		}
-		add_filter('to_taxonomy_widget_taxonomies', array( $this, 'widget_taxonomies' ),10,1 );
+		add_filter('lsx_to_taxonomy_widget_taxonomies', array( $this, 'widget_taxonomies' ),10,1 );
 
 		if(false !== $this->taxonomies){
 			add_action( 'create_term', array( $this, 'save_meta' ), 10, 2 );
@@ -46,7 +46,7 @@ class TO_Team_Admin extends TO_Team{
 			}			
 		}
 
-		add_action( 'to_framework_team_tab_content', array($this,'general_settings'), 10 , 2 );
+		add_action( 'lsx_to_framework_team_tab_content', array($this,'general_settings'), 10 , 2 );
 	}	
 
 	/**
@@ -105,7 +105,7 @@ class TO_Team_Admin extends TO_Team{
 		
 		$fields[] = array( 'id' => 'general_title',  'name' => 'General', 'type' => 'title' );
 		$fields[] = array( 'id' => 'featured',  'name' => 'Featured', 'type' => 'checkbox' );
-		if(!class_exists('TO_Banners')){
+		if(!class_exists('LSX_TO_Banners')){
 			$fields[] = array( 'id' => 'tagline',  'name' => 'Tagline', 'type' => 'text' );
 		}
 		$fields[] = array( 'id' => 'role', 'name' => 'Role', 'type' => 'text' );
@@ -127,10 +127,10 @@ class TO_Team_Admin extends TO_Team{
 			$fields[] = array( 'id' => 'gallery', 'name' => 'Gallery images', 'type' => 'image', 'repeatable' => true, 'show_size' => false );
 		}
 		
-		if(class_exists('TO_Field_Pattern')){ $fields = array_merge($fields,TO_Field_Pattern::videos()); }
+		if(class_exists('LSX_TO_Field_Pattern')){ $fields = array_merge($fields,LSX_TO_Field_Pattern::videos()); }
 
 		//Allow the addons to add additional fields.
-		$fields = apply_filters('to_team_custom_fields',$fields);
+		$fields = apply_filters('lsx_to_team_custom_fields',$fields);
 
 		$meta_boxes[] = array(
 				'title' => 'Tour Operator Plugin',
@@ -180,7 +180,7 @@ class TO_Team_Admin extends TO_Team{
 					?>
 				</select>
 
-				<?php wp_nonce_field( 'to_team_save_term_expert', 'to_team_term_expert_nonce' ); ?>
+				<?php wp_nonce_field( 'lsx_to_team_save_term_expert', 'lsx_to_team_term_expert_nonce' ); ?>
 			</td>
 		</tr>
 
@@ -203,7 +203,7 @@ class TO_Team_Admin extends TO_Team{
 			return;
 		}
 
-		if ( check_admin_referer( 'to_team_save_term_expert', 'to_team_term_expert_nonce' ) ) {
+		if ( check_admin_referer( 'lsx_to_team_save_term_expert', 'lsx_to_team_term_expert_nonce' ) ) {
 			$meta = ! empty( sanitize_text_field(wp_unslash($_POST[ 'expert' ])) ) ? sanitize_text_field(wp_unslash($_POST[ 'expert' ]))	: '';
 			if ( empty( $meta ) ) {
 				delete_term_meta( $term_id, 'expert' );
@@ -243,4 +243,4 @@ class TO_Team_Admin extends TO_Team{
 		<?php
 	}
 }
-new TO_Team_Admin();
+new LSX_TO_Team_Admin();

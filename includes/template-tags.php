@@ -16,8 +16,8 @@
  * @subpackage	template-tag
  * @category 	content
  */
-function to_team_content($slug, $name = null) {
-	do_action('to_team_content',$slug, $name);
+function lsx_to_team_content($slug, $name = null) {
+	do_action('lsx_to_team_content',$slug, $name);
 }
 
 /**
@@ -31,8 +31,8 @@ function to_team_content($slug, $name = null) {
  * @package 	to-team
  * @subpackage	template-tags
  */
-function to_team_role($before="",$after="",$echo=true){
-	to_custom_field_query('role',$before,$after,$echo);
+function lsx_to_team_role($before="",$after="",$echo=true){
+	lsx_to_custom_field_query('role',$before,$after,$echo);
 }
 
 /**
@@ -46,7 +46,7 @@ function to_team_role($before="",$after="",$echo=true){
  * @package 	to-team
  * @subpackage	template-tags
  */
-function to_team_contact_number($before="",$after="",$echo=true){
+function lsx_to_team_contact_number($before="",$after="",$echo=true){
 	$contact_number = get_post_meta(get_the_ID(),'contact_number',true);
 	if(false !== $contact_number && '' !== $contact_number){
 		$contact_html = $before.'<a href="tel:+'.$contact_number.'">'.$contact_number.'</a>'.$after;
@@ -69,7 +69,7 @@ function to_team_contact_number($before="",$after="",$echo=true){
  * @package 	to-team
  * @subpackage	template-tags
  */
-function to_team_contact_email($before="",$after="",$echo=true){
+function lsx_to_team_contact_email($before="",$after="",$echo=true){
 	$contact_email = get_post_meta(get_the_ID(),'contact_email',true);
 	if(false !== $contact_email && '' !== $contact_email){
 		$contact_html = $before.'<a href="mailto:'.$contact_email.'">'.$contact_email.'</a>'.$after;
@@ -92,7 +92,7 @@ function to_team_contact_email($before="",$after="",$echo=true){
  * @package 	to-team
  * @subpackage	template-tags
  */
-function to_team_social_profiles($before="",$after="",$echo=true){
+function lsx_to_team_social_profiles($before="",$after="",$echo=true){
 	$social_profiles = array('facebook','twitter','googleplus','linkedin','pinterest','skype');
 	$social_profile_html = false;
 	foreach($social_profiles as $meta_key){
@@ -147,8 +147,8 @@ function to_team_social_profiles($before="",$after="",$echo=true){
  * @package 	to-team
  * @subpackage	template-tags
  */
-function to_team_tagline($before="",$after="",$echo=true){
-	to_tagline($before,$after,$echo);
+function lsx_to_team_tagline($before="",$after="",$echo=true){
+	lsx_to_tagline($before,$after,$echo);
 }
 
 /**
@@ -159,13 +159,13 @@ function to_team_tagline($before="",$after="",$echo=true){
  * @subpackage	template-tags
  * @category 	team
  */
-function to_has_team_member() {
+function lsx_to_has_team_member() {
 	$has_team = false;
 
 	if ( is_tax() ) {
-		$has_team = to_has_custom_field_query( 'expert', get_queried_object()->term_id, true );
+		$has_team = lsx_to_has_custom_field_query( 'expert', get_queried_object()->term_id, true );
 	} else {
-		$has_team = to_has_custom_field_query( 'team_to_'. get_post_type(), get_the_ID() );
+		$has_team = lsx_to_has_custom_field_query( 'team_to_'. get_post_type(), get_the_ID() );
 	}
 
 	if ( false === $has_team ) {
@@ -198,7 +198,7 @@ function to_has_team_member() {
  * @subpackage	template-tags
  * @category 	team
  */
-function to_team_member_panel($before="",$after=""){
+function lsx_to_team_member_panel($before="",$after=""){
 	$team_id = false;
 
 	if ( is_tax() ) {
@@ -247,27 +247,27 @@ function to_team_member_panel($before="",$after=""){
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<div class="thumbnail">
-						<?php if(!to_is_single_disabled()){ ?>
+						<?php if(!lsx_to_is_single_disabled()){ ?>
 							<a href="<?php the_permalink(); ?>">
 						<?php } ?>
 							<?php lsx_thumbnail( 'lsx-thumbnail-wide' ); ?>
-						<?php if(!to_is_single_disabled()){ ?>
+						<?php if(!lsx_to_is_single_disabled()){ ?>
 							</a>
 						<?php } ?>
 					</div>
 
 					<h4 class="title">
-						<?php if(!to_is_single_disabled()){ ?>
+						<?php if(!lsx_to_is_single_disabled()){ ?>
 							<a href="<?php the_permalink(); ?>">
 						<?php } ?>
 							<?php the_title(); ?>
-						<?php if(!to_is_single_disabled()){ ?>
+						<?php if(!lsx_to_is_single_disabled()){ ?>
 							</a>
 						<?php } ?>
 					</h4>
 					<div class="team-details">
-						<?php to_team_contact_number('<div class="meta contact-number"><i class="fa fa-phone orange"></i> ','</div>'); ?>
-						<?php to_team_contact_email('<div class="meta email"><i class="fa fa-envelope orange"></i> ','</div>'); ?> 
+						<?php lsx_to_team_contact_number('<div class="meta contact-number"><i class="fa fa-phone orange"></i> ','</div>'); ?>
+						<?php lsx_to_team_contact_email('<div class="meta email"><i class="fa fa-envelope orange"></i> ','</div>'); ?> 
 					</div>
 				</article>
 				<?php			
@@ -288,17 +288,17 @@ function to_team_member_panel($before="",$after=""){
  * @subpackage	template-tags
  * @category 	team
  */
-function to_team_accommodation(){
-	global $to_archive;
+function lsx_to_team_accommodation(){
+	global $lsx_to_archive;
 	if(post_type_exists('accommodation') && is_singular('team')) {
 		$args = array(
 				'from'			=>	'accommodation',
 				'to'			=>	'team',
 				'column'		=>	'12',
-				'before'		=>	'<section id="accommodation"><h2 class="section-title">'.__(to_get_post_type_section_title('accommodation', '', 'Featured Accommodations'),'to-team').'</h2>',
+				'before'		=>	'<section id="accommodation"><h2 class="section-title">'.__(lsx_to_get_post_type_section_title('accommodation', '', 'Featured Accommodations'),'to-team').'</h2>',
 				'after'			=>	'</section>'
 		);
-		to_connected_panel_query($args);
+		lsx_to_connected_panel_query($args);
 	}
 }
 
@@ -309,16 +309,16 @@ function to_team_accommodation(){
  * @subpackage	template-tags
  * @category 	team
  */
-function to_team_tours(){
-	global $to_archive;
+function lsx_to_team_tours(){
+	global $lsx_to_archive;
 	if(post_type_exists('tour') && is_singular('team')) {
 		$args = array(
 				'from'			=>	'tour',
 				'to'			=>	'team',
 				'column'		=>	'12',
-				'before'		=>	'<section id="tours"><h2 class="section-title">'.__(to_get_post_type_section_title('tour', '', 'Featured Tours'),'to-team').'</h2>',
+				'before'		=>	'<section id="tours"><h2 class="section-title">'.__(lsx_to_get_post_type_section_title('tour', '', 'Featured Tours'),'to-team').'</h2>',
 				'after'			=>	'</section>'
 		);
-		to_connected_panel_query($args);
+		lsx_to_connected_panel_query($args);
 	}
 }

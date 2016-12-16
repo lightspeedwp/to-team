@@ -31,7 +31,7 @@ get_header(); ?>
 			<div class="row">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<div class="panel col-sm-12">
-						<?php to_team_content( 'content', 'team' ); ?>
+						<?php lsx_to_team_content( 'content', 'team' ); ?>
 					</div>
 				<?php endwhile; ?>
 			</div>
@@ -45,7 +45,7 @@ get_header(); ?>
 
 		<?php lsx_content_bottom(); ?>
 		
-		<?php to_sharing(); ?>
+		<?php lsx_to_sharing(); ?>
 
 		</main><!-- #main -->
 

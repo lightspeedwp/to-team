@@ -1,6 +1,6 @@
 {
-  "name": "tour-operator-team",
-  "version": "1.0.1",
+  "name": "to-team",
+  "version": "1.0.2",
   "description": "Tour Operators add-on for LSX",
   "main": "gulpfile.js",
   "scripts": {

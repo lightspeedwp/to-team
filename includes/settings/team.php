@@ -10,7 +10,7 @@
 	<div id="ui-general" class="ui-tab active">
 		<table class="form-table">
 			<tbody>
-			<?php do_action('to_framework_team_tab_content','team','general'); ?>
+			<?php do_action('lsx_to_framework_team_tab_content','team','general'); ?>
 			</tbody>
 		</table>
 	</div>
@@ -18,7 +18,7 @@
 	<div id="ui-placeholders" class="ui-tab">
 		<table class="form-table">
 			<tbody>
-			<?php do_action('to_framework_team_tab_content','team','placeholders'); ?>
+			<?php do_action('lsx_to_framework_team_tab_content','team','placeholders'); ?>
 			</tbody>
 		</table>
 	</div>
@@ -26,7 +26,7 @@
 	<div id="ui-archives" class="ui-tab">
 		<table class="form-table">
 			<tbody>
-			<?php do_action('to_framework_team_tab_content','team','archives'); ?>
+			<?php do_action('lsx_to_framework_team_tab_content','team','archives'); ?>
 			</tbody>
 		</table>
 	</div>
@@ -34,9 +34,9 @@
 	<div id="ui-single" class="ui-tab">
 		<table class="form-table">
 			<tbody>
-			<?php do_action('to_framework_team_tab_content','team','single'); ?>
+			<?php do_action('lsx_to_framework_team_tab_content','team','single'); ?>
 			</tbody>
 		</table>
 	</div>
-	<?php do_action('to_framework_team_tab_bottom','team'); ?>
+	<?php do_action('lsx_to_framework_team_tab_bottom','team'); ?>
 </div>
