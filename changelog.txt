@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.0.3
+* Fix - API key and email grabbed from the correct settings tab
+
 ### 1.0.2
 * Fix - Fixed all prefixes replaces (to_ > lsx_to_, TO_ > LSX_TO_)
 
