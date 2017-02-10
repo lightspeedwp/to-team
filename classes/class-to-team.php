@@ -53,6 +53,7 @@ if (!class_exists( 'LSX_TO_Team' ) ) {
 		public function __construct() {
 			//Set the variables
 			$this->set_vars();
+			$this->lsx_to_search_integration();
 
 			// Make TO last plugin to load
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
@@ -78,15 +79,13 @@ if (!class_exists( 'LSX_TO_Team' ) ) {
 			register_activation_hook( LSX_TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
 		}
-		
+
 		/**
 		 * Include the post type for the search integration
 		 */
-		public function init(){
-			if(class_exists('LSX_SEARCH')){
-				add_filter( 'lsx_search_post_types', array( $this, 'post_types_filter') );
-				add_filter( 'lsx_search_taxonomies', array( $this, 'taxonomies_filter') );	
-			}
+		public function lsx_to_search_integration(){
+			add_filter( 'lsx_to_search_post_types', array( $this, 'post_types_filter') );
+			add_filter( 'lsx_to_search_taxonomies', array( $this, 'taxonomies_filter') );
 		}
 	
 		/**
