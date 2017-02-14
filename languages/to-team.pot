@@ -130,10 +130,10 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: templates/single-team.php:51, templates/single-team.php:85
+#: templates/single-team.php:53, templates/single-team.php:89
 msgid "Gallery"
 msgstr ""
 
-#: templates/single-team.php:56, templates/single-team.php:98
+#: templates/single-team.php:58, templates/single-team.php:102
 msgid "Videos"
 msgstr ""

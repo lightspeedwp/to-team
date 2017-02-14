@@ -23,39 +23,43 @@ get_header(); ?>
 			lsx_content_top();
 		?>
 		
-		<section class="team-navigation">
+		<section class="lsx-to-navigation team-navigation">
 			<div class="container">
-				<ul class="scroll-easing">
-					<li><a href="#summary">Summary</a></li>					
-					<?php
-						$connected_accommodation = get_post_meta(get_the_ID(),'accommodation_to_team',false);
-						if(post_type_exists('accommodation') && is_array($connected_accommodation) && !empty($connected_accommodation) ) {
-							?>					
-							<li><a href="#accommodation">Accommodation</a></li>
-						<?php
-					} ?>
-					<?php
-						$connected_tour = get_post_meta(get_the_ID(),'tour_to_team',false);
-						if(post_type_exists('tour') && is_array($connected_tour) && !empty($connected_tour) ) {
-							?>					
-							<li><a href="#tours">Tours</a></li>
-						<?php
-					} ?>					
-					<?php 
-					if(class_exists('Envira_Gallery')){
-						$gallery_id = get_post_meta(get_the_ID(),'envira_to_team',true);
-					} else {
-						$gallery_id = get_post_meta(get_the_ID(),'gallery',true);
-					}
-					if(false !== $gallery_id && '' !== $gallery_id){ ?>
-						<li><a href="#gallery"><?php esc_html_e('Gallery','to-team');?></a></li>
-					<?php } ?>
-					<?php 
-					$videos = get_post_meta(get_the_ID(),'videos',true);
-					if(false !== $videos && '' !== $videos){ ?>
-						<li><a href="#videos"><?php esc_html_e('Videos','to-team');?></a></li>
-					<?php } ?>								
-				</ul>
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="scroll-easing nav">
+							<li><a href="#summary">Summary</a></li>					
+							<?php
+								$connected_accommodation = get_post_meta(get_the_ID(),'accommodation_to_team',false);
+								if(post_type_exists('accommodation') && is_array($connected_accommodation) && !empty($connected_accommodation) ) {
+									?>					
+									<li><a href="#accommodation">Accommodation</a></li>
+								<?php
+							} ?>
+							<?php
+								$connected_tour = get_post_meta(get_the_ID(),'tour_to_team',false);
+								if(post_type_exists('tour') && is_array($connected_tour) && !empty($connected_tour) ) {
+									?>					
+									<li><a href="#tours">Tours</a></li>
+								<?php
+							} ?>					
+							<?php 
+							if(class_exists('Envira_Gallery')){
+								$gallery_id = get_post_meta(get_the_ID(),'envira_to_team',true);
+							} else {
+								$gallery_id = get_post_meta(get_the_ID(),'gallery',true);
+							}
+							if(false !== $gallery_id && '' !== $gallery_id){ ?>
+								<li><a href="#gallery"><?php esc_html_e('Gallery','to-team');?></a></li>
+							<?php } ?>
+							<?php 
+							$videos = get_post_meta(get_the_ID(),'videos',true);
+							if(false !== $videos && '' !== $videos){ ?>
+								<li><a href="#videos"><?php esc_html_e('Videos','to-team');?></a></li>
+							<?php } ?>								
+						</ul>
+					</div>
+				</div>
 			</div>
 		</section>			
 		
