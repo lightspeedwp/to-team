@@ -122,11 +122,11 @@ msgstr ""
 msgid "Team Member"
 msgstr ""
 
-#: includes/template-tags.php:300
+#: includes/template-tags.php:302
 msgid "lsx_to_get_post_type_section_titleaccommodation"
 msgstr ""
 
-#: includes/template-tags.php:321
+#: includes/template-tags.php:323
 msgid "lsx_to_get_post_type_section_titletour"
 msgstr ""
 

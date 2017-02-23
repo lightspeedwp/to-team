@@ -162,7 +162,9 @@ function lsx_to_team_tagline($before="",$after="",$echo=true){
 function lsx_to_has_team_member() {
 	$has_team = false;
 
-	if ( is_tax() ) {
+	if ( is_singular( 'team' ) ) {
+		$has_team = has_post_thumbnail();
+	} elseif ( is_tax() ) {
 		$has_team = lsx_to_has_custom_field_query( 'expert', get_queried_object()->term_id, true );
 	} else {
 		$has_team = lsx_to_has_custom_field_query( 'team_to_'. get_post_type(), get_the_ID() );
