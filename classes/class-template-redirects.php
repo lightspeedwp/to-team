@@ -1,14 +1,14 @@
 <?php
 /**
- * @package   LSX_Template_Redirects
+ * @package   LSX_TO_Template_Redirects
  * @author    LightSpeed
- * @license   GPL-2.0+
+ * @license   GPL3
  * @link      
  * @copyright 2016 LightSpeed
  *
  **/
 
-class LSX_Template_Redirects {
+class LSX_TO_Template_Redirects {
 
 	/**
 	 * Plugin Path
@@ -35,26 +35,26 @@ class LSX_Template_Redirects {
 		if(false !== $plugin_path){
 			$this->plugin_path = $plugin_path;
 
-			add_filter( 'lsx_widget_path', array( $this, 'widget_path'), 10, 2 );
-			add_filter( 'lsx_content_path', array( $this, 'content_path'), 10, 3 );
+			add_filter( 'lsx_to_widget_path', array( $this, 'widget_path'), 10, 2 );
+			add_filter( 'lsx_to_content_path', array( $this, 'content_path'), 10, 3 );
 
 			if(false !== $post_types){
 				$this->post_types = $post_types;
 				add_filter( 'template_include', array( $this, 'post_type_archive_template_include'), 99 );
 				add_filter( 'template_include', array( $this, 'post_type_single_template_include'), 99 );				
+				add_filter( 'template_include', array( $this, 'search_template_include'), 99 );				
 			}
 			if(false !== $taxonomies){
 				$this->taxonomies = $taxonomies;
 				add_filter( 'template_include', array( $this, 'taxonomy_template_include'), 99 );				
 			}
-		}		
+		}			
 	}
 
 	/**
 	 * Redirect wordpress to the archive template located in the plugin
 	 *
 	 * @param	$template
-	 *
 	 * @return	$template
 	 */
 	public function post_type_archive_template_include( $template ) {
@@ -106,6 +106,23 @@ class LSX_Template_Redirects {
 	}
 
 	/**
+	 * Redirect wordpress to the search template located in the plugin
+	 *
+	 * @param	$template
+	 *
+	 * @return	$template
+	 */
+	public function search_template_include( $template ) {
+		
+		if ( is_main_query() && is_search() ) {
+			if ( file_exists( $this->plugin_path.'templates/search.php' )) {
+				$template = $this->plugin_path.'templates/search.php';
+			}
+		}
+		return $template;
+	}
+
+	/**
 	 * Redirect wordpress to the single template located in the plugin
 	 *
 	 * @param	$template
@@ -132,7 +149,7 @@ class LSX_Template_Redirects {
 		if(false !== $template){
 			load_template( $template, false );
 		}
-	}	
+	}
 
 	/**
 	 * Redirect wordpress to the single template located in the plugin
@@ -144,7 +161,7 @@ class LSX_Template_Redirects {
 	 */
 	public function widget_path($path,$slug) {
 		if((false !== $this->post_types && in_array($slug,$this->post_types))
-		 || (false !== $this->taxonomies && in_array($slug,$this->taxonomies))){
+		 || (false !== $this->taxonomies && in_array($slug,$this->taxonomies)) || 'post' === $slug){
 			$path = $this->plugin_path;
 		}
 		return $path;
@@ -166,5 +183,5 @@ class LSX_Template_Redirects {
 			$path = $this->plugin_path.'templates/';
 		}
 		return $path;
-	}	
+	}		
 }

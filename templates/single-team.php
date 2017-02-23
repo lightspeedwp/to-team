@@ -8,98 +8,24 @@
 
 get_header(); ?>
 
+	<?php lsx_content_wrap_before(); ?>
+
 	<div id="primary" class="content-area <?php echo esc_attr( lsx_main_class() ); ?>">
 
 		<?php lsx_content_before(); ?>
 		
 		<main id="main" class="site-main" role="main">
 
-		<?php 
-		/**
-		 * Hooked
-		 * 
-		 *  - Lsx_Tour_Operators::lsx_to_single_header() - 100
-		 */
-			lsx_content_top();
-		?>
-		
-		<section class="lsx-to-navigation team-navigation">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="scroll-easing nav">
-							<li><a href="#summary">Summary</a></li>					
-							<?php
-								$connected_accommodation = get_post_meta(get_the_ID(),'accommodation_to_team',false);
-								if(post_type_exists('accommodation') && is_array($connected_accommodation) && !empty($connected_accommodation) ) {
-									?>					
-									<li><a href="#accommodation">Accommodation</a></li>
-								<?php
-							} ?>
-							<?php
-								$connected_tour = get_post_meta(get_the_ID(),'tour_to_team',false);
-								if(post_type_exists('tour') && is_array($connected_tour) && !empty($connected_tour) ) {
-									?>					
-									<li><a href="#tours">Tours</a></li>
-								<?php
-							} ?>					
-							<?php 
-							if(class_exists('Envira_Gallery')){
-								$gallery_id = get_post_meta(get_the_ID(),'envira_to_team',true);
-							} else {
-								$gallery_id = get_post_meta(get_the_ID(),'gallery',true);
-							}
-							if(false !== $gallery_id && '' !== $gallery_id){ ?>
-								<li><a href="#gallery"><?php esc_html_e('Gallery','to-team');?></a></li>
-							<?php } ?>
-							<?php 
-							$videos = get_post_meta(get_the_ID(),'videos',true);
-							if(false !== $videos && '' !== $videos){ ?>
-								<li><a href="#videos"><?php esc_html_e('Videos','to-team');?></a></li>
-							<?php } ?>								
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>			
+		<?php lsx_content_top(); ?>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section id="summary">
 				<div class="row">
-					<?php lsx_to_team_content('content', 'team'); ?>
+					<?php lsx_to_team_content( 'content', 'team' ); ?>
 				</div>
 			</section>
+			
 		<?php endwhile; // end of the loop. ?>
-		
-		<?php lsx_to_team_accommodation(); ?>
-		
-		<?php lsx_to_team_tours(); ?>		
-		
-		<?php 
-		if(class_exists('Envira_Gallery')){
-			$gallery_id = get_post_meta(get_the_ID(),'envira_to_team',true);
-			$test = false !== $gallery_id && '' !== $gallery_id;
-		} else {
-			$gallery_id = get_post_meta(get_the_ID(),'gallery',false);
-			$test = false !== $gallery_id && '' !== $gallery_id && is_array($gallery_id) && !empty($gallery_id);
-		}
-		if($test){
-			?>
-			<section id="gallery">
-				<h2 class="section-title"><?php esc_html_e('Gallery','to-team'); ?></h2>	
-				<?php 
-					if ( function_exists( 'Envira_Gallery' ) ) {
-						lsx_to_content('content', 'envira');
-					} else {
-						echo do_shortcode( '[gallery ids="'. implode(',',$gallery_id) .'" type="square" size="medium" columns="4" link="file"]' );
-					}
-				?>
-			</section>
-			<?php 
-		}
-		?>		
-		
-		<?php lsx_to_videos('<section id="videos"><h2 class="section-title">'.__('Videos','to-team').'</h2>','</section>'); ?>
 		
 		<?php lsx_content_bottom(); ?>
 
@@ -109,7 +35,9 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
+<?php lsx_content_wrap_after(); ?>	
+
 <?php get_sidebar(); ?>
-<?php get_sidebar( 'alt' ); ?>
+<?php get_sidebar( 'alt' ); ?>	
 
 <?php get_footer();

@@ -22,6 +22,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 	 * Constructor
 	 */
 	public function __construct() {
+		$this->set_vars();
 		add_action('init',array($this,'init'),20);
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes') );
@@ -121,11 +122,15 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 		$fields[] = array( 'id' => 'pinterest', 'name' => 'Pinterest', 'type' => 'text' );
 		$fields[] = array( 'id' => 'gallery_title',  'name' => 'Gallery', 'type' => 'title' );
 
-		if(class_exists('Envira_Gallery')){ 
-			$fields[] = array( 'id' => 'envira_to_team', 'name' => 'Gallery from  Envira Gallery plugin', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'envira','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		}else{
-			$fields[] = array( 'id' => 'gallery', 'name' => 'Gallery images', 'type' => 'image', 'repeatable' => true, 'show_size' => false );
-		}
+		if(class_exists('Envira_Gallery')){
+			if(!class_exists('LSX_TO_Galleries')){
+				$fields[] = array( 'id' => 'gallery_title',  'name' => esc_html__('Gallery','tour-operator'), 'type' => 'title' );
+			}			
+			$fields[] = array( 'id' => 'envira_gallery', 'name' => esc_html__('Envira Gallery','to-galleries'), 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'envira','nopagin' => true,'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC' ) , 'allow_none' => true );
+			if(class_exists('Envira_Videos')){
+				$fields[] = array( 'id' => 'envira_video', 'name' => esc_html__('Envira Video Gallery','to-galleries'), 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'envira','nopagin' => true,'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC' ) , 'allow_none' => true );
+			}			
+		}		
 		
 		if(class_exists('LSX_TO_Field_Pattern')){ $fields = array_merge($fields,LSX_TO_Field_Pattern::videos()); }
 
