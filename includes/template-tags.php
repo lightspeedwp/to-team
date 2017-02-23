@@ -201,7 +201,9 @@ function lsx_to_has_team_member() {
 function lsx_to_team_member_panel($before="",$after=""){
 	$team_id = false;
 
-	if ( is_tax() ) {
+	if ( is_singular( 'team' ) ) {
+		$team_id = get_the_ID();
+	} elseif ( is_tax() ) {
 		$meta_key = 'expert';
 		$team_id = get_transient( get_queried_object()->term_id .'_'. $meta_key );
 	} else {
