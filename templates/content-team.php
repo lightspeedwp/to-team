@@ -18,7 +18,7 @@ if(1 !== $lsx_to_archive){
 		<div <?php lsx_to_entry_class( 'entry-content' ); ?>>
 			<?php if ( is_singular() && false === $lsx_to_archive ) : ?>
 				<div class="single-main-info">
-					<h3><?php esc_html_e( 'Summary', 'lsx-activities' ); ?></h3>
+					<h3><?php esc_html_e( 'Summary', 'to-team' ); ?></h3>
 					
 					<div class="meta taxonomies">
 						<?php lsx_to_team_role('<div class="meta role">'.__('Role','to-team').': ','</div>'); ?>

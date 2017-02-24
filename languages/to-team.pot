@@ -102,11 +102,11 @@ msgstr ""
 msgid "Tours"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:118, classes/class-to-team-frontend.php:125
+#: classes/class-to-team-frontend.php:118, classes/class-to-team-frontend.php:125, classes/class-to-team-frontend.php:182, classes/class-to-team-frontend.php:184
 msgid "Gallery"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:146
+#: classes/class-to-team-frontend.php:146, classes/class-to-team-frontend.php:188, classes/class-to-team-frontend.php:190
 msgid "Videos"
 msgstr ""
 
@@ -128,6 +128,10 @@ msgstr ""
 
 #: includes/template-tags.php:323
 msgid "lsx_to_get_post_type_section_titletour"
+msgstr ""
+
+#: templates/content-team.php:21
+msgid "Summary"
 msgstr ""
 
 #: templates/content-team.php:27
