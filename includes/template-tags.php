@@ -162,7 +162,7 @@ function lsx_to_team_tagline($before="",$after="",$echo=true){
 function lsx_to_has_team_member() {
 	$has_team = false;
 
-	if ( is_singular( 'team' ) ) {
+	if ( is_singular( 'team' ) || is_singular( 'review' ) ) {
 		$has_team = has_post_thumbnail();
 	} elseif ( is_tax() ) {
 		$has_team = lsx_to_has_custom_field_query( 'expert', get_queried_object()->term_id, true );
@@ -203,7 +203,7 @@ function lsx_to_has_team_member() {
 function lsx_to_team_member_panel($before="",$after=""){
 	$team_id = false;
 
-	if ( is_singular( 'team' ) ) {
+	if ( is_singular( 'team' ) || is_singular( 'review' ) ) {
 		$team_id = get_the_ID();
 	} elseif ( is_tax() ) {
 		$meta_key = 'expert';
