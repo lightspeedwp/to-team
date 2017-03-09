@@ -161,6 +161,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team{
 					<?php lsx_to_team_role('<div class="meta role">'.__('Role','to-team').': ','</div>'); ?>
 					<?php lsx_to_team_contact_number('<div class="meta contact-number"><i class="fa fa-phone orange"></i> ','</div>'); ?>
 					<?php lsx_to_team_contact_email('<div class="meta email"><i class="fa fa-envelope orange"></i> ','</div>'); ?>
+					<?php lsx_to_team_contact_skype('<div class="meta skype"><i class="fa fa-skype orange"></i> ','</div>'); ?>
 					<?php lsx_to_team_social_profiles('<div class="social-links">','</div>'); ?>
 				</div>
 			</div>

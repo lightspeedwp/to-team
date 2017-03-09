@@ -82,6 +82,29 @@ function lsx_to_team_contact_email($before="",$after="",$echo=true){
 }
 
 /**
+ * Outputs the current team members Skype, must be used in a loop.
+ *
+ * @param		$before	| string
+ * @param		$after	| string
+ * @param		$echo	| boolean
+ * @return		string
+ *
+ * @package 	to-team
+ * @subpackage	template-tags
+ */
+function lsx_to_team_contact_skype($before="",$after="",$echo=true){
+	$contact_skype = get_post_meta(get_the_ID(),'skype',true);
+	if(false !== $contact_skype && '' !== $contact_skype){
+		$contact_html = $before.'<span>'.$contact_skype.'</span>'.$after;
+		if($echo){
+			echo wp_kses_post( $contact_html );
+		}else{
+			return $contact_html;
+		}
+	}
+}
+
+/**
  * Outputs the current team members social profiles, must be used in a loop.
  *
  * @param		$before	| string
@@ -93,7 +116,7 @@ function lsx_to_team_contact_email($before="",$after="",$echo=true){
  * @subpackage	template-tags
  */
 function lsx_to_team_social_profiles($before="",$after="",$echo=true){
-	$social_profiles = array('facebook','twitter','googleplus','linkedin','pinterest','skype');
+	$social_profiles = array('facebook','twitter','googleplus','linkedin','pinterest');
 	$social_profile_html = false;
 	foreach($social_profiles as $meta_key){
 		$meta_value = get_post_meta(get_the_ID(),$meta_key,true);
@@ -109,21 +132,20 @@ function lsx_to_team_social_profiles($before="",$after="",$echo=true){
 				break;
 				
 				case 'googleplus':
-					$icon_class = 'googleplus';
+					$icon_class = 'google-plus';
 				break;
 				
 				case 'linkedin':
-					$icon_class = 'linkedin-alt';
+					$icon_class = 'linkedin';
 				break;
 				
 				case 'pinterest':
-					$icon_class = 'pinterest-alt';
-				break;							
+					$icon_class = 'pinterest-p';
 				
 				default:
 				break;
 			}
-			$social_profile_html .= '<a target="_blank" href="'.$meta_value.'"><span class="genericon genericon-'.$icon_class.'"></span></a>';
+			$social_profile_html .= '<a target="_blank" href="'.$meta_value.'"><i class="fa fa-'.$icon_class.'" aria-hidden="true"></i></a>';
 		}
 	}
 	if(false !== $social_profile_html && '' !== $social_profile_html){
@@ -271,7 +293,9 @@ function lsx_to_team_member_panel($before="",$after=""){
 					</h4>
 					<div class="team-details">
 						<?php lsx_to_team_contact_number('<div class="meta contact-number"><i class="fa fa-phone orange"></i> ','</div>'); ?>
-						<?php lsx_to_team_contact_email('<div class="meta email"><i class="fa fa-envelope orange"></i> ','</div>'); ?> 
+						<?php lsx_to_team_contact_email('<div class="meta email"><i class="fa fa-envelope orange"></i> ','</div>'); ?>
+						<?php lsx_to_team_contact_skype('<div class="meta skype"><i class="fa fa-skype orange"></i> ','</div>'); ?>
+						<?php lsx_to_team_social_profiles('<div class="social-links">','</div>'); ?>
 					</div>
 				</article>
 				<?php			
@@ -279,7 +303,6 @@ function lsx_to_team_member_panel($before="",$after=""){
 			
 			echo wp_kses_post( $after );
 			
-			wp_reset_query();
 			wp_reset_postdata();
 		endif;		
 	}

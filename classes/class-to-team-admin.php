@@ -106,7 +106,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 		
 		$fields[] = array( 'id' => 'general_title',  'name' => 'General', 'type' => 'title' );
 		$fields[] = array( 'id' => 'featured',  'name' => 'Featured', 'type' => 'checkbox' );
-		if(!class_exists('LSX_TO_Banners')){
+		if(!class_exists('LSX_Banners')){
 			$fields[] = array( 'id' => 'tagline',  'name' => 'Tagline', 'type' => 'text' );
 		}
 		$fields[] = array( 'id' => 'role', 'name' => 'Role', 'type' => 'text' );
