@@ -224,9 +224,14 @@ function lsx_to_has_team_member() {
  */
 function lsx_to_team_member_panel($before="",$after=""){
 	$team_id = false;
+	$reviewer_id = false;
+	$no_link_to_detail = lsx_to_is_single_disabled();
 
-	if ( is_singular( 'team' ) || is_singular( 'review' ) ) {
+	if ( is_singular( 'team' ) ) {
 		$team_id = get_the_ID();
+		$no_link_to_detail = true;
+	} elseif ( is_singular( 'review' ) ) {
+		$reviewer_id = get_the_ID();
 	} elseif ( is_tax() ) {
 		$meta_key = 'expert';
 		$team_id = get_transient( get_queried_object()->term_id .'_'. $meta_key );
@@ -235,14 +240,12 @@ function lsx_to_team_member_panel($before="",$after=""){
 		$team_id = get_transient( get_the_ID() .'_'. $meta_key );
 	}
 
-	if ( false === $team_id ) {
+	if ( false === $team_id && false === $reviewer_id ) {
 		global $tour_operator;
 		$tab = 'team';
 		$start_with = 'expert-';
 		$team_ids = array();
 
-
-		
 		if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) ) {
 			foreach ( $tour_operator->options[$tab] as $key => $value ) {
 				if ( substr( $key, 0, strlen( $start_with ) ) === $start_with ) {
@@ -273,21 +276,21 @@ function lsx_to_team_member_panel($before="",$after=""){
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<div class="thumbnail">
-						<?php if(!lsx_to_is_single_disabled()){ ?>
+						<?php if ( ! $no_link_to_detail ) { ?>
 							<a href="<?php the_permalink(); ?>">
 						<?php } ?>
 							<?php lsx_thumbnail( 'lsx-thumbnail-wide' ); ?>
-						<?php if(!lsx_to_is_single_disabled()){ ?>
+						<?php if ( ! $no_link_to_detail ) { ?>
 							</a>
 						<?php } ?>
 					</div>
 
 					<h4 class="title">
-						<?php if(!lsx_to_is_single_disabled()){ ?>
+						<?php if ( ! $no_link_to_detail ) { ?>
 							<a href="<?php the_permalink(); ?>">
 						<?php } ?>
 							<?php the_title(); ?>
-						<?php if(!lsx_to_is_single_disabled()){ ?>
+						<?php if ( ! $no_link_to_detail ) { ?>
 							</a>
 						<?php } ?>
 					</h4>
@@ -297,6 +300,37 @@ function lsx_to_team_member_panel($before="",$after=""){
 						<?php lsx_to_team_contact_skype('<div class="meta skype"><i class="fa fa-skype orange"></i> ','</div>'); ?>
 						<?php lsx_to_team_social_profiles('<div class="social-links">','</div>'); ?>
 					</div>
+				</article>
+				<?php			
+			endwhile;
+			
+			echo wp_kses_post( $after );
+			
+			wp_reset_postdata();
+		endif;		
+	} elseif ( false !== $reviewer_id ) {
+		$reviewer_args = array(
+			'post_type'	=>	'review',
+			'post_status' => 'publish',
+			'p' => $reviewer_id
+		);
+
+		$reviewer = new WP_Query($reviewer_args);
+
+		if ( $reviewer->have_posts() ):
+			echo wp_kses_post( $before );
+			while($reviewer->have_posts()):
+				$reviewer->the_post();
+				?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+					<div class="thumbnail">
+						<?php lsx_thumbnail( 'lsx-thumbnail-wide' ); ?>
+					</div>
+
+					<h4 class="title">
+						<?php echo esc_html( get_post_meta( $reviewer_id, 'reviewer_name', 'true' ) ); ?>
+					</h4>
 				</article>
 				<?php			
 			endwhile;
