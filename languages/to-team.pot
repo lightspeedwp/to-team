@@ -86,11 +86,11 @@ msgctxt "to-team"
 msgid "Use as profile picture"
 msgstr ""
 
-#: classes/class-to-team-admin.php:174
+#: classes/class-to-team-admin.php:181
 msgid "Expert"
 msgstr ""
 
-#: classes/class-to-team-admin.php:179
+#: classes/class-to-team-admin.php:186
 msgid "None"
 msgstr ""
 

@@ -134,6 +134,13 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 		
 		if(class_exists('LSX_TO_Field_Pattern')){ $fields = array_merge($fields,LSX_TO_Field_Pattern::videos()); }
 
+		$fields[] = array( 'id' => 'accommodation_title',  'name' => 'Accommodation', 'type' => 'title' );
+		$fields[] = array( 'id' => 'accommodation_to_team', 'name' => 'Accommodations related with this team', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'accommodation','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true, 'cols' => 12 );
+		$fields[] = array( 'id' => 'destinations_title',  'name' => 'Destinations', 'type' => 'title' );
+		$fields[] = array( 'id' => 'destination_to_team', 'name' => 'Destinations related with this team', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'destination','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true, 'cols' => 12 );
+		$fields[] = array( 'id' => 'tours_title',  'name' => 'Tours', 'type' => 'title' );
+		$fields[] = array( 'id' => 'tour_to_team', 'name' => 'Tours related with this team', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'tour','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true, 'cols' => 12 );
+
 		//Allow the addons to add additional fields.
 		$fields = apply_filters('lsx_to_team_custom_fields',$fields);
 
