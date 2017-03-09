@@ -6,6 +6,7 @@
 * Fix - Added TO Search as subtab on LSX TO settings page
 * Dev - Fixed menu navigation improved
 * Fix - Code refactored to follow the latest Tour Operator plugin workflow
+* Fix - Small fixes on front-end fields
 
 ### 1.0.2
 * Fix - Fixed all prefixes replaces (to_ > lsx_to_, TO_ > LSX_TO_)
