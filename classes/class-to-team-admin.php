@@ -26,6 +26,12 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 		add_action('init',array($this,'init'),20);
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes') );
+
+		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields') );
+		add_filter( 'lsx_to_accommodation_custom_fields', array( $this, 'custom_fields') );
+		add_filter( 'lsx_to_special_custom_fields', array( $this, 'custom_fields') );
+		add_filter( 'lsx_to_review_custom_fields', array( $this, 'custom_fields') );
+		add_filter( 'lsx_to_activity_custom_fields', array( $this, 'custom_fields') );
 	}
 
 	/**
@@ -153,6 +159,29 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 		return $meta_boxes;
 	
 	}	
+
+	/**
+	 * Adds in the fields to the Tour Operators Post Types.
+	 */
+	public function custom_fields($fields) {
+		global $post, $typenow, $current_screen;
+
+		if ( $post && $post->post_type ) {
+			$post_type = $post->post_type;
+		} elseif ( $typenow ) {
+			$post_type = $typenow;
+		} elseif ( $current_screen && $current_screen->post_type ) {
+			$post_type = $current_screen->post_type;
+		} elseif ( isset( $_REQUEST['post_type'] ) ) {
+			$post_type = sanitize_key( $_REQUEST['post_type'] );
+		} elseif ( isset( $_REQUEST['post'] ) ) {
+			$post_type = get_post_type( sanitize_key( $_REQUEST['post'] ) );
+		}
+		
+		$fields[] = array('id' => 'team_title', 'name' => 'Teams', 'type' => 'title', 'cols' => 12);
+		$fields[] = array('id' => 'team_to_' . $post_type, 'name' => 'Specials related with this '.$post_type, 'type' => 'post_select', 'use_ajax' => false, 'query' => array('post_type' => 'team', 'nopagin' => true, 'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC'), 'repeatable' => true, 'allow_none' => true, 'cols' => 12);
+		return $fields;
+	}
 
 	/**
 	 * Output the form field for this metadata when adding a new term
