@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.0.4
+* Dev - Standardized the Gallery and Video fields
+
 ### 1.0.3
 * Fix - Make the addon compatible with the latest version from TO Search addon
 * Fix - API key and email grabbed from the correct settings tab
