@@ -182,7 +182,15 @@ function lsx_to_team_tagline($before="",$after="",$echo=true){
  * @category 	team
  */
 function lsx_to_has_team_member() {
+	global $tour_operator;
+	$tab = 'team';
+	$start_with = 'expert-';
 	$has_team = false;
+
+	// Check if the team member panel has been disabled.
+	if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) && isset($tour_operator->options[$tab]['disable_team_panel']) ) {
+	    return false;
+	}
 
 	if ( is_singular( 'team' ) || is_singular( 'review' ) ) {
 		$has_team = has_post_thumbnail();
@@ -194,9 +202,7 @@ function lsx_to_has_team_member() {
 
 	if ( false === $has_team ) {
 
-		global $tour_operator;
-		$tab = 'team';
-		$start_with = 'expert-';
+
 
 		if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) ) {
 			foreach ( $tour_operator->options[$tab] as $key => $value ) {

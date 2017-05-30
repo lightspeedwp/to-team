@@ -176,10 +176,14 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 			$post_type = sanitize_key( $_REQUEST['post_type'] );
 		} elseif ( isset( $_REQUEST['post'] ) ) {
 			$post_type = get_post_type( sanitize_key( $_REQUEST['post'] ) );
+		}else{
+			$post_type = false;
+        }
+
+        if(false !== $post_type) {
+			$fields[] = array('id' => 'team_title', 'name' => 'Teams', 'type' => 'title', 'cols' => 12);
+			$fields[] = array('id' => 'team_to_' . $post_type, 'name' => 'Specials related with this ' . $post_type, 'type' => 'post_select', 'use_ajax' => false, 'query' => array('post_type' => 'team', 'nopagin' => true, 'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC'), 'repeatable' => true, 'allow_none' => true, 'cols' => 12);
 		}
-		
-		$fields[] = array('id' => 'team_title', 'name' => 'Teams', 'type' => 'title', 'cols' => 12);
-		$fields[] = array('id' => 'team_to_' . $post_type, 'name' => 'Specials related with this '.$post_type, 'type' => 'post_select', 'use_ajax' => false, 'query' => array('post_type' => 'team', 'nopagin' => true, 'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC'), 'repeatable' => true, 'allow_none' => true, 'cols' => 12);
 		return $fields;
 	}
 
@@ -271,6 +275,17 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
 			)
 		);
 		?>
+
+        <tr class="form-field">
+            <th scope="row">
+                <label for="disable_team_panel"><?php esc_html_e('Disable Team Panel','to-team'); ?></label>
+            </th>
+            <td>
+                <input type="checkbox" {{#if disable_team_panel}} checked="checked" {{/if}} name="disable_team_panel" />
+                <small><?php esc_html_e('This disables the team member panel on all post types.','to-team'); ?></small>
+            </td>
+        </tr>
+
 		<tr class="form-field-wrap">
 			<th scope="row">
 				<label> Select your consultants</label>

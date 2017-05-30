@@ -2,6 +2,7 @@
 
 ### 1.0.4
 * Dev - Standardized the Gallery and Video fields
+* Dev - Added in an option to disable the team member panel if you just want an archive.
 
 ### 1.0.3
 * Fix - Make the addon compatible with the latest version from TO Search addon
