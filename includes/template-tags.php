@@ -285,7 +285,7 @@ function lsx_to_team_member_panel($before="",$after=""){
 						<?php if ( ! $no_link_to_detail ) { ?>
 							<a href="<?php the_permalink(); ?>">
 						<?php } ?>
-							<?php lsx_thumbnail( 'lsx-thumbnail-wide' ); ?>
+							<?php lsx_thumbnail( 'medium' ); ?>
 						<?php if ( ! $no_link_to_detail ) { ?>
 							</a>
 						<?php } ?>

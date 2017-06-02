@@ -86,12 +86,20 @@ msgctxt "to-team"
 msgid "Use as profile picture"
 msgstr ""
 
-#: classes/class-to-team-admin.php:210
+#: classes/class-to-team-admin.php:214
 msgid "Expert"
 msgstr ""
 
-#: classes/class-to-team-admin.php:215
+#: classes/class-to-team-admin.php:219
 msgid "None"
+msgstr ""
+
+#: classes/class-to-team-admin.php:281
+msgid "Disable Team Panel"
+msgstr ""
+
+#: classes/class-to-team-admin.php:285
+msgid "This disables the team member panel on all post types."
 msgstr ""
 
 #: classes/class-to-team-frontend.php:94, templates/content-team.php:26
@@ -122,11 +130,11 @@ msgstr ""
 msgid "Team Member"
 msgstr ""
 
-#: includes/template-tags.php:359
+#: includes/template-tags.php:365
 msgid "lsx_to_get_post_type_section_titleaccommodation"
 msgstr ""
 
-#: includes/template-tags.php:380
+#: includes/template-tags.php:386
 msgid "lsx_to_get_post_type_section_titletour"
 msgstr ""
 
