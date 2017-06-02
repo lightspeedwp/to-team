@@ -188,8 +188,10 @@ function lsx_to_has_team_member() {
 	$has_team = false;
 
 	// Check if the team member panel has been disabled.
-	if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) && isset($tour_operator->options[$tab]['disable_team_panel']) ) {
-	    return false;
+	if ( ! is_singular( 'team' ) && ! is_singular( 'review' ) ) {
+		if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) && isset( $tour_operator->options[$tab]['disable_team_panel'] ) ) {
+			return false;
+		}
 	}
 
 	if ( is_singular( 'team' ) || is_singular( 'review' ) ) {
@@ -201,9 +203,6 @@ function lsx_to_has_team_member() {
 	}
 
 	if ( false === $has_team ) {
-
-
-
 		if ( is_object( $tour_operator ) && isset( $tour_operator->options[$tab] ) && is_array( $tour_operator->options[$tab] ) ) {
 			foreach ( $tour_operator->options[$tab] as $key => $value ) {
 				if ( substr( $key, 0, strlen( $start_with ) ) === $start_with ) {
