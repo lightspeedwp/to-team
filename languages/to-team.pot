@@ -102,23 +102,23 @@ msgstr ""
 msgid "This disables the team member panel on all post types."
 msgstr ""
 
-#: classes/class-to-team-frontend.php:94, templates/content-team.php:26
+#: classes/class-to-team-frontend.php:96, templates/content-team.php:26
 msgid "Accommodation"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:105, templates/content-team.php:25
+#: classes/class-to-team-frontend.php:107, templates/content-team.php:25
 msgid "Tours"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:118, classes/class-to-team-frontend.php:125, classes/class-to-team-frontend.php:183, classes/class-to-team-frontend.php:185
+#: classes/class-to-team-frontend.php:120, classes/class-to-team-frontend.php:127, classes/class-to-team-frontend.php:185, classes/class-to-team-frontend.php:187
 msgid "Gallery"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:146, classes/class-to-team-frontend.php:189, classes/class-to-team-frontend.php:191
+#: classes/class-to-team-frontend.php:148, classes/class-to-team-frontend.php:191, classes/class-to-team-frontend.php:193
 msgid "Videos"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:161, templates/content-team.php:24
+#: classes/class-to-team-frontend.php:163, templates/content-team.php:24
 msgid "Role"
 msgstr ""
 

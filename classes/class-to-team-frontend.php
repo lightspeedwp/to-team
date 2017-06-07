@@ -40,6 +40,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team{
 
 		add_action( 'lsx_entry_bottom',       array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom',     array( $this, 'single_content_bottom' ) );
+		add_action( 'lsx_entry_top',          array( $this, 'single_entry_top' ) );
+		add_action( 'lsx_entry_bottom',       array( $this, 'single_entry_bottom' ), 5 );
 	}	
 
 	/**
@@ -54,7 +56,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team{
 
 		if ( is_main_query() && is_singular( 'team' ) && false === $lsx_to_archive ) {
 			if ( lsx_to_has_enquiry_contact() ) {
-				$classes[] = 'col-sm-9';
+				$classes[] = 'col-sm-9 col-sm-pull-3';
 			} else {
 				$classes[] = 'col-sm-12';
 			}
@@ -190,6 +192,38 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team{
 			} elseif ( class_exists( 'Envira_Videos' ) ) {
 				lsx_to_envira_videos( '<div id="videos"><h2 class="section-title">' . esc_html__( 'Videos', 'to-team' ) . '</h2>', '</div>' );
 			}
+		}
+	}
+
+	/**
+	 * Adds the template tags to the top of the single team
+	 */
+	public function single_entry_top() {
+		if ( is_singular( 'team' ) ) :
+			?>		
+			<div class="col-sm-3 col-sm-push-9">
+				<div class="team-member-widget">
+					<?php
+						if ( function_exists( 'lsx_to_has_team_member' ) && lsx_to_has_team_member() ) {
+							lsx_to_team_member_panel( '<div class="team-member">', '</div>' );
+						} else {
+							lsx_to_enquiry_contact( '<div class="team-member">', '</div>' );
+						}
+
+						lsx_to_enquire_modal();
+					?>
+				</div>
+			</div>
+		<?php
+		endif;
+	}
+
+	/**
+	 * Adds the template tags to the bottom of the single team
+	 */
+	public function single_entry_bottom() {
+		if ( is_singular( 'team' ) ) {
+			remove_action( 'lsx_entry_bottom', 'lsx_to_single_entry_bottom' );
 		}
 	}
 
