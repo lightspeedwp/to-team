@@ -100,8 +100,37 @@ class LSX_TO_Team_Admin extends LSX_TO_Team{
             'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' )
 		);
 
-		register_post_type( 'team', $args );	
-		
+		register_post_type( 'team', $args );
+
+        // Register Custom Taxonomy
+        $labels = array(
+            'name'                       => _x( 'Roles', 'Taxonomy General Name', 'to-team' ),
+            'singular_name'              => _x( 'Role', 'Taxonomy Singular Name', 'to-team' ),
+            'menu_name'                  => __( 'Role', 'to-team' ),
+            'all_items'                  => __( 'All Roles', 'to-team' ),
+            'parent_item'                => __( 'Parent Role', 'to-team' ),
+            'parent_item_colon'          => __( 'Parent Role:', 'to-team' ),
+            'new_item_name'              => __( 'New Role', 'to-team' ),
+            'add_new_item'               => __( 'Add Role', 'to-team' ),
+            'edit_item'                  => __( 'Edit Role', 'to-team' ),
+            'update_item'                => __( 'Update Role', 'to-team' ),
+            'view_item'                  => __( 'View Role', 'to-team' ),
+            'popular_items'              => __( 'Popular Role', 'to-team' ),
+            'search_items'               => __( 'Search Role', 'to-team' ),
+            'not_found'                  => __( 'Not Found', 'to-team' ),
+            'no_terms'                   => __( 'No Role', 'to-team' ),
+            'items_list'                 => __( 'Role list', 'to-team' ),
+            'items_list_navigation'      => __( 'Role list', 'to-team' ),
+        );
+        $args = array(
+            'labels'                     => $labels,
+            'hierarchical'               => true,
+            'public'                     => true,
+            'show_ui'                    => true,
+            'show_admin_column'          => true,
+            'show_in_nav_menus'          => true,
+        );
+        register_taxonomy( 'role', array( 'team' ), $args );
 	}		
 
 	/**
