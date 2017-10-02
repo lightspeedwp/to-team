@@ -1,47 +1,54 @@
 <?php
 /**
  * Team Content Part
- * 
- * @package 	tour-operator
- * @category	team
+ *
+ * @package  tour-operator
+ * @category team
  */
-global $lsx_to_archive;
-if(1 !== $lsx_to_archive){
+
+global $lsx_to_archive, $post;
+
+if ( 1 !== $lsx_to_archive ) {
 	$lsx_to_archive = false;
 }
 ?>
+
 <?php lsx_entry_before(); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="team-<?php echo esc_attr( $post->post_name ); ?>" <?php post_class( 'lsx-to-archive-container' ); ?>>
 	<?php lsx_entry_top(); ?>
-		
+
+	<?php if ( is_single() && false === $lsx_to_archive ) { ?>
+
 		<div <?php lsx_to_entry_class( 'entry-content' ); ?>>
-			<?php if ( is_singular() && false === $lsx_to_archive ) : ?>
-				<div class="single-main-info">
-					<h3><?php esc_html_e( 'Summary', 'to-team' ); ?></h3>
-					
-					<div class="meta taxonomies">
-						<?php lsx_to_team_role('<div class="meta role">'.__('Role','to-team').': ','</div>'); ?>
-						<?php lsx_to_connected_tours('<div class="meta tours">'.__('Tours','to-team').': ','</div>'); ?>
-						<?php lsx_to_connected_accommodation('<div class="meta accommodation">'.__('Accommodation','to-team').': ','</div>'); ?>						
-						<?php lsx_to_connected_destinations('<div class="meta destination">'.__('Location','to-team').': ','</div>'); ?>	
-					</div>
+			<div class="lsx-to-section-inner">
+				<h2 class="lsx-to-team-name"><?php the_title(); ?></h2>
+				<?php lsx_to_team_role( '<h5 class="lsx-to-team-job-title">', '</h5>' ); ?>
 
-					<?php lsx_to_sharing(); ?>
-				</div>
+				<div class="lsx-to-team-content"><?php the_content(); ?></div>
 
-				<?php the_content(); ?>
-				
-			<?php else : ?>
-			
-				<?php the_excerpt(); ?>
-				
-			<?php endif; ?>
+				<ul class="lsx-to-team-contact list-inline">
+					<?php
+						lsx_to_team_contact_number( '<li><i class="fa fa-phone orange"></i> ', '</li>' );
+						lsx_to_team_contact_email( '<li><i class="fa fa-envelope orange"></i> ', '</li>' );
+						lsx_to_team_contact_skype( '<li><i class="fa fa-skype orange"></i> ', '</li>' );
+					?>
+				</ul>
+			</div>
+		</div>
 
-		</div><!-- .entry-content -->		
-		
-	<?php lsx_entry_bottom(); ?>			
-	
-</article><!-- #post-## -->
+	<?php } elseif ( is_search() || empty( tour_operator()->options[ get_post_type() ]['disable_entry_text'] ) ) { ?>
+
+		<div <?php lsx_to_entry_class( 'entry-content' ); ?>><?php
+			lsx_to_entry_content_top();
+			the_excerpt();
+			lsx_to_entry_content_bottom();
+		?></div>
+
+	<?php } ?>
+
+	<?php lsx_entry_bottom(); ?>
+
+</article>
 
 <?php lsx_entry_after();

@@ -1,5 +1,16 @@
 ## Change log
 
+### 1.1.0
+* Dev - Support LSX Theme 2.0 new designs
+* Added compatibility with LSX 2.0
+* Added compatibility with Tour Operator 1.1
+* Dev - New project structure
+* Fix - Fixed scripts/styles loading order
+* Fix - Fixed small issues
+* Fix - Replaced 'global $tour_operators' by 'global $tour_operator'
+* Dev - Updated the the way the post type registers to match the refactored TO plugin
+* Dev - Updated the registering of the metaboxes
+
 ### 1.0.4
 * Dev - Standardized the Gallery and Video fields
 * Dev - Added in an option to disable the team member panel if you just want an archive.

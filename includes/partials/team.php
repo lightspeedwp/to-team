@@ -1,13 +1,13 @@
 <div class="uix-field-wrapper">
 
 	<ul class="ui-tab-nav">
-		<li><a href="#ui-general" class="active"><?php esc_html_e('General','tour-operator'); ?></a></li>
+		<li><a href="#ui-general" class="active"><?php esc_html_e('General','to-team'); ?></a></li>
 		<?php if(class_exists('LSX_TO_Search')) { ?>
-			<li><a href="#ui-search"><?php esc_html_e('Search','tour-operator'); ?></a></li>
+			<li><a href="#ui-search"><?php esc_html_e('Search','to-team'); ?></a></li>
 		<?php } ?>
-		<li><a href="#ui-placeholders"><?php esc_html_e('Placeholders','tour-operator'); ?></a></li>
-		<li><a href="#ui-archives"><?php esc_html_e('Archives','tour-operator'); ?></a></li>
-		<li><a href="#ui-single"><?php esc_html_e('Single','tour-operator'); ?></a></li>
+		<li><a href="#ui-placeholders"><?php esc_html_e('Placeholders','to-team'); ?></a></li>
+		<li><a href="#ui-archives"><?php esc_html_e('Archives','to-team'); ?></a></li>
+		<li><a href="#ui-single"><?php esc_html_e('Single','to-team'); ?></a></li>
 	</ul>
 
 	<div id="ui-general" class="ui-tab active">
