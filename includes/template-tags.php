@@ -155,7 +155,7 @@ function lsx_to_team_social_profiles( $before = '', $after = '', $echo = true ) 
 				break;
 			}
 
-			$social_profile_html .= '<a target="_blank" href="' . $meta_value . '"><i class="fa fa-' . $icon_class . '" aria-hidden="true"></i></a>';
+			$social_profile_html .= '<a target="_blank" rel="noopener noreferrer" href="' . $meta_value . '"><i class="fa fa-' . $icon_class . '" aria-hidden="true"></i></a>';
 		}
 	}
 
