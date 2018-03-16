@@ -58,11 +58,11 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			//Set the variables
+			// Set the variables.
 			$this->set_vars();
 			$this->lsx_to_search_integration();
 
-			// Make TO last plugin to load
+			// Make TO last plugin to load.
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
 
 			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
@@ -71,7 +71,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 				add_filter( 'lsx_to_framework_post_types', array( $this, 'post_types_filter' ) );
 				add_filter( 'lsx_to_post_types', array( $this, 'post_types_filter' ) );
 				add_filter( 'lsx_to_post_types_singular', array( $this, 'post_types_singular_filter' ) );
-				add_filter( 'lsx_to_settings_path', array( $this, 'plugin_path' ), 10,2 );
+				add_filter( 'lsx_to_settings_path', array( $this, 'plugin_path' ), 10, 2 );
 			}
 			if ( false !== $this->taxonomies ) {
 				add_filter( 'lsx_to_framework_taxonomies', array( $this, 'taxonomies_filter' ) );
@@ -130,7 +130,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 * Adds our post types to an array via a filter
 		 */
 		public function plugin_path( $path, $post_type ) {
-			if ( false !== $this->post_types && array_key_exists( $post_type,$this->post_types ) ) {
+			if ( false !== $this->post_types && array_key_exists( $post_type, $this->post_types ) ) {
 				$path = LSX_TO_TEAM_PATH;
 			}
 
@@ -142,7 +142,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 */
 		public function post_types_slugs_filter( $post_types ) {
 			if ( is_array( $post_types ) ) {
-				$post_types = array_merge( $post_types,$this->post_type_slugs );
+				$post_types = array_merge( $post_types, $this->post_type_slugs );
 			} else {
 				$post_types = $this->post_type_slugs;
 			}
@@ -155,7 +155,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 */
 		public function post_types_filter( $post_types ) {
 			if ( is_array( $post_types ) && is_array( $this->post_types ) ) {
-				$post_types = array_merge( $post_types,$this->post_types );
+				$post_types = array_merge( $post_types, $this->post_types );
 			} elseif ( is_array( $this->post_types ) ) {
 				$post_types = $this->post_types;
 			}
@@ -168,7 +168,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 */
 		public function post_types_singular_filter( $post_types_singular ) {
 			if ( is_array( $post_types_singular ) && is_array( $this->post_types_singular ) ) {
-				$post_types_singular = array_merge( $post_types_singular,$this->post_types_singular );
+				$post_types_singular = array_merge( $post_types_singular, $this->post_types_singular );
 			} elseif ( is_array( $this->post_types_singular ) ) {
 				$post_types_singular = $this->post_types_singular;
 			}
@@ -181,7 +181,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 */
 		public function taxonomies_filter( $taxonomies ) {
 			if ( is_array( $taxonomies ) && is_array( $this->taxonomies ) ) {
-				$taxonomies = array_merge( $taxonomies,$this->taxonomies );
+				$taxonomies = array_merge( $taxonomies, $this->taxonomies );
 			} elseif ( is_array( $this->taxonomies ) ) {
 				$taxonomies = $this->taxonomies;
 			}
@@ -194,7 +194,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 */
 		public function taxonomies_plural_filter( $taxonomies_plural ) {
 			if ( is_array( $taxonomies_plural ) && is_array( $this->taxonomies_plural ) ) {
-				$taxonomies_plural = array_merge( $taxonomies_plural,$this->taxonomies_plural );
+				$taxonomies_plural = array_merge( $taxonomies_plural, $this->taxonomies_plural );
 			} elseif ( is_array( $this->taxonomies_plural ) ) {
 				$taxonomies_plural = $this->taxonomies_plural;
 			}

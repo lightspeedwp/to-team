@@ -37,9 +37,9 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 		add_filter( 'lsx_to_review_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_activity_custom_fields', array( $this, 'custom_fields' ) );
 
-		add_filter( 'lsx_to_taxonomies', array( $this, 'to_register_taxonomy' ), 10,1 );
-		add_filter( 'lsx_to_framework_taxonomies', array( $this, 'to_register_taxonomy' ), 10,1 );
-		add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'to_register_taxonomy_plural' ), 10,1 );
+		add_filter( 'lsx_to_taxonomies', array( $this, 'to_register_taxonomy' ), 10, 1 );
+		add_filter( 'lsx_to_framework_taxonomies', array( $this, 'to_register_taxonomy' ), 10, 1 );
+		add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'to_register_taxonomy_plural' ), 10, 1 );
 	}
 
 	/**
@@ -76,7 +76,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 
 		if ( false !== $this->taxonomies ) {
 			add_action( 'create_term', array( $this, 'save_meta' ), 10, 2 );
-			add_action( 'edit_term',   array( $this, 'save_meta' ), 10, 2 );
+			add_action( 'edit_term', array( $this, 'save_meta' ), 10, 2 );
 
 			foreach ( $this->taxonomies as $taxonomy ) {
 				add_action( "{$taxonomy}_edit_form_fields", array( $this, 'add_expert_form_field' ), 3, 1 );
@@ -100,7 +100,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 			}
 		}
 
-		return 	$objects;
+		return	$objects;
 	}
 
 	/**
@@ -205,11 +205,11 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 		?>
 		<tr class="form-field form-required term-expert-wrap">
 			<th scope="row">
-				<label for="expert"><?php esc_html_e( 'Expert', 'to-team' ) ?></label>
+				<label for="expert"><?php esc_html_e( 'Expert', 'to-team' ); ?></label>
 			</th>
 			<td>
 				<select name="expert" id="expert" aria-required="true">
-					<option value=""><?php esc_html_e( 'None', 'to-team' ) ?></option>
+					<option value=""><?php esc_html_e( 'None', 'to-team' ); ?></option>
 
 					<?php
 						foreach ( $experts as $expert ) {

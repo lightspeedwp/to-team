@@ -53,12 +53,12 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 
 		$this->redirects = new LSX_TO_Template_Redirects( LSX_TO_TEAM_PATH, array( 'team' ), array( 'role' ) );
 
-		add_action( 'lsx_to_team_content', array( $this->redirects, 'content_part' ), 10 , 2 );
+		add_action( 'lsx_to_team_content', array( $this->redirects, 'content_part' ), 10, 2 );
 
 		add_filter( 'lsx_to_page_navigation', array( $this, 'page_links' ) );
 
-		add_action( 'lsx_entry_top',      array( $this, 'archive_entry_top' ), 15 );
-		add_action( 'lsx_entry_bottom',   array( $this, 'archive_entry_bottom' ) );
+		add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
+		add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
 	}
 
@@ -89,7 +89,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 					lsx_to_enquire_modal( esc_html__( 'Get in touch', 'to-team' ) );
 				?>
 			</div>
-		<?php }
+		<?php
+		}
 	}
 
 	/**
@@ -318,16 +319,16 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 
 		if ( ( ! empty( $gallery_ids ) && is_array( $gallery_ids ) ) || ( function_exists( 'envira_gallery' ) && ! empty( $envira_gallery ) && false === lsx_to_enable_envira_banner() ) ) {
 			if ( function_exists( 'envira_gallery' ) && ! empty( $envira_gallery ) && false === lsx_to_enable_envira_banner() ) {
-				// Envira Gallery
+				// Envira Gallery.
 				$this->page_links['gallery'] = esc_html__( 'Gallery', 'to-team' );
 				return;
 			} else {
 				if ( function_exists( 'envira_dynamic' ) ) {
-					// Envira Gallery - Dynamic
+					// Envira Gallery - Dynamic.
 					$this->page_links['gallery'] = esc_html__( 'Gallery', 'to-team' );
 					return;
 				} else {
-					// WordPress Gallery
+					// WordPress Gallery.
 					$this->page_links['gallery'] = esc_html__( 'Gallery', 'to-team' );
 					return;
 				}
@@ -360,7 +361,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 	public function archive_entry_top() {
 		global $lsx_to_archive;
 
-		if ( 'team' === get_post_type() && ( is_archive() || $lsx_to_archive ) ) { ?>
+		if ( 'team' === get_post_type() && ( is_archive() || $lsx_to_archive ) ) {
+		    ?>
 			<?php if ( is_search() || empty( tour_operator()->options[ get_post_type() ]['disable_entry_metadata'] ) ) { ?>
 				<div class="lsx-to-archive-meta-data lsx-to-archive-meta-data-grid-mode">
 					<?php
@@ -374,7 +376,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 					?>
 				</div>
 			<?php } ?>
-		<?php }
+		<?php
+		}
 	}
 
 	/**
@@ -383,7 +386,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 	public function archive_entry_bottom() {
 		global $lsx_to_archive;
 
-		if ( 'team' === get_post_type() && ( is_archive() || $lsx_to_archive ) ) { ?>
+		if ( 'team' === get_post_type() && ( is_archive() || $lsx_to_archive ) ) {
+		    ?>
 				</div>
 
 				<?php if ( is_search() || empty( tour_operator()->options[ get_post_type() ]['disable_entry_metadata'] ) ) { ?>
@@ -406,10 +410,11 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 				?>
 
 				<?php if ( $has_single && 'grid' === tour_operator()->archive_layout ) : ?>
-					<p class="text-center lsx-to-single-link"><a href="<?php the_permalink(); ?>"><?php  echo esc_html__( 'More about', 'to-team' ) . ' ' . esc_html( strtok( $member_name, ' ' ) ); ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+					<p class="text-center lsx-to-single-link"><a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'More about', 'to-team' ) . ' ' . esc_html( strtok( $member_name, ' ' ) ); ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
 				<?php endif; ?>
 			</div>
-		<?php }
+		<?php
+		}
 	}
 
 	/**
