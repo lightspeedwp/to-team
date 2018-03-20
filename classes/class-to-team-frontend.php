@@ -362,7 +362,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		global $lsx_to_archive;
 
 		if ( 'team' === get_post_type() && ( is_archive() || $lsx_to_archive ) ) {
-		    ?>
+			?>
 			<?php if ( is_search() || empty( tour_operator()->options[ get_post_type() ]['disable_entry_metadata'] ) ) { ?>
 				<div class="lsx-to-archive-meta-data lsx-to-archive-meta-data-grid-mode">
 					<?php
@@ -387,7 +387,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		global $lsx_to_archive;
 
 		if ( 'team' === get_post_type() && ( is_archive() || $lsx_to_archive ) ) {
-		    ?>
+			?>
 				</div>
 
 				<?php if ( is_search() || empty( tour_operator()->options[ get_post_type() ]['disable_entry_metadata'] ) ) { ?>

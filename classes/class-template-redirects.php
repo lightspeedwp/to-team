@@ -60,13 +60,12 @@ class LSX_TO_Template_Redirects {
 	public function post_type_archive_template_include( $template ) {
 		if ( is_main_query() && is_post_type_archive( $this->post_types ) ) {
 			$current_post_type = get_post_type();
-			if ( '' == locate_template( array( 'archive-'.$current_post_type.'.php' ) )	&& file_exists( $this->plugin_path.'templates/archive-'.$current_post_type.'.php' )) {
+			if ( '' == locate_template( array( 'archive-' . $current_post_type . '.php' ) )	&& file_exists( $this->plugin_path . 'templates/archive-' . $current_post_type . '.php' ) ) {
 				$template = $this->plugin_path . 'templates/archive-' . $current_post_type . '.php';
 			}
 		}
 		return $template;
 	}
-	
 	/**
 	 * Redirect wordpress to the single template located in the plugin
 	 *
@@ -77,13 +76,12 @@ class LSX_TO_Template_Redirects {
 	public function post_type_single_template_include( $template ) {
 		if ( is_main_query() && is_singular( $this->post_types ) ) {
 			$current_post_type = get_post_type();
-			if ( '' == locate_template( array( 'single-'.$current_post_type.'.php' ) )	&& file_exists( $this->plugin_path.'templates/single-'.$current_post_type.'.php') ) {
+			if ( '' == locate_template( array( 'single-' . $current_post_type . '.php' ) )	&& file_exists( $this->plugin_path . 'templates/single-' . $current_post_type . '.php' ) ) {
 					$template = $this->plugin_path . 'templates/single-' . $current_post_type . '.php';
 			}
 		}
 		return $template;
 	}
-	
 	/**
 	 * Redirect wordpress to the taxonomy located in the plugin
 	 *
@@ -95,7 +93,7 @@ class LSX_TO_Template_Redirects {
 
 		if ( is_main_query() && is_tax( $this->taxonomies ) ) {
 			$current_taxonomy = get_query_var( 'taxonomy' );
-			if ( '' == locate_template( array( 'taxonomy-'.$current_taxonomy.'.php' ) ) && file_exists( $this->plugin_path.'templates/taxonomy-'.$current_taxonomy.'.php') ) {
+			if ( '' == locate_template( array( 'taxonomy-' . $current_taxonomy . '.php' ) ) && file_exists( $this->plugin_path . 'templates/taxonomy-' . $current_taxonomy . '.php' ) ) {
 				$template = $this->plugin_path . 'templates/taxonomy-' . $current_taxonomy . '.php';
 			}
 		}
@@ -125,29 +123,28 @@ class LSX_TO_Template_Redirects {
 	 *
 	 * @return	$template
 	 */
-	public function content_part($slug, $name = null) {
+	public function content_part( $slug, $name = null ) {
 		$template = array();
 		$name = (string) $name;
 		if ( '' !== $name ){
 			$template = "{$slug}-{$name}.php";
-		}else{
+		} else {
 			$template = "{$slug}.php";
 		}
 		$original_name = $template;
-		$path = apply_filters('lsx_to_content_path','',get_post_type());
+		$path = apply_filters( 'lsx_to_content_path', '', get_post_type() );
 
-		if ( '' == locate_template( array( $template ) ) && file_exists( $path.'templates/'.$template) ) {
-			$template = $path.'templates/'.$template;
-		}elseif(file_exists( get_stylesheet_directory().'/'.$template)){
-			$template = get_stylesheet_directory().'/'.$template;
-		}else{
+		if ( '' == locate_template( array( $template ) ) && file_exists( $path . 'templates/' . $template) ) {
+			$template = $path . 'templates/' . $template;
+		} elseif ( file_exists( get_stylesheet_directory() . '/' . $template ) ) {
+			$template = get_stylesheet_directory() . '/' . $template;
+		} else {
 			$template = false;
 		}
-		
-		if(false !== $template){
+		if ( false !== $template ) {
 			load_template( $template, false );
-		}else {
-			echo wp_kses_post('<p>No '.$original_name.' can be found.</p>');
+		} else {
+			echo wp_kses_post( '<p>No ' . $original_name . ' can be found.</p>' );
 		}
 	}
 
@@ -159,9 +156,9 @@ class LSX_TO_Template_Redirects {
 	 *
 	 * @return	$path
 	 */
-	public function widget_path($path,$slug) {
-		if((false !== $this->post_types && in_array($slug,$this->post_types))
-		 || (false !== $this->taxonomies && in_array($slug,$this->taxonomies)) || 'post' === $slug){
+	public function widget_path( $path, $slug ) {
+		if ( ( false !== $this->post_types && in_array( $slug, $this->post_types ) )
+		 || ( false !== $this->taxonomies && in_array( $slug, $this->taxonomies ) ) || 'post' === $slug ) {
 			$path = $this->plugin_path;
 		}
 		return $path;
@@ -175,9 +172,9 @@ class LSX_TO_Template_Redirects {
 	 *
 	 * @return	$path
 	 */
-	public function content_path($path,$slug) {
-		if((false !== $this->post_types && in_array($slug,$this->post_types))
-		 || (false !== $this->taxonomies && in_array($slug,$this->taxonomies)) || 'post' === $slug){
+	public function content_path( $path, $slug ) {
+		if ( ( false !== $this->post_types && in_array( $slug, $this->post_types ) )
+		 || ( false !== $this->taxonomies && in_array( $slug, $this->taxonomies ) ) || 'post' === $slug ) {
 			$path = $this->plugin_path;
 		}
 		return $path;
