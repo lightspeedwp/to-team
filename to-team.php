@@ -40,4 +40,4 @@ register_activation_hook( __FILE__, 'lsx_to_team_activate_plugin' );
 
 /* ======================= Below is the Plugin Class init ========================= */
 
-require_once( LSX_TO_TEAM_PATH . '/classes/class-to-team.php' );
+require_once( LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team.php' );

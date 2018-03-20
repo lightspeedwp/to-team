@@ -126,7 +126,7 @@ class LSX_TO_Template_Redirects {
 	public function content_part( $slug, $name = null ) {
 		$template = array();
 		$name = (string) $name;
-		if ( '' !== $name ){
+		if ( '' !== $name ) {
 			$template = "{$slug}-{$name}.php";
 		} else {
 			$template = "{$slug}.php";
@@ -134,7 +134,7 @@ class LSX_TO_Template_Redirects {
 		$original_name = $template;
 		$path = apply_filters( 'lsx_to_content_path', '', get_post_type() );
 
-		if ( '' == locate_template( array( $template ) ) && file_exists( $path . 'templates/' . $template) ) {
+		if ( '' == locate_template( array( $template ) ) && file_exists( $path . 'templates/' . $template ) ) {
 			$template = $path . 'templates/' . $template;
 		} elseif ( file_exists( get_stylesheet_directory() . '/' . $template ) ) {
 			$template = get_stylesheet_directory() . '/' . $template;

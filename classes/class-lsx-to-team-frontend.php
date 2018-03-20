@@ -48,7 +48,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		add_action( 'lsx_to_settings_current_tab', array( $this, 'set_settings_current_tab' ) );
 
 		if ( ! class_exists( 'LSX_TO_Template_Redirects' ) ) {
-			require_once( LSX_TO_TEAM_PATH . 'classes/class-template-redirects.php' );
+			require_once( LSX_TO_TEAM_PATH . 'classes/class-lsx-to-template-redirects.php' );
 		}
 
 		$this->redirects = new LSX_TO_Template_Redirects( LSX_TO_TEAM_PATH, array( 'team' ), array( 'role' ) );
