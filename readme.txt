@@ -1,7 +1,7 @@
 === TO Team ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/to-team/
-Tags: to theme, post type, team, team widget, team display
+Tags: Tour Operator, post type, team, team widget, team display
 Requires at least: 4.3
 Tested up to: 4.9.4
 Requires PHP: 7.0
@@ -16,7 +16,7 @@ People like to see a face behind a business, it gives you a more personal, appro
 The to Team plugin allows you to display your team profiles beautifully on your website. 
 
 = Works with the to Theme =
-Our theme [theme](https://www.lsdev.biz/product/to-wordpress-theme/) works perfectly with the Team Extension, improving internal linking, website SEO and user experience! 
+Our theme [theme](https://www.lsdev.biz/product/lsx-wordpress-theme/) works perfectly with the Team Extension, improving internal linking, website SEO and user experience! 
 
 = It's free, and always will be. =
 We’re firm believers in open source - that’s why we’re releasing the to Team plugin for free, forever. We offer free support on the [to Team support forums](https://wordpress.org/support/plugin/to-team).
@@ -48,9 +48,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 
 == Screenshots ==
 
-1. The Settings Panel for to Team 
-2. to Team Edit Page
-3. to Team Widget Frontend 
+1. Tour Operator Team Page
+2. Tour Operator Single Team Page
+3. Tour Operator Team Widget
+4. The Settings Panel for to Team
 
 == Changelog ==
 
