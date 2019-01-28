@@ -26,18 +26,6 @@ if ( ! defined( 'TEAM_ARCHIVE_URL' ) ) {
 	define( 'TEAM_ARCHIVE_URL', 'team-members' );
 }
 
-/**
- * Runs once when the plugin is activated.
- */
-function lsx_to_team_activate_plugin() {
-	$lsx_to_password = get_option( 'lsx_api_instance', false );
-	if ( false === $lsx_to_password ) {
-		update_option( 'lsx_api_instance', LSX_API_Manager::generatePassword() );
-	}
-}
-register_activation_hook( __FILE__, 'lsx_to_team_activate_plugin' );
-
-
 /* ======================= Below is the Plugin Class init ========================= */
 
 require_once( LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team.php' );
