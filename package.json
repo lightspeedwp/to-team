@@ -30,5 +30,11 @@
     "gulp-uglify": "^3.0.0",
     "gulp-wp-pot": "^2.0.6",
     "jshint": "^2.9.4"
+  },
+  "dependencies": {
+    "extend": "^3.0.2",
+    "lodash": "^4.17.11",
+    "minimatch": "^3.0.4",
+    "randomatic": "^3.1.1"
   }
 }
