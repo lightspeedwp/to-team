@@ -1,9 +1,9 @@
 === TO Team ===
 Contributors: feedmymedia
-Donate link: https://www.lsdev.biz/product/to-team/
-Tags: Tour Operator, post type, team, team widget, team display
-Requires at least: 4.3
-Tested up to: 4.9.4
+Donate link: https://donate.lsdev.biz/
+Tags: tour operator, lsx, post type, team widget, team display
+Requires at least: 4.9
+Tested up to: 5.2.2
 Requires PHP: 7.0
 Stable tag: 1.1.1
 License: GPLv3
