@@ -1,4 +1,4 @@
-=== TO Team ===
+=== Tour Operator Team ===
 Contributors: feedmymedia
 Donate link: https://donate.lsdev.biz/
 Tags: tour operator, lsx, post type, team widget, team display
