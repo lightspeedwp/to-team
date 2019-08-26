@@ -45,12 +45,6 @@ class LSX_TO_Team_Schema extends LSX_TO_Schema_Graph_Piece {
 		$data = $this->add_offers( $data );
 		$data = $this->add_reviews( $data );
 		$data = $this->add_articles( $data );
-
-		if ( isset( $_GET['debug'] ) ) {
-			print_r('<pre>');
-			print_r($data);
-			print_r('</pre>');
-		}
 		return $data;
 	}
 }
