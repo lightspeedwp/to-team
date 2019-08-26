@@ -78,14 +78,14 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 				add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'taxonomies_plural_filter' ) );
 			}
 
-			require_once( LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-admin.php' );
-			require_once( LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-frontend.php' );
-			//require_once( LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-schema.php' );
-			require_once( LSX_TO_TEAM_PATH . '/includes/template-tags.php' );
+			require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-admin.php';
+			require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-frontend.php';
+			require_once LSX_TO_TEAM_PATH . '/includes/template-tags.php';
 
-			// flush_rewrite_rules()
+			// flush_rewrite_rules.
 			register_activation_hook( LSX_TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
+			add_filter( 'wpseo_schema_graph_pieces', array( $this, 'add_graph_pieces' ), 11, 2 );
 		}
 
 		/**
@@ -243,6 +243,21 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 			flush_rewrite_rules();
 		}
 
+		/**
+		 * Adds Schema pieces to our output.
+		 *
+		 * @param array                 $pieces  Graph pieces to output.
+		 * @param \WPSEO_Schema_Context $context Object with context variables.
+		 *
+		 * @return array $pieces Graph pieces to output.
+		 */
+		public function add_graph_pieces( $pieces, $context ) {
+			if ( class_exists( 'LSX_TO_Schema_Graph_Piece' ) ) {
+				require_once LSX_TO_TEAM_PATH . 'classes/class-lsx-to-team-schema.php';
+				$pieces[] = new LSX_TO_Team_Schema( $context );
+			}
+			return $pieces;
+		}
 	}
 
 	global $lsx_to_team;

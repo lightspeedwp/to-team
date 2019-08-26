@@ -1,72 +1,56 @@
 <?php
 /**
- * LSX_TO_Team_Schema
+ * The Team Schema for Tours
  *
- * @package   LSX_TO_Team_Schema
- * @author    LightSpeed
- * @license   GPL-3.0+
- * @link
- * @copyright 2018 LightSpeedDevelopment
+ * @package tour-operator
  */
 
 /**
- * Main plugin class.
+ * Returns schema Review data.
  *
- * @package LSX_Specials_Schema
- * @author  LightSpeed
+ * @since 10.2
  */
-
-class LSX_TO_Team_Schema extends LSX_TO_Team {
+class LSX_TO_Team_Schema extends LSX_TO_Schema_Graph_Piece {
 
 	/**
-	 * Constructor
+	 * Constructor.
+	 *
+	 * @param \WPSEO_Schema_Context $context A value object with context variables.
 	 */
-	public function __construct() {
-		$this->set_vars();
-		add_action( 'wp_head', array( $this, 'team_single_schema' ), 1499 );
+	public function __construct( WPSEO_Schema_Context $context ) {
+		$this->post_type = 'team';
+		parent::__construct( $context );
 	}
 
 	/**
-	 * Creates the schema for the team post type
+	 * Returns Review data.
 	 *
-	 * @since 1.0.0
-	 * @return    object    A single instance of this class.
+	 * @return array $data Review data.
 	 */
-	public function team_single_schema() {
-		if ( is_singular( 'team' ) ) {
-			$pinterest  = get_post_meta( get_the_ID(), 'pinterest', true );
-			$googleplus = get_post_meta( get_the_ID(), 'googleplus', true );
-			$twitter    = get_post_meta( get_the_ID(), 'twitter', true );
-			$linkedin   = get_post_meta( get_the_ID(), 'linkedin', true );
-			$facebook   = get_post_meta( get_the_ID(), 'facebook', true );
-			$phone_team = get_post_meta( get_the_ID(), 'contact_number', true );
-			$job_role   = get_post_meta( get_the_ID(), 'role', true );
-			$email_team = get_post_meta( get_the_ID(), 'contact_email', true );
-			$name_team  = get_the_title();
-			$team_descp = wp_strip_all_tags( get_the_content() );
+	public function generate() {
+		$data = array(
+			'@type'            => array(
+				'Person',
+			),
+			'@id'              => $this->context->canonical . '#person',
+			'name'             => $this->post->post_title,
+			'description'      => wp_strip_all_tags( $this->post->post_content ),
+			'url'              => $this->post_url,
+			'mainEntityOfPage' => array(
+				'@id' => $this->context->canonical . WPSEO_Schema_IDs::WEBPAGE_HASH,
+			),
+		);
 
-			if ( ! empty( $googleplus ) || ! empty( $pinterest ) || ! empty( $twitter ) || ! empty( $linkedin ) || ! empty( $facebook ) ) {
-				$social_array = array( $googleplus, $pinterest, $twitter, $linkedin, $facebook );
-		}
+		$data = \lsx\legacy\Schema_Utils::add_image( $data, $this->context );
+		$data = $this->add_offers( $data );
+		$data = $this->add_reviews( $data );
+		$data = $this->add_articles( $data );
 
-			$meta   = array(
-				'@context'    => 'http://schema.org/',
-				'@type'       => 'Person',
-				'email'       => $email_team,
-				'jobTitle'    => $job_role,
-				'telephone'   => $phone_team,
-				'description' => $team_descp,
-				'name'        => $name_team,
-				'sameAs'      => $social_array,
-			);
-			$output = wp_json_encode( $meta, JSON_UNESCAPED_SLASHES );
-			?>
-		<script type="application/ld+json">
-			<?php echo wp_kses_post( $output ); ?>
-		</script>
-			<?php
+		if ( isset( $_GET['debug'] ) ) {
+			print_r('<pre>');
+			print_r($data);
+			print_r('</pre>');
 		}
+		return $data;
 	}
 }
-
-new LSX_TO_Team_Schema();
