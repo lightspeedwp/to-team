@@ -182,6 +182,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		if ( is_singular( 'team' ) ) {
 			$this->page_links = $page_links;
 
+			$this->get_map_link();
+
 			$this->get_related_posts_link();
 			$this->get_related_accommodation_link();
 			$this->get_related_destination_link();
@@ -211,6 +213,15 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 					$this->page_links['posts'] = esc_html__( 'Posts', 'to-team' );
 				}
 			}
+		}
+	}
+
+	/**
+	 * Tests for the Google Map and returns a link for the section
+	 */
+	public function get_map_link() {
+		if ( function_exists( 'lsx_to_has_map' ) && lsx_to_has_map() ) {
+			$this->page_links['team-map'] = esc_html__( 'Map', 'tour-operator' );
 		}
 	}
 
@@ -422,6 +433,23 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 	 */
 	public function single_content_bottom() {
 		if ( is_singular( 'team' ) ) {
+			if ( function_exists( 'lsx_to_has_map' ) && lsx_to_has_map() ) :
+				global $post;
+				$map_title = $post->post_title;
+				$map_title = $map_title . __( "'s favourite places", 'to-team' );
+			?>
+				<section id="team-map" class="lsx-to-section lsx-to-collapse-section">
+					<h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-team-map"><?php echo esc_html( $map_title ); ?></h2>
+
+					<div id="collapse-team-map" class="collapse in">
+						<div class="collapse-inner">
+							<?php lsx_to_map(); ?>
+						</div>
+					</div>
+				</section>
+				<?php
+			endif;
+
 			lsx_to_team_posts();
 
 			lsx_to_team_accommodation();
