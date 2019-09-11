@@ -169,6 +169,7 @@ $post_types = array(
 	'accommodation'		=> esc_html__( 'Accommodation', 'to-team' ),
 	'destination'		=> esc_html__( 'Destinations', 'to-team' ),
 	'tour'				=> esc_html__( 'Tours', 'to-team' ),
+	'post'				=> esc_html__( 'Posts', 'to-team' ),
 );
 
 foreach ( $post_types as $slug => $label ) {

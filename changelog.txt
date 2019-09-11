@@ -2,6 +2,7 @@
 
 ### 1.1.2 - In Development
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
+* Dev -  Adding the Posts slider to the single team.
 
 ### 1.1.1 
 * Dev - Removed API Call Error

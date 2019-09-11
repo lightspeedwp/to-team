@@ -452,75 +452,18 @@ function lsx_to_connected_team( $before = '', $after = '', $echo = true ) {
  * @category 	team
  */
 function lsx_to_team_posts() {
-	$site_user = get_post_meta( get_the_ID(), 'site_user', true );
+	//$site_user = get_post_meta( get_the_ID(), 'site_user', true );
 
-	if ( ! empty( $site_user ) ) {
-		if ( is_user_member_of_blog( $site_user ) ) {
-			$user_posts = count_user_posts( $site_user, 'post' );
+	if ( post_type_exists( 'post' ) && is_singular( 'team' ) ) {
+		$args = array(
+			'from'		=> 'post',
+			'to'		=> 'team',
+			'column'	=> '3',
+			// @codingStandardsIgnoreLine
+			'before'	=> '<section id="posts" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-posts">' . __( lsx_to_get_post_type_section_title( 'post', '', 'Featured Posts' ), 'to-team' ) . '</h2><div id="collapse-posts" class="collapse in"><div class="collapse-inner">',
+			'after'		=> '</div></div></section>',
+		);
 
-			if ( $user_posts > 0 ) {
-				$params = array(
-					'post_type' => 'post',
-					'author' => $site_user,
-					'posts_per_page' => 3,
-					'order' => 'DESC',
-					'orderby' => 'date',
-				);
-
-				$posts_query = new \WP_Query( $params );
-
-				if ( $posts_query->have_posts() ) {
-					?>
-					<section id="posts" class="lsx-to-section lsx-to-collapse-section">
-						<h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-posts"><?php esc_html_e( 'Posts', 'to-team' ); ?></h2>
-
-						<div id="collapse-posts" class="collapse in">
-							<div class="collapse-inner">
-								<div class="row lsx-to-archive-items lsx-to-archive-template-list lsx-to-archive-template-image-<?php echo esc_attr( tour_operator()->archive_list_layout_image_style ); ?> post-list">
-									<?php while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
-										<?php
-											$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
-											$image_arr = wp_get_attachment_image_src( $thumbnail_id, 'lsx-thumbnail-single' );
-
-											if ( is_array( $image_arr ) ) {
-												$image_src = $image_arr[0];
-											}
-										?>
-
-										<div class="lsx-to-archive-item post-item col-xs-12">
-											<div class="lsx-to-archive-container">
-												<div class="lsx-to-archive-thumb">
-													<div class="lsx-to-thumb-slot" style="background-image: url('<?php echo esc_url( $image_src ); ?>');">
-														<?php lsx_thumbnail( 'lsx-thumbnail-single' ); ?>
-													</div>
-												</div>
-
-												<div class="lsx-to-archive-wrapper">
-													<div class="lsx-to-archive-content">
-														<h3 class="lsx-to-archive-content-title"><?php the_title(); ?></h3>
-
-														<div class="entry-content">
-															<?php the_excerpt(); ?>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									<?php endwhile; ?>
-								</div>
-
-								<?php if ( $user_posts > 3 ) : ?>
-									<div class="view-more text-center lsx-to-section-view-all">
-										<a href="<?php echo esc_url( get_author_posts_url( $site_user ) ); ?>" class="btn border-btn"><?php esc_html_e( 'View all posts', 'to-team' ); ?></a>
-									</div>
-								<?php endif; ?>
-							</div>
-						</div>
-					</section>
-					<?php
-					wp_reset_postdata();
-				}
-			}
-		}
+		lsx_to_connected_panel_query( $args );
 	}
 }
