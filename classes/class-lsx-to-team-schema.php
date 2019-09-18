@@ -41,10 +41,33 @@ class LSX_TO_Team_Schema extends LSX_TO_Schema_Graph_Piece {
 			),
 		);
 
+		if ( $this->context->site_represents_reference ) {
+			$data['worksFor'] = $this->context->site_represents_reference;
+			$data['memberOf'] = $this->context->site_represents_reference;
+		}
+
+		$data = $this->add_taxonomy_terms( $data, 'jobTitle', 'role' );
+		$data = $this->add_custom_field( $data, 'email', 'contact_email' );
+		$data = $this->add_custom_field( $data, 'telephone', 'contact_number' );
+		$data = $this->add_products( $data );
+		$data = $this->add_offers( $data, 'makesOffer' );
 		$data = \lsx\legacy\Schema_Utils::add_image( $data, $this->context );
-		$data = $this->add_offers( $data );
-		$data = $this->add_reviews( $data );
-		$data = $this->add_articles( $data );
+		return $data;
+	}
+
+	/**
+	 * Adds the accommodation and tour products under the 'owns' parameter
+	 *
+	 * @param array $data
+	 * @return array
+	 */
+	public function add_products( $data ) {
+		$places_array = array();
+		$places_array = $this->add_accommodation( $places_array );
+		$places_array = $this->add_tours( $places_array );
+		if ( ! empty( $places_array ) ) {
+			$data['owns'] = $places_array;
+		}
 		return $data;
 	}
 }

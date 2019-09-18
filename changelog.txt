@@ -2,8 +2,9 @@
 
 ### 1.1.2 - In Development
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
-* Dev -  Adding the Posts slider to the single team.
+* Dev - Adding the Posts slider to the single team.
 * Dev - Adding the map option for single team.
+* Dev - Added in a 'Person' Schema via the Yoast WordPress SEO plugin.
 
 ### 1.1.1 
 * Dev - Removed API Call Error
