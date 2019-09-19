@@ -60,6 +60,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
 		add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
+
+		add_filter( 'lsx_to_maps_args', array( $this, 'lsx_to_maps_args' ) );
 	}
 
 	/**
@@ -470,6 +472,19 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		}
 	}
 
+	public function lsx_to_maps_args( $args ) {
+		if ( is_singular( 'team' ) ) {
+			$location = false;
+			$accommodation_connected = get_post_meta( get_the_ID(), 'accommodation_to_team' );
+			if ( is_array( $accommodation_connected ) && ! empty( $accommodation_connected ) ) {
+				$location = array(
+					'lat' => true,
+					'connections' => $accommodation_connected,
+				);
+			}
+		}
+		return $args;
+	}
 }
 
 global $lsx_to_team_frontend;
