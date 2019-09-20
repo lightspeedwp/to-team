@@ -61,7 +61,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
 
-		add_filter( 'lsx_to_maps_args', array( $this, 'lsx_to_maps_args' ) );
+		add_filter( 'lsx_to_maps_args', array( $this, 'lsx_to_maps_args' ), 10, 2 );
 		add_filter( 'lsx_to_has_maps_location', array( $this, 'lsx_to_has_maps_location' ), 10, 2 );
 	}
 
@@ -473,14 +473,16 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		}
 	}
 
-	public function lsx_to_maps_args( $args ) {
+	public function lsx_to_maps_args( $args, $post_id ) {
 		if ( is_singular( 'team' ) ) {
-			$location = false;
 			$accommodation_connected = get_post_meta( get_the_ID(), 'accommodation_to_team' );
 			if ( is_array( $accommodation_connected ) && ! empty( $accommodation_connected ) ) {
-				$location = array(
+				$args = array(
 					'lat' => true,
+					'long' => true,
 					'connections' => $accommodation_connected,
+					'content' => 'excerpt',
+					'type' => 'cluster',
 				);
 			}
 		}
