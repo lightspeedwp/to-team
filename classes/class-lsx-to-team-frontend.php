@@ -483,6 +483,8 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 					'connections' => $accommodation_connected,
 					'content' => 'excerpt',
 					'type' => 'cluster',
+					'width' => '100%',
+					'height' => '500px',
 				);
 			}
 		}
