@@ -5,7 +5,7 @@ Tags: tour operator, lsx, post type, team widget, team display
 Requires at least: 4.9
 Tested up to: 5.2.2
 Requires PHP: 7.0
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 
 The to Team plugins adds the “Team” post type, which you can display front-and-centre on your site.
@@ -54,6 +54,15 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 4. The Settings Panel for to Team
 
 == Changelog ==
+
+
+### 1.1.2
+* Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
+* Dev - Adding the Posts slider to the single team.
+* Dev - Adding the map option for single team.
+* Dev - Adding width and height to the map.
+* Dev - Adding map filters.
+* Dev - Added in a 'Person' Schema via the Yoast WordPress SEO plugin.
 
 ### 1.1.1 
 * Dev - Removed API Call Error
