@@ -1,9 +1,11 @@
 ## Change log
 
-### 1.1.2 - In Development
+### 1.1.2 - September 27 2019
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
 * Dev - Adding the Posts slider to the single team.
 * Dev - Adding the map option for single team.
+* Dev - Adding width and height to the map.
+* Dev - Adding map filters.
 * Dev - Added in a 'Person' Schema via the Yoast WordPress SEO plugin.
 
 ### 1.1.1 
