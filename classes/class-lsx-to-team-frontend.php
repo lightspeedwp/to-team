@@ -491,9 +491,9 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		return $args;
 	}
 
-	public function lsx_to_has_maps_location( $location, $ID ) {
+	public function lsx_to_has_maps_location( $location, $id ) {
 		if ( is_singular( 'team' ) ) {
-			$accommodation_connected = get_post_meta( $ID, 'accommodation_to_team' );
+			$accommodation_connected = get_post_meta( $id, 'accommodation_to_team' );
 			if ( is_array( $accommodation_connected ) && ! empty( $accommodation_connected ) ) {
 				$location = array(
 					'lat' => true,
