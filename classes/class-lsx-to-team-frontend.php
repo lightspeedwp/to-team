@@ -62,7 +62,7 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
 
 		add_filter( 'lsx_to_maps_args', array( $this, 'lsx_to_maps_args' ), 10, 2 );
-		add_filter( 'lsx_to_has_maps_location', array( $this, 'lsx_to_has_maps_location' ), 10, 2 );
+		add_filter( 'lsx_to_has_maps_location', array( $this, 'lsx_to_has_maps_location' ), 50, 2 );
 	}
 
 	/**
