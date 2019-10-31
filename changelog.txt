@@ -1,9 +1,9 @@
 ## Change log
 
-### 1.1.3 - In development
+### 1.2.1 - In development
 * Dev - Enabled the sorting of the gallery field
 
-### 1.1.2 - September 27 2019
+### 1.2.0 - September 27 2019
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
 * Dev - Adding the Posts slider to the single team.
 * Dev - Adding the map option for single team.
