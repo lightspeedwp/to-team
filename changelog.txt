@@ -1,7 +1,11 @@
 ## Change log
 
-### 1.2.1 - In development
-* Dev - Enabled the sorting of the gallery field
+### 1.2.1
+* Fix - Changing the map priority on the single team pages.
+* Dev - Changing a variable name $ID to $id.
+* Dev - Enabled the sorting of the gallery field.
+* Dev - General testing to ensure compatibility with latest WordPress version (5.3).
+* Dev - Checking compatibility with LSX 2.6 release.
 
 ### 1.2.0 - September 27 2019
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
