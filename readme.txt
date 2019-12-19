@@ -2,8 +2,8 @@
 Contributors: feedmymedia
 Donate link: https://donate.lsdev.biz/
 Tags: tour operator, lsx, post type, team widget, team display
-Requires at least: 4.9
-Tested up to: 5.3
+Requires at least: 5.1.1
+Tested up to: 5.3.2
 Requires PHP: 7.0
 Stable tag: 1.2.1
 License: GPLv3
