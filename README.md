@@ -27,7 +27,7 @@ We are always updating our software to add functionality, and maintain latest se
 
 Have you updated to the new WordPress Gutenberg editor? We've got you covered! The Tour Operator Team Plugin has been optimized for the Gutenberg update. 
 
-Check out our [our Tour Operator dedicated website](https://tour-operator.lsdev.biz/) to check out all our available extensions and features.
+Check out our [Tour Operator dedicated website](https://tour-operator.lsdev.biz/) to check out all our available extensions and features.
 
 ## It's free, and always will be.
 We’re firm believers in open source - that’s why this extension is free, and that won't change. 
@@ -51,3 +51,6 @@ You can also send an email to our Support Team at [support@lsdev.biz](mailto:sup
 If you're a developer who's spotted a bug issue and have a fix, or simply have the functionality you think would extend our core theme, we are always happy to accept your contribution! 
 
 Visit the [Tour Operator Team Plugin on Github](https://github.com/lightspeeddevelopment/to-team/) and submit a Pull Request with your updates.
+
+## Like what you see?
+<a href="https://www.lsdev.biz/contact/"><img src="https://www.lsdev.biz/wp-content/uploads/2020/02/work-with-lightspeed.png" width="850" alt="Work with us at LightSpeed"></a>
