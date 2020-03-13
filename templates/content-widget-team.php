@@ -7,7 +7,7 @@
  * @subpackage	widget
  */
 
-global $disable_placeholder, $disable_text, $post;
+global $disable_placeholder, $disable_text, $post, $disable_view_more;
 
 $member_name = get_the_title();
 
@@ -37,12 +37,21 @@ if ( $has_single ) {
 	</h4>
 
 	<?php
-		if ( empty( $disable_text ) ) {
-			lsx_to_team_role( '<p class="lsx-to-widget-tagline text-center">', '</p>' );
+	if ( empty( $disable_text ) ) {
+		lsx_to_team_role( '<p class="lsx-to-widget-tagline text-center">', '</p>' );
+
+		$member_description = apply_filters( 'the_excerpt', get_the_excerpt() );
+
+		if ( empty( $member_description ) ) {
+			$member_description = apply_filters( 'the_excerpt', wp_trim_words( $post->post_content, 20 ) );
 		}
+
+		$member_description = ! empty( $member_description ) ? "<div class='lsx-team-description'>$member_description</div>" : '';
+		echo wp_kses_post( $member_description );
+	}
 	?>
 
-	<?php if ( $has_single ) { ?>
+	<?php if ( $has_single && empty( $disable_view_more ) ) { ?>
 		<p class="text-center lsx-to-single-link"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html__( 'More about', 'to-team' ) . ' ' . esc_html( strtok( $member_name, ' ' ) ); ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
 	<?php } ?>
 </article>

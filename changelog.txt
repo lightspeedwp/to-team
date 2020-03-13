@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.2.2
+* Fix - Fixing the options for the Team widget, making sure all of them work, also on shortcode mode.
+
 ### 1.2.1 - 19 December 2019
 * Fix - Changing the map priority on the single team pages.
 * Dev - Changing a variable name $ID to $id.
