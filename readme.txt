@@ -3,9 +3,9 @@ Contributors: feedmymedia
 Donate link: https://donate.lsdev.biz/
 Tags: tour operator, lsx, post type, team widget, team display
 Requires at least: 5.1.1
-Tested up to: 5.3.2
+Tested up to: 5.4
 Requires PHP: 7.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3
 
 The TO Team plugins adds the “Team” post type, which you can display front-and-centre on your site.

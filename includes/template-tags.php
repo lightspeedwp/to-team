@@ -368,12 +368,12 @@ function lsx_to_team_destination() {
 
 	if ( post_type_exists( 'destination' ) && is_singular( 'team' ) ) {
 		$args = array(
-			'from'		=> 'destination',
-			'to'		=> 'team',
-			'column'	=> '3',
+			'from'   => 'destination',
+			'to'     => 'team',
+			'column' => '3',
 			// @codingStandardsIgnoreLine
-			'before'	=> '<section id="destination" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-destination">' . __( lsx_to_get_post_type_section_title( 'destination', '', 'Featured Destinations' ), 'to-team' ) . '</h2><div id="collapse-destination" class="collapse in"><div class="collapse-inner">',
-			'after'		=> '</div></div></section>',
+			'before' => '<section id="destination" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-destination">' . __( lsx_to_get_post_type_section_title( 'destination', '', 'Featured Destinations' ), 'to-team' ) . '</h2><div id="collapse-destination" class="collapse in"><div class="collapse-inner">',
+			'after'  => '</div></div></section>',
 		);
 
 		lsx_to_connected_panel_query( $args );
