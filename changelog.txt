@@ -1,7 +1,7 @@
 # Change log
 
 
-## [Unreleased] - Minor version 1.2.2
+## [[1.2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/1.2.2) - 2020-03-30
 
 ### Fixed
 * Fix - Fixing the options for the Team widget, making sure all of them work, also on shortcode mode.
