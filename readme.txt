@@ -61,3 +61,14 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 2. LSX Tour Operator Single Team Page
 3. LSX Tour Operator Team Widget
 4. LSX The Settings Panel for to Team
+
+== Screenshots ==
+
+
+
+== Changelog == 
+
+[Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/lsx/blob/master/changelog.md).
+
+== Upgrade Notice == 
+
