@@ -1,16 +1,18 @@
-<p align="center"><a target="_blank" href="https://tour-operator.lsdev.biz/"><img width="100px;" src="https://tour-operator.lsdev.biz/wp-content/uploads/2019/04/icon-team.svg" alt="Tour Operator team Extension"></a>
+<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/"><img width="100px;" src="https://www.lsdev.biz/lsx/wp-content/uploads//2020/09/LSX-Tour-Operator-Extension-TO-Team.svg" alt="LSX Tour Operator Team Extension"></a>
 
 </p>
-<h1 align="center">Tour Operator Team</h1>
+<h1 align="center">LSX Tour Operator Team Extension</h1>
 
 <p align="center">
-    <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://poser.pugx.org/woocommerce/woocommerce/license" alt="license"></a>
-    <a href="https://gulpjs.com/"><img src="https://img.shields.io/badge/built%20with-gulp.js-green.svg" alt="Built with gulp.js"></a> 
-    <a href="https://travis-ci.org/lightspeeddevelopment/to-team"><img src="https://travis-ci.org/lightspeeddevelopment/to-team.svg?branch=master" alt="Build Status"></a>
-    <a href="https://tour-operator.lsdev.biz/"><img src="https://lsx.lsdev.biz/wp-content/uploads/2019/06/Designed-for-Tour-Operator-plugin-1098ad.png" alt="Tour Operator"></a>
+  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://poser.pugx.org/woocommerce/woocommerce/license" alt="license"></a> 
+  <a href="https://www.lsdev.biz/lsx/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2019/06/Designed-for-LSX-Theme-blue.png" alt="Made for LSX Theme"></a>
+  <a href="http://gulpjs.com/"><img src="https://img.shields.io/badge/built%20with-gulp.js-green.svg" alt="Built with gulp.js"></a> 
+<a href="https://codeclimate.com/github/lightspeeddevelopment/tour-operator/"><img src="https://codeclimate.com/github/lightspeeddevelopment/tour-operator/badges/gpa.svg" alt="Code Climate"></a>
+ <a href="https://scrutinizer-ci.com/g/lightspeeddevelopment/tour-operator/?branch=master"><img src="https://scrutinizer-ci.com/g/lightspeeddevelopment/tour-operator/badges/quality-score.png?b=master" alt="Scrutinizer"></a>
+  <a href="https://travis-ci.org/github/lightspeeddevelopment/to-team"><img src="https://travis-ci.org/lightspeeddevelopment/to-team.svg?branch=master" alt="Build Status"></a>
 </p>
 
-Welcome to the [Tour Operator Team extension](https://tour-operator.lsdev.biz/extensions/team/).
+Welcome to the [LSX Tour Operator Team extension](https://tour-operator.lsdev.biz/extensions/team/).
 
 If you haven't yet had the chance to [install and configure the Tour Operator Plugin](https://tour-operator.lsdev.biz), you should do that before proceeding here! 
 
