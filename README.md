@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2020/09/tour-operator-team-banner-1544x500-1.jpg" alt="LSX Tour Operator Team Extension"></a>
+<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/team/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2020/09/tour-operator-team-banner-1544x500-1.jpg" alt="LSX Tour Operator Team Extension"></a>
 </p>
 <h1 align="center">LSX Tour Operator Team Extension</h1>
 
@@ -26,7 +26,7 @@ The [Tour Operator Plugin](https://tour-operator.lsdev.biz) and [Extensions](htt
 
 We are always updating our software to add functionality, and maintain latest security protocols. 
 
-## Gutenberg Compatible Plugin
+## Gutenberg Compatible 
 
 Have you updated to the new WordPress Gutenberg editor? We've got you covered! The Tour Operator Team Plugin has been optimized for the Gutenberg update. 
 
@@ -37,11 +37,11 @@ We’re firm believers in open source - that’s why this extension is free, and
 
 We are constantly maintaining and updating our extension so you have the latest and greatest abilities on your LSX Theme powered site. 
 
-## Tour Operator Team Documentation
+## Documentation
 
-Anything you need to double check, or simply need a walkthrough for setting up the extension? Visit the [Tour Operator Team documentation](https://tour-operator.lsdev.biz/documentation/extension/team/).
+Anything you need to double check, or simply need a walkthrough for setting up the extension? Visit the [Tour Operator Team documentation](https://lsdev.biz/lsx/documentation/lsx-tour-operator/team/).
 
-## Tour Operator Team Help & Support
+## Support
 
 We offer premium support for this plugin. Premium support that can be purchased [via our website](https://www.lsdev.biz/services/support/).
 
@@ -49,7 +49,7 @@ If you are experiencing issues with the Tour Operator Team Plugin & have experie
 
 You can also send an email to our Support Team at [support@lsdev.biz](mailto:support@lsdev.biz) if you have a request for the LightSpeed Development team.
 
-## Contributing to the Tour Operator Team Plugin
+## Contributing
 
 If you're a developer who's spotted a bug issue and have a fix, or simply have the functionality you think would extend our core theme, we are always happy to accept your contribution! 
 
