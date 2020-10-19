@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/"><img width="100px;" src="https://www.lsdev.biz/lsx/wp-content/uploads//2020/09/LSX-Tour-Operator-Extension-TO-Team.svg" alt="LSX Tour Operator Team Extension"></a>
+<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2020/09/tour-operator-team-banner-1544x500-1.jpg" alt="LSX Tour Operator Team Extension"></a>
 </p>
 <h1 align="center">LSX Tour Operator Team Extension</h1>
 
