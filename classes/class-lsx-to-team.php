@@ -116,15 +116,6 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 			);
 
 			$this->post_type_slugs = array_keys( $this->post_types );
-
-			$users = get_users();
-
-			foreach ( $users as $user ) {
-				$this->site_users[] = array(
-					'name' => $user->display_name,
-					'value' => $user->ID,
-				);
-			}
 		}
 
 		/**

@@ -1,5 +1,13 @@
 # Change log
 
+## [[1.2.5]](https://github.com/lightspeeddevelopment/to-team/releases/tag/1.2.5) - Indevelopment
+
+### Updated
+- Updated the WP User Queries.
+
+### Security
+- General testing to ensure compatibility with latest WordPress version (6.1).
+
 ## [[1.2.4]](https://github.com/lightspeeddevelopment/to-team/releases/tag/1.2.4) - 2022-09-12
 
 ### Security

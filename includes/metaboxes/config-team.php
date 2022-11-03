@@ -43,12 +43,35 @@ $metabox['fields'][] = array(
 	'type'	=> 'text',
 );
 
+$user_query = new WP_User_Query(
+	array(
+		'role__not_in' => 'Subscriber',
+	)
+);
+
+$users        = array();
+$user_results = $user_query->get_results();
+if ( ! empty( $user_results ) ) {
+	foreach ( $user_results as $user ) {
+		$users = array(
+			'name' => $user->display_name,
+			'value' => $user->ID,
+		);
+	}
+}
+
+
+
+foreach ( $users as $user ) {
+
+}
+
 $metabox['fields'][] = array(
 	'name' => esc_html__( 'Site User', 'to-team' ),
 	'id' => 'site_user',
 	'allow_none' => true,
 	'type' => 'select',
-	'options' => $lsx_to_team->site_users,
+	'options' => $users,
 );
 
 $metabox['fields'][] = array(
