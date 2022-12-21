@@ -4,6 +4,7 @@
 
 ### Updated
 - Updated the WP User Queries.
+- The Post Connections text.
 
 ### Security
 - General testing to ensure compatibility with latest WordPress version (6.1).

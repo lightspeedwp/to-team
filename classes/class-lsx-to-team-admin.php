@@ -163,7 +163,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 
 			$fields[] = array(
 				'id' => 'team_to_' . $post_type,
-				'name' => 'Specials related with this ' . $post_type,
+				'name' => 'Team members related to this ' . $post_type,
 				'type' => 'post_select',
 				'use_ajax' => false,
 				'query' => array(
