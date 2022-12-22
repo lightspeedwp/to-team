@@ -1,13 +1,13 @@
 # Change log
 
-## [[1.2.5]](https://github.com/lightspeeddevelopment/to-team/releases/tag/1.2.5) - Indevelopment
+## [[1.2.5]](https://github.com/lightspeeddevelopment/to-team/releases/tag/1.2.5) - 2022-12-23
 
 ### Updated
 - Updated the WP User Queries.
 - The Post Connections text.
 
 ### Security
-- General testing to ensure compatibility with latest WordPress version (6.1).
+- General testing to ensure compatibility with latest WordPress version (6.1.1).
 
 ## [[1.2.4]](https://github.com/lightspeeddevelopment/to-team/releases/tag/1.2.4) - 2022-09-12
 
