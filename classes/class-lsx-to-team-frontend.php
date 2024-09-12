@@ -47,14 +47,6 @@ class LSX_TO_Team_Frontend extends LSX_TO_Team {
 		add_filter( 'lsx_to_entry_class', array( $this, 'entry_class' ) );
 		add_action( 'lsx_to_settings_current_tab', array( $this, 'set_settings_current_tab' ) );
 
-		/*if ( ! class_exists( 'LSX_TO_Template_Redirects' ) ) {
-			require_once( LSX_TO_TEAM_PATH . 'classes/class-lsx-to-template-redirects.php' );
-		}*/
-
-		//$this->redirects = new LSX_TO_Template_Redirects( LSX_TO_TEAM_PATH, array( 'team' ), array( 'role' ) );
-
-		add_action( 'lsx_to_team_content', array( $this->redirects, 'content_part' ), 10, 2 );
-
 		add_filter( 'lsx_to_page_navigation', array( $this, 'page_links' ) );
 
 		add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
