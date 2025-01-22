@@ -155,16 +155,9 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 
 		if ( false !== $post_type ) {
 			$fields[] = array(
-				'id' => 'team_title',
-				'name' => 'Teams',
-				'type' => 'title',
-				'cols' => 12,
-			);
-
-			$fields[] = array(
 				'id' => 'team_to_' . $post_type,
 				'name' => 'Team members related to this ' . $post_type,
-				'type' => 'post_select',
+				'type' => 'pw_multiselect',
 				'use_ajax' => false,
 				'query' => array(
 					'post_type' => 'team',
