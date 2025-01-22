@@ -159,16 +159,11 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 				'name' => 'Team members related to this ' . $post_type,
 				'type' => 'pw_multiselect',
 				'use_ajax' => false,
-				'query' => array(
-					'post_type' => 'team',
-					'nopagin' => true,
-					'posts_per_page' => '-1',
-					'orderby' => 'title',
-					'order' => 'ASC',
-				),
-				'repeatable' => true,
+				'repeatable' => false,
 				'allow_none' => true,
-				'cols' => 12,
+				'options'  => array(
+					'post_type_args' => 'team',
+				),
 			);
 		}
 
