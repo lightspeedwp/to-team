@@ -5,7 +5,7 @@
  * Description:	Real peoples' faces go a long way to building trust with your clients. The Team Extension allows your business's staff to be added as Team Members with their own profile which can be associated with specific destinations and tours.
  * Version:     2.0.0
  * Author:      LightSpeed
- * Author URI: 	https://www.lsdev.biz/
+ * Author URI: 	https://lightspeedwp.agency/
  * License: 	GPL3+
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: to-team
