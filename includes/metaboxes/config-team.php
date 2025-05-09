@@ -147,7 +147,7 @@ $metabox['fields'][] = array(
 	'repeatable'          => true,
 	'show_size'           => false,
 	'sortable'            => true,
-	'string-repeat-field' => esc_html__( 'Add new image', 'to-reviews' ),
+	'string-repeat-field' => esc_html__( 'Add new image', 'to-team' ),
 );
 
 if ( class_exists( 'Envira_Gallery' ) ) {
