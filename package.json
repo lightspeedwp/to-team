@@ -4,11 +4,13 @@
   "description": "Tour Operators add-on for LSX",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"build-pot": "wp i18n make-pot . languages/to-team.pot",
+    "build-mopo": "rm -R languages/to-team-en_EN.mo && cp languages/to-team.pot languages/to-team-en_EN.po && wp i18n make-mo languages",
+    "translate-US": "cp languages/to-team-en_EN.po languages/to-team-en_US.po && cp languages/to-team-en_EN.mo languages/to-team-en_US.mo"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://www.lsdev.biz/product/tour-operator-team/"
+    "url": "git+https://github.com/lightspeedwp/to-team/"
   },
   "keywords": [
     "lsx",
@@ -17,9 +19,9 @@
   "author": "LightSpeed",
   "license": "GPL2+",
   "bugs": {
-    "url": "https://www.lsdev.biz/product/tour-operator-team/issues"
+    "url": "https://github.com/lightspeedwp/to-team/issues"
   },
-  "homepage": "https://www.lsdev.biz/product/tour-operator-team/#readme",
+  "homepage": "https://github.com/lightspeedwp/to-team/#readme",
   "devDependencies": {
     "gulp": "^5.0.0",
     "gulp-gettext": "^0.3.0",
