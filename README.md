@@ -1,10 +1,10 @@
-<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/team/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2020/09/tour-operator-team-banner-1544x500-1.jpg" alt="LSX Tour Operator Team Extension"></a>
+<p align="center"><a target="_blank" href="https://www.lsdev.biz/lsx/extensions/tour-operator/team/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2020/09/tour-operator-team-banner-1544x500-1.jpg" alt="Tour Operator Team Extension"></a>
 </p>
-<h1 align="center">LSX Tour Operator Team Extension</h1>
+<h1 align="center">Tour Operator Team Extension</h1>
 
 <p align="center">
     <a href="https://lsdev.biz/lsx/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2019/06/Designed-for-LSX-Theme-blue.png" alt="Made for LSX Theme"></a>
-    <a href="https://lsdev.biz/lsx/extensions/tour-operator/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2019/06/Designed-for-Tour-Operator-plugin-1098ad.png" alt="LSX Tour Operator"></a>
+    <a href="https://lsdev.biz/lsx/extensions/tour-operator/"><img src="https://www.lsdev.biz/lsx/wp-content/uploads/2019/06/Designed-for-Tour-Operator-plugin-1098ad.png" alt="Tour Operator"></a>
     <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://poser.pugx.org/woocommerce/woocommerce/license" alt="license"></a>
     <a href="http://gulpjs.com/"><img src="https://img.shields.io/badge/built%20with-gulp.js-green.svg" alt="Built with gulp.js"></a> 
 </p>  
@@ -14,7 +14,7 @@
     <a href="https://travis-ci.org/github/lightspeeddevelopment/to-team"><img src="https://travis-ci.org/lightspeeddevelopment/to-team.svg?branch=master" alt="Build Status"></a>
 </p>
 
-Welcome to the [LSX Tour Operator Team extension](https://www.lsdev.biz/lsx/extensions/tour-operator/team/).
+Welcome to the [Tour Operator Team extension](https://www.lsdev.biz/lsx/extensions/tour-operator/team/).
 
 If you haven't yet had the chance to [install and configure the Tour Operator Plugin](https://www.lsdev.biz/lsx/extensions/tour-operator/), you should do that before proceeding here! 
 

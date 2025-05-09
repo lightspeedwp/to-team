@@ -1,7 +1,7 @@
 <?php
 /*
- * Plugin Name:	LSX Tour Operator Team
- * Plugin URI:	https://www.lsdev.biz/product/tour-operator-team/
+ * Plugin Name:	Tour Operator Team
+ * Plugin URI:	https://touroperator.solutions/plugins/team/
  * Description:	Real peoples' faces go a long way to building trust with your clients. The Team Extension allows your business's staff to be added as Team Members with their own profile which can be associated with specific destinations and tours.
  * Version:     2.0.0
  * Author:      LightSpeed
