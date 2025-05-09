@@ -18,15 +18,22 @@
 class LSX_TO_Team_Admin extends LSX_TO_Team {
 
 	/**
+	 * The post type slug
+	 *
+	 * @var string
+	 */
+	public $post_type = 'team';
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		$this->set_vars();
 
 		add_action( 'init', array( $this, 'init' ), 20 );
+		add_action( 'init', array( $this, 'register_post_type' ), 100 );
+		add_action( 'cmb2_admin_init', array( $this, 'register_cmb2_fields' ) );
 
-		add_filter( 'lsx_get_post-types_configs', array( $this, 'post_type_config' ), 10, 1 );
-		add_filter( 'lsx_get_metaboxes_configs', array( $this, 'meta_box_config' ), 10, 1 );
 		add_filter( 'lsx_get_taxonomies_configs', array( $this, 'taxonomy_config' ), 10, 1 );
 
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
@@ -36,30 +43,6 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 		add_filter( 'lsx_to_special_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_review_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_activity_custom_fields', array( $this, 'custom_fields' ) );
-
-		add_filter( 'lsx_to_taxonomies', array( $this, 'to_register_taxonomy' ), 10, 1 );
-		add_filter( 'lsx_to_framework_taxonomies', array( $this, 'to_register_taxonomy' ), 10, 1 );
-		add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'to_register_taxonomy_plural' ), 10, 1 );
-	}
-
-	/**
-	 * Register the taxonomy with the TO plugin
-	 *
-	 * @since 0.1.0
-	 */
-	public function to_register_taxonomy( $taxonomies ) {
-		$taxonomies['role'] = esc_attr__( 'Role', 'to-team' );
-		return $taxonomies;
-	}
-
-	/**
-	 * Register the taxonomy with the TO plugin
-	 *
-	 * @since 0.1.0
-	 */
-	public function to_register_taxonomy_plural( $taxonomies ) {
-		$taxonomies['role'] = esc_attr__( 'Roles', 'to-team' );
-		return $taxonomies;
 	}
 
 	/**
@@ -72,8 +55,6 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 			$this->taxonomies = array_keys( lsx_to_get_taxonomies() );
 		}
 
-		add_filter( 'lsx_to_taxonomy_widget_taxonomies', array( $this, 'widget_taxonomies' ), 10, 1 );
-
 		if ( false !== $this->taxonomies ) {
 			add_action( 'create_term', array( $this, 'save_meta' ), 10, 2 );
 			add_action( 'edit_term', array( $this, 'save_meta' ), 10, 2 );
@@ -82,41 +63,18 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 				add_action( "{$taxonomy}_edit_form_fields", array( $this, 'add_expert_form_field' ), 3, 1 );
 			}
 		}
-
-		add_action( 'lsx_to_framework_team_tab_content', array( $this, 'general_settings' ), 10, 2 );
-		add_action( 'lsx_to_framework_team_tab_content', array( $this, 'archive_settings' ), 10, 2 );
 	}
 
 	/**
-	 * Register the activity post type config
+	 * Registers the custom post type for the content model.
 	 *
-	 * @param  $objects
-	 * @return   array
+	 * @return void
 	 */
-	public function post_type_config( $objects ) {
-		foreach ( $this->post_types as $key => $label ) {
-			if ( file_exists( LSX_TO_TEAM_PATH . 'includes/post-types/config-' . $key . '.php' ) ) {
-				$objects[ $key ] = include LSX_TO_TEAM_PATH . 'includes/post-types/config-' . $key . '.php';
-			}
-		}
-
-		return	$objects;
-	}
-
-	/**
-	 * Register the activity metabox config
-	 *
-	 * @param  $meta_boxes
-	 * @return   array
-	 */
-	public function meta_box_config( $meta_boxes ) {
-		foreach ( $this->post_types as $key => $label ) {
-			if ( file_exists( LSX_TO_TEAM_PATH . 'includes/metaboxes/config-' . $key . '.php' ) ) {
-				$meta_boxes[ $key ] = include LSX_TO_TEAM_PATH . 'includes/metaboxes/config-' . $key . '.php';
-			}
-		}
-
-		return 	$meta_boxes;
+	public function register_post_type() {
+		register_post_type(
+			'team',
+			require_once LSX_TO_TEAM_PATH . '/includes/post-types/config-' . $this->post_type . '.php'
+		);
 	}
 
 	/**
@@ -243,65 +201,51 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 	}
 
 	/**
-	 * Adds the team specific options
+	 * Registers the CMB2 custom fields
+	 *
+	 * @return void
 	 */
-	public function general_settings( $post_type = false, $tab = false ) {
-		if ( 'general' !== $tab ) {
-			return false;
-		}
+	public function register_cmb2_fields() {
+		/**
+		 * Initiate the metabox
+		 */
+		$cmb = [];
+		$fields = include( LSX_TO_TEAM_PATH . 'includes/metaboxes/config-' . $this->post_type . '.php' );
 
-		$experts = get_posts(
-			array(
-				'post_type' => 'team',
-				'posts_per_page' => -1,
-				'orderby' => 'menu_order',
-				'order' => 'ASC',
-			)
-		);
-		?>
-		<tr class="form-field">
-			<th scope="row">
-				<label for="disable_team_panel"><?php esc_html_e( 'Disable Team Panel', 'to-team' ); ?></label>
-			</th>
-			<td>
-				<input type="checkbox" {{#if disable_team_panel}} checked="checked" {{/if}} name="disable_team_panel" />
-				<small><?php esc_html_e( 'This disables the team member panel on all post types.', 'to-team' ); ?></small>
-			</td>
-		</tr>
-		<tr class="form-field-wrap">
-			<th scope="row">
-				<label> Select your consultants</label>
-			</th>
-			<td>
-				<?php foreach ( $experts as $expert ) : ?>
-					<label for="expert-<?php echo esc_attr( $expert->ID ) ?>">
-						<input type="checkbox" {{#if expert-<?php echo esc_attr( $expert->ID ) ?>}} checked="checked" {{/if}} name="expert-<?php echo esc_attr( $expert->ID ) ?>" id="expert-<?php echo esc_attr( $expert->ID ) ?>" value="<?php echo esc_attr( $expert->ID ) ?>" /> <?php echo esc_html( $expert->post_title ) ?>
-					</label>
-					<br>
-				<?php endforeach ?>
-			</td>
-		</tr>
-		<?php
-	}
+		$metabox_counter = 1;
+		$cmb[ $metabox_counter ] = new_cmb2_box( array(
+			'id'            => 'lsx_to_metabox_' . $this->post_type . '_' . $metabox_counter,
+			'title'         => $fields['title'],
+			'object_types'  => array( $this->post_type ), // Post type
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'show_names'    => true,
+		) );
 
-	/**
-	 * Adds the team specific options
-	 */
-	public function archive_settings( $post_type = false, $tab = false ) {
-		if ( 'archives' !== $tab ) {
-			return false;
+		foreach ( $fields['fields'] as $field ) {
+
+			if ( 'title' === $field['type'] ) {
+				$metabox_counter++;
+				$cmb[ $metabox_counter ] = new_cmb2_box( array(
+					'id'            => 'lsx_to_metabox_' . $this->post_type . '_' . $metabox_counter,
+					'title'         => $field['name'],
+					'object_types'  => array( $this->post_type ), // Post type
+					'context'       => 'normal',
+					'priority'      => 'high',
+					'show_names'    => true,
+				) );
+				continue;
+			}
+
+			/**
+			 * Fixes for the extensions
+			 */
+			if ( 'post_select' === $field['type'] || 'post_ajax_search' === $field['type'] ) {
+				$field['type'] = 'pw_multiselect';
+			}
+
+			$cmb[ $metabox_counter ]->add_field( $field );
 		}
-		?>
-		<tr class="form-field">
-			<th scope="row">
-				<label for="group_items_by_role"><?php esc_html_e( 'Group by Role', 'to-team' ); ?></label>
-			</th>
-			<td>
-				<input type="checkbox" {{#if group_items_by_role}} checked="checked" {{/if}} name="group_items_by_role" />
-				<small><?php esc_html_e( 'This groups archive items by role taxonomy and display the role title.', 'to-team' ); ?></small>
-			</td>
-		</tr>
-		<?php
 	}
 }
 
