@@ -1,109 +1,142 @@
-# Copyright (C) 2017 to-team
-# This file is distributed under the same license as the to-team package.
+# Copyright (C) 2025 LightSpeed
+# This file is distributed under the GPL3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: to-team\n"
+"Project-Id-Version: Tour Operator Team 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/to-team\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: LightSpeed <webmaster@lsdev.biz>\n"
-"Report-Msgid-Bugs-To: https://bitbucket.org/feedmycode/to-team\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2025-05-09T12:22:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: to-team\n"
 
-#: classes/class-to-team-admin.php:51, classes/class-to-team-frontend.php:369, classes/class-to-team-frontend.php:394, includes/metaboxes/config-team.php:42, includes/taxonomies/config-role.php:19
+#. Plugin Name of the plugin
+msgid "Tour Operator Team"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://touroperator.solutions/plugins/team/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Real peoples' faces go a long way to building trust with your clients. The Team Extension allows your business's staff to be added as Team Members with their own profile which can be associated with specific destinations and tours."
+msgstr ""
+
+#. Author of the plugin
+msgid "LightSpeed"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://lightspeedwp.agency/"
+msgstr ""
+
+#: classes/class-lsx-to-team-admin.php:51
+#: classes/class-lsx-to-team-frontend.php:377
+#: classes/class-lsx-to-team-frontend.php:404
+#: includes/metaboxes/config-team.php:42
+#: includes/taxonomies/config-role.php:19
 msgid "Role"
 msgstr ""
 
-#: classes/class-to-team-admin.php:61, includes/taxonomies/config-role.php:18, includes/taxonomies/config-role.php:21, includes/taxonomies/config-role.php:28
+#: classes/class-lsx-to-team-admin.php:61
+#: includes/taxonomies/config-role.php:18
+#: includes/taxonomies/config-role.php:21
+#: includes/taxonomies/config-role.php:28
 msgid "Roles"
 msgstr ""
 
-#: classes/class-to-team-admin.php:208
+#: classes/class-lsx-to-team-admin.php:196
 msgid "Expert"
 msgstr ""
 
-#: classes/class-to-team-admin.php:212
+#: classes/class-lsx-to-team-admin.php:200
 msgid "None"
 msgstr ""
 
-#: classes/class-to-team-admin.php:274
+#: classes/class-lsx-to-team-admin.php:262
 msgid "Disable Team Panel"
 msgstr ""
 
-#: classes/class-to-team-admin.php:278
+#: classes/class-lsx-to-team-admin.php:266
 msgid "This disables the team member panel on all post types."
 msgstr ""
 
-#: classes/class-to-team-admin.php:307
+#: classes/class-lsx-to-team-admin.php:295
 msgid "Group by Role"
 msgstr ""
 
-#: classes/class-to-team-admin.php:311
+#: classes/class-lsx-to-team-admin.php:299
 msgid "This groups archive items by role taxonomy and display the role title."
 msgstr ""
 
-#: classes/class-to-team-frontend.php:88
+#: classes/class-lsx-to-team-frontend.php:83
 msgid "Follow"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:89
+#: classes/class-lsx-to-team-frontend.php:84
 msgid "Get in touch"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:210, includes/template-tags.php:471
+#: classes/class-lsx-to-team-frontend.php:208
+#: includes/metaboxes/config-team.php:197
 msgid "Posts"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:235, includes/metaboxes/config-team.php:169
+#: classes/class-lsx-to-team-frontend.php:242
+#: includes/metaboxes/config-team.php:194
 msgid "Accommodation"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:259, includes/metaboxes/config-team.php:170
+#: classes/class-lsx-to-team-frontend.php:266
+#: includes/metaboxes/config-team.php:195
 msgid "Destinations"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:283, includes/metaboxes/config-team.php:171
+#: classes/class-lsx-to-team-frontend.php:290
+#: includes/metaboxes/config-team.php:196
 msgid "Tours"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:307
+#: classes/class-lsx-to-team-frontend.php:314
 msgid "Reviews"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:322, classes/class-to-team-frontend.php:327, classes/class-to-team-frontend.php:331, classes/class-to-team-frontend.php:430, includes/metaboxes/config-team.php:116, includes/metaboxes/config-team.php:122
+#: classes/class-lsx-to-team-frontend.php:329
+#: classes/class-lsx-to-team-frontend.php:334
+#: classes/class-lsx-to-team-frontend.php:338
+#: classes/class-lsx-to-team-frontend.php:458
+#: includes/metaboxes/config-team.php:139
 msgid "Gallery"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:353, classes/class-to-team-frontend.php:433, classes/class-to-team-frontend.php:435
+#: classes/class-lsx-to-team-frontend.php:360
+#: classes/class-lsx-to-team-frontend.php:461
+#: classes/class-lsx-to-team-frontend.php:463
 msgid "Videos"
 msgstr ""
 
-#: classes/class-to-team-frontend.php:409, templates/content-widget-team.php:46
+#: classes/class-lsx-to-team-frontend.php:419
+#: templates/content-widget-team.php:55
 msgid "More about"
 msgstr ""
 
-#: classes/class-to-team.php:110, includes/post-types/config-team.php:16, includes/post-types/config-team.php:22
+#: classes/class-lsx-to-team-frontend.php:434
+msgid "'s favourite places"
+msgstr ""
+
+#: classes/class-lsx-to-team.php:111
+#: includes/post-types/config-team.php:16
+#: includes/post-types/config-team.php:22
 msgid "Team"
 msgstr ""
 
-#: classes/class-to-team.php:114, includes/post-types/config-team.php:17
+#: classes/class-lsx-to-team.php:115
+#: includes/post-types/config-team.php:17
 msgid "Team Member"
-msgstr ""
-
-#: includes/template-tags.php:350, includes/template-tags.php:373, includes/template-tags.php:396, includes/template-tags.php:419
-msgstr ""
-
-#: includes/template-tags.php:510
-msgid "View all posts"
-msgstr ""
-
-#: templates/single-team.php:24
-msgid "Summary"
 msgstr ""
 
 #: includes/metaboxes/config-team.php:15
@@ -122,59 +155,60 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:47
+#: includes/metaboxes/config-team.php:70
 msgid "Site User"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:56
+#: includes/metaboxes/config-team.php:79
 msgid "Contact"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:62
+#: includes/metaboxes/config-team.php:85
 msgid "Email"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:68
+#: includes/metaboxes/config-team.php:91
 msgid "Number (international format)"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:74
+#: includes/metaboxes/config-team.php:97
 msgid "Skype"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:80
+#: includes/metaboxes/config-team.php:103
 msgid "Social Profiles"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:86
+#: includes/metaboxes/config-team.php:109
 msgid "Facebook"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:92
+#: includes/metaboxes/config-team.php:115
 msgid "Twitter"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:98
+#: includes/metaboxes/config-team.php:121
 msgid "Google Plus"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:104
+#: includes/metaboxes/config-team.php:127
 msgid "LinkedIn"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:110
+#: includes/metaboxes/config-team.php:133
 msgid "Pinterest"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:131, includes/metaboxes/config-team.php:137
+#: includes/metaboxes/config-team.php:156
+#: includes/metaboxes/config-team.php:162
 msgid "Envira Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:153
+#: includes/metaboxes/config-team.php:178
 msgid "Envira Video Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:183
+#: includes/metaboxes/config-team.php:209
 msgid " related with this team"
 msgstr ""
 
@@ -272,4 +306,8 @@ msgstr ""
 
 #: includes/taxonomies/config-role.php:27
 msgid "New Role"
+msgstr ""
+
+#: templates/single-team.php:24
+msgid "Summary"
 msgstr ""
