@@ -1,10 +1,10 @@
 === Tour Operator Team ===
-Contributors: feedmymedia, lightspeedwp, eleshar, krugazul, jacquesvdh, ignusvermaak
+Contributors: feedmymedia, lightspeedwp, eleshar, krugazul
 Donate link: https://lsdev.biz/lsx/donate/
 Tags: lsx, tour operator, team, team members, our team
-Requires at least: 5.0
-Tested up to: 6.6
-Requires PHP: 7.4
+Requires at least: 6.7
+Tested up to: 6.8
+Requires PHP: 8.0
 Stable tag: 2.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
