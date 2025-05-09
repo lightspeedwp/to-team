@@ -139,6 +139,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 	public function custom_fields( $fields ) {
 		global $post, $typenow, $current_screen;
 
+		// @phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( $post && $post->post_type ) {
 			$post_type = $post->post_type;
 		} elseif ( $typenow ) {
@@ -152,6 +153,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 		} else {
 			$post_type = false;
 		}
+		// @phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		if ( false !== $post_type ) {
 			$fields[] = array(

@@ -60,7 +60,6 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		public function __construct() {
 			// Set the variables.
 			$this->set_vars();
-			$this->lsx_to_search_integration();
 
 			// Make TO last plugin to load.
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
@@ -71,7 +70,6 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 				add_filter( 'lsx_to_framework_post_types', array( $this, 'post_types_filter' ) );
 				add_filter( 'lsx_to_post_types', array( $this, 'post_types_filter' ) );
 				add_filter( 'lsx_to_post_types_singular', array( $this, 'post_types_singular_filter' ) );
-				add_filter( 'lsx_to_settings_path', array( $this, 'plugin_path' ), 10, 2 );
 			}
 			if ( false !== $this->taxonomies ) {
 				add_filter( 'lsx_to_framework_taxonomies', array( $this, 'taxonomies_filter' ) );
@@ -86,14 +84,6 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 			register_activation_hook( LSX_TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
 			add_filter( 'wpseo_schema_graph_pieces', array( $this, 'add_graph_pieces' ), 11, 2 );
-		}
-
-		/**
-		 * Include the post type for the search integration
-		 */
-		public function lsx_to_search_integration() {
-			add_filter( 'lsx_to_search_post_types', array( $this, 'post_types_filter' ) );
-			add_filter( 'lsx_to_search_taxonomies', array( $this, 'taxonomies_filter' ) );
 		}
 
 		/**
@@ -116,17 +106,6 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 			);
 
 			$this->post_type_slugs = array_keys( $this->post_types );
-		}
-
-		/**
-		 * Adds our post types to an array via a filter
-		 */
-		public function plugin_path( $path, $post_type ) {
-			if ( false !== $this->post_types && array_key_exists( $post_type, $this->post_types ) ) {
-				$path = LSX_TO_TEAM_PATH;
-			}
-
-			return $path;
 		}
 
 		/**
@@ -217,6 +196,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 * On plugin activation
 		 */
 		public function register_activation_hook() {
+			// @phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
 				set_transient( '_tour_operators_team_flush_rewrite_rules', 1, 30 );
 			}
