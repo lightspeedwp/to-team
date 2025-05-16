@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank" href="https://touroperator.solutions/plugins/team/"><img src="https://www.lightspeedwp.agency/lsx/wp-content/uploads/2020/09/tour-operator-team-banner-1544x500-1.jpg" alt="Tour Operator Team Extension"></a>
+<p align="center"><a target="_blank" href="https://touroperator.solutions/plugins/team/"><img src="https://ps.w.org/tour-operator-team/assets/banner-1544x500.png" alt="Tour Operator Team Extension"></a>
 </p>
 <h1 align="center">Tour Operator Team Extension</h1>
 
