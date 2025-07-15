@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
 
-class LSX_TO_Specials_Templates {
+class LSX_TO_Team_Templates {
 
 	/**
 	 * Holds array of out templates to be registered.
