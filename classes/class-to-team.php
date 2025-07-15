@@ -76,12 +76,14 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 				add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'taxonomies_plural_filter' ) );
 			}
 
-			require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-admin.php';
+			require_once LSX_TO_TEAM_PATH . '/classes/class-to-team-admin.php';
 			
-			require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-frontend.php';
+			require_once LSX_TO_TEAM_PATH . '/classes/class-to-team-frontend.php';
 			
 			require_once LSX_TO_TEAM_PATH . '/includes/template-tags.php';
 			
+			require_once LSX_TO_TEAM_PATH . '/classes/class-to-team-templates.php';
+
 			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-templates.php';
 			
 			// flush_rewrite_rules.
@@ -228,7 +230,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 */
 		public function add_graph_pieces( $pieces, $context ) {
 			if ( class_exists( 'LSX_TO_Schema_Graph_Piece' ) ) {
-				require_once LSX_TO_TEAM_PATH . 'classes/class-lsx-to-team-schema.php';
+				require_once LSX_TO_TEAM_PATH . 'classes/class-to-team-schema.php';
 				$pieces[] = new LSX_TO_Team_Schema( $context );
 			}
 			return $pieces;

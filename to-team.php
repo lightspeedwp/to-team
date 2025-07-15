@@ -28,4 +28,4 @@ if ( ! defined( 'TEAM_ARCHIVE_URL' ) ) {
 
 /* ======================= Below is the Plugin Class init ========================= */
 
-require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team.php';
+require_once LSX_TO_TEAM_PATH . '/classes/class-to-team.php';
