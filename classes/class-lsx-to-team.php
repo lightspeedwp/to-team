@@ -77,9 +77,13 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 			}
 
 			require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-admin.php';
+			
 			require_once LSX_TO_TEAM_PATH . '/classes/class-lsx-to-team-frontend.php';
+			
 			require_once LSX_TO_TEAM_PATH . '/includes/template-tags.php';
-
+			
+			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-templates.php';
+			
 			// flush_rewrite_rules.
 			register_activation_hook( LSX_TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
