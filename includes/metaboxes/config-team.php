@@ -60,12 +60,6 @@ if ( ! empty( $user_results ) ) {
 	}
 }
 
-
-
-foreach ( $users as $user ) {
-
-}
-
 $metabox['fields'][] = array(
 	'name' => esc_html__( 'Site User', 'to-team' ),
 	'id' => 'site_user',
@@ -141,13 +135,15 @@ $metabox['fields'][] = array(
 );
 
 $metabox['fields'][] = array(
-	'id'                  => 'gallery',
-	'name'                => '',
-	'type'                => 'image',
-	'repeatable'          => true,
-	'show_size'           => false,
-	'sortable'            => true,
-	'string-repeat-field' => esc_html__( 'Add new image', 'to-team' ),
+    'name' => esc_html__( 'Gallery', 'tour-operator-team' ),
+	'desc' => esc_html__( 'Add images related to the accommodation to be displayed in the Accommodation\'s gallery.', 'tour-operator-team' ),
+    'id'   => 'gallery',
+    'type' => 'file_list',
+    'preview_size' => 'thumbnail', // Image size to use when previewing in the admin.
+    'query_args' => array( 'type' => 'image' ), // Only images attachment
+    'text' => array(
+        'add_upload_files_text' => esc_html__( 'Add new image', 'tour-operator-team' ), // default: "Add or Upload Files"
+    ),
 );
 
 if ( class_exists( 'Envira_Gallery' ) ) {
@@ -160,7 +156,7 @@ if ( class_exists( 'Envira_Gallery' ) ) {
 	$metabox['fields'][] = array(
 		'id'         => 'envira_gallery',
 		'name'       => esc_html__( 'Envira Gallery', 'to-team' ),
-		'type'       => 'post_select',
+		'type'       => 'pw_multiselect',
 		'use_ajax'   => false,
 		'allow_none' => true,
 		'query'      => array(
@@ -176,7 +172,7 @@ if ( class_exists( 'Envira_Gallery' ) ) {
 		$metabox['fields'][] = array(
 			'id'         => 'envira_video',
 			'name'       => esc_html__( 'Envira Video Gallery', 'to-team' ),
-			'type'       => 'post_select',
+			'type'       => 'pw_multiselect',
 			'use_ajax'   => false,
 			'allow_none' => true,
 			'query'      => array(
@@ -197,26 +193,22 @@ $post_types = array(
 	'post'				=> esc_html__( 'Posts', 'to-team' ),
 );
 
-foreach ( $post_types as $slug => $label ) {
-	$metabox['fields'][] = array(
-		'id'   => $slug . '_title',
-		'name' => $label,
-		'type' => 'title',
-	);
+$metabox['fields'][] = array(
+	'id'   => 'related_title',
+	'name' => esc_html__( 'Related', 'to-team' ),
+	'type' => 'title',
+);
 
+foreach ( $post_types as $slug => $label ) {
 	$metabox['fields'][] = array(
 		'id'         => $slug . '_to_team',
 		'name'       => $label . esc_html__( ' related with this team', 'to-team' ),
-		'type'       => 'post_select',
+		'type'       => 'pw_multiselect',
 		'use_ajax'   => false,
-		'repeatable' => true,
+		'repeatable' => false,
 		'allow_none' => true,
-		'query'      => array(
-			'post_type'      => $slug,
-			'nopagin'        => true,
-			'posts_per_page' => '-1',
-			'orderby'        => 'title',
-			'order'          => 'ASC',
+		'options'  => array(
+			'post_type_args' => $slug,
 		),
 	);
 }
