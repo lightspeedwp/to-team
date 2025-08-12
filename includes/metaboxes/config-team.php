@@ -130,7 +130,7 @@ $metabox['fields'][] = array(
 
 $metabox['fields'][] = array(
 	'id'   => 'gallery_title',
-	'name' => esc_html__( 'Gallery', 'to-team' ),
+	'name' => esc_html__( 'Media', 'to-team' ),
 	'type' => 'title',
 );
 
@@ -147,11 +147,6 @@ $metabox['fields'][] = array(
 );
 
 if ( class_exists( 'Envira_Gallery' ) ) {
-	$metabox['fields'][] = array(
-		'id'   => 'envira_title',
-		'name' => esc_html__( 'Envira Gallery', 'to-team' ),
-		'type' => 'title',
-	);
 
 	$metabox['fields'][] = array(
 		'id'         => 'envira_gallery',
