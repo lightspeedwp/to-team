@@ -5,6 +5,9 @@
 ### Updated
 - The post, accommodation, destination and tour relation fields.
 
+### Fixed
+- Registration of the default team single and archive templates.
+
 ## [[2.0.0]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.0) - 2025-05-09
 
 ### Description

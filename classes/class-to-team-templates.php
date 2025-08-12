@@ -37,15 +37,15 @@ class LSX_TO_Team_Templates {
 		 * The slugs of the built in post types we are using.
 		 */
 		$post_types = [
-			'single-tour'  => [
-				'title'       => __( 'Single Special Offer', 'to-specials' ),
-				'description' => __( 'Displays a single tour', 'to-specials' ),
-				'post_types'  => ['special'],
+			'single-team'  => [
+				'title'       => __( 'Single Team Member', 'to-team' ),
+				'description' => __( 'Displays a single team member', 'to-team' ),
+				'post_types'  => ['team'],
 			],
-			'archive-special' => [
-				'title'       => __( 'Specials Offers Archive', 'to-specials' ),
-				'description' => __( 'Displays all the specials available.', 'to-specials' ),
-				'post_types'  => ['special'],
+			'archive-team' => [
+				'title'       => __( 'Team Members Archive', 'to-team' ),
+				'description' => __( 'Displays all the team members.', 'to-team' ),
+				'post_types'  => ['team'],
 			],
 		];
 
@@ -73,9 +73,9 @@ class LSX_TO_Team_Templates {
 	 */
 	protected function get_template_content( $template ) {
 		ob_start();
-		include LSX_TO_SPECIALS_PATH . "/templates/{$template}";
+		include LSX_TO_TEAM_PATH . "/templates/{$template}";
 		return ob_get_clean();
 	}
 }
 
-new LSX_TO_Specials_Templates();
+new LSX_TO_Team_Templates();
