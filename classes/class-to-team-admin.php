@@ -36,6 +36,7 @@ class LSX_TO_Team_Admin extends LSX_TO_Team {
 
 		add_filter( 'lsx_get_taxonomies_configs', array( $this, 'taxonomy_config' ), 10, 1 );
 
+		add_filter( 'lsx_to_post_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_accommodation_custom_fields', array( $this, 'custom_fields' ) );
