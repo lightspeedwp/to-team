@@ -1,0 +1,18 @@
+/**
+ * TO Team Admin Styles
+ *
+ * @package TO_Team
+ */
+
+.to-team-admin {
+	display: block;
+
+	&__settings {
+		padding: 1rem;
+	}
+
+	&__metabox {
+		background: #fff;
+		padding: 1rem;
+	}
+}

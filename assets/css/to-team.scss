@@ -1,0 +1,19 @@
+/**
+ * TO Team Plugin Styles
+ *
+ * @package TO_Team
+ */
+
+.to-team {
+	display: block;
+
+	&__grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	&__member {
+		padding: 1rem;
+		border: 1px solid #ddd;
+	}
+}
