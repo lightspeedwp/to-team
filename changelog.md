@@ -1,6 +1,6 @@
 # Change log
 
-## [[2.0.1]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.0.1) - 2025-01-13
+## [[2.1]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.1) - 2025-12-20
 
 ### Description
 This release includes major plugin structure refactoring, field improvements, and proper block editor template support for the Team post type.
@@ -29,7 +29,7 @@ This release includes major plugin structure refactoring, field improvements, an
 - Tested with WordPress 6.7+
 - Tested with PHP 8.0+
 
-## [[2.0.0]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.0) - 2025-05-09
+## [[2.0.0]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.0.0) - 2025-05-09
 
 ### Description
 The following PR contains the code for the block updates and the removal of the legacy code.
