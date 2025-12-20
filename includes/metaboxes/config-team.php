@@ -135,14 +135,14 @@ $metabox['fields'][] = array(
 );
 
 $metabox['fields'][] = array(
-    'name' => esc_html__( 'Gallery', 'tour-operator-team' ),
-	'desc' => esc_html__( 'Add images related to the accommodation to be displayed in the Accommodation\'s gallery.', 'tour-operator-team' ),
+    'name' => esc_html__( 'Gallery', 'to-team' ),
+	'desc' => esc_html__( 'Add images related to the accommodation to be displayed in the Accommodation\'s gallery.', 'to-team' ),
     'id'   => 'gallery',
     'type' => 'file_list',
     'preview_size' => 'thumbnail', // Image size to use when previewing in the admin.
     'query_args' => array( 'type' => 'image' ), // Only images attachment
     'text' => array(
-        'add_upload_files_text' => esc_html__( 'Add new image', 'tour-operator-team' ), // default: "Add or Upload Files"
+        'add_upload_files_text' => esc_html__( 'Add new image', 'to-team' ), // default: "Add or Upload Files"
     ),
 );
 
