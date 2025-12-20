@@ -1,12 +1,33 @@
 # Change log
 
-## [[2.0.1]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.1) - WIP
+## [[2.0.1]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.0.1) - 2025-01-13
+
+### Description
+This release includes major plugin structure refactoring, field improvements, and proper block editor template support for the Team post type.
+
+### Added
+- Block editor templates for team archive and single pages (`templates/archive-team.html` and `templates/single-team.html`)
+- New `LSX_TO_Team_Templates` class for proper template registration
 
 ### Updated
-- The post, accommodation, destination and tour relation fields.
+- Refactored all class files to use consistent `to-team` naming convention (removed `lsx-to-` prefix)
+- Post, accommodation, destination and tour relation fields with improved CMB2 configurations
+- Plugin assets converted to PNG format for better quality (banners and icons)
+- Updated CMB2 field configurations for better customization options
+- Improved field descriptions and user guidance
 
 ### Fixed
-- Registration of the default team single and archive templates.
+- Corrected template class naming from `LSX_TO_Specials_Templates` to `LSX_TO_Team_Templates`
+- Registration of the default team single and archive templates
+- Block editor template compatibility issues
+
+### Changed
+- Class file structure: `class-lsx-to-team-*.php` → `class-to-team-*.php` for consistency
+- Removed incorrect `class-to-specials-templates.php` file
+
+### Security
+- Tested with WordPress 6.7+
+- Tested with PHP 8.0+
 
 ## [[2.0.0]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.0) - 2025-05-09
 
