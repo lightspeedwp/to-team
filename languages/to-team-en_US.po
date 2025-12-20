@@ -2,14 +2,14 @@
 # This file is distributed under the GPL3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tour Operator Team 2.0.0\n"
+"Project-Id-Version: Tour Operator Team 2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/to-team\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-09T12:22:47+00:00\n"
+"POT-Creation-Date: 2025-12-20T07:44:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: to-team\n"
@@ -34,107 +34,42 @@ msgstr ""
 msgid "https://lightspeedwp.agency/"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:51
-#: classes/class-lsx-to-team-frontend.php:377
-#: classes/class-lsx-to-team-frontend.php:404
-#: includes/metaboxes/config-team.php:42
-#: includes/taxonomies/config-role.php:19
-msgid "Role"
+#: classes/class-to-team-admin.php:120
+msgid "Related Team members"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:61
-#: includes/taxonomies/config-role.php:18
-#: includes/taxonomies/config-role.php:21
-#: includes/taxonomies/config-role.php:28
-msgid "Roles"
-msgstr ""
-
-#: classes/class-lsx-to-team-admin.php:196
+#: classes/class-to-team-admin.php:157
 msgid "Expert"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:200
+#: classes/class-to-team-admin.php:161
 msgid "None"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:262
-msgid "Disable Team Panel"
+#: classes/class-to-team-templates.php:41
+msgid "Single Team Member"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:266
-msgid "This disables the team member panel on all post types."
+#: classes/class-to-team-templates.php:42
+msgid "Displays a single team member"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:295
-msgid "Group by Role"
+#: classes/class-to-team-templates.php:46
+msgid "Team Members Archive"
 msgstr ""
 
-#: classes/class-lsx-to-team-admin.php:299
-msgid "This groups archive items by role taxonomy and display the role title."
+#: classes/class-to-team-templates.php:47
+msgid "Displays all the team members."
 msgstr ""
 
-#: classes/class-lsx-to-team-frontend.php:83
-msgid "Follow"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:84
-msgid "Get in touch"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:208
-#: includes/metaboxes/config-team.php:197
-msgid "Posts"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:242
-#: includes/metaboxes/config-team.php:194
-msgid "Accommodation"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:266
-#: includes/metaboxes/config-team.php:195
-msgid "Destinations"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:290
-#: includes/metaboxes/config-team.php:196
-msgid "Tours"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:314
-msgid "Reviews"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:329
-#: classes/class-lsx-to-team-frontend.php:334
-#: classes/class-lsx-to-team-frontend.php:338
-#: classes/class-lsx-to-team-frontend.php:458
-#: includes/metaboxes/config-team.php:139
-msgid "Gallery"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:360
-#: classes/class-lsx-to-team-frontend.php:461
-#: classes/class-lsx-to-team-frontend.php:463
-msgid "Videos"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:419
-#: templates/content-widget-team.php:55
-msgid "More about"
-msgstr ""
-
-#: classes/class-lsx-to-team-frontend.php:434
-msgid "'s favourite places"
-msgstr ""
-
-#: classes/class-lsx-to-team.php:111
+#: classes/class-to-team.php:105
 #: includes/post-types/config-team.php:16
 #: includes/post-types/config-team.php:22
+#: includes/post-types/config-team.php:28
 msgid "Team"
 msgstr ""
 
-#: classes/class-lsx-to-team.php:115
+#: classes/class-to-team.php:109
 #: includes/post-types/config-team.php:17
 msgid "Team Member"
 msgstr ""
@@ -155,81 +90,101 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:70
+#: includes/metaboxes/config-team.php:42
+#: includes/taxonomies/config-role.php:19
+msgid "Role"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:64
 msgid "Site User"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:79
+#: includes/metaboxes/config-team.php:73
 msgid "Contact"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:85
+#: includes/metaboxes/config-team.php:79
 msgid "Email"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:91
+#: includes/metaboxes/config-team.php:85
 msgid "Number (international format)"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:97
+#: includes/metaboxes/config-team.php:91
 msgid "Skype"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:103
+#: includes/metaboxes/config-team.php:97
 msgid "Social Profiles"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:109
+#: includes/metaboxes/config-team.php:103
 msgid "Facebook"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:115
+#: includes/metaboxes/config-team.php:109
 msgid "Twitter"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:121
+#: includes/metaboxes/config-team.php:115
 msgid "Google Plus"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:127
+#: includes/metaboxes/config-team.php:121
 msgid "LinkedIn"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:133
+#: includes/metaboxes/config-team.php:127
 msgid "Pinterest"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:156
-#: includes/metaboxes/config-team.php:162
+#: includes/metaboxes/config-team.php:133
+msgid "Media"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:138
+msgid "Gallery"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:139
+msgid "Add images related to the accommodation to be displayed in the Accommodation's gallery."
+msgstr ""
+
+#: includes/metaboxes/config-team.php:145
+msgid "Add new image"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:153
 msgid "Envira Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:178
+#: includes/metaboxes/config-team.php:169
 msgid "Envira Video Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:209
+#: includes/metaboxes/config-team.php:185
+msgid "Accommodation"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:186
+msgid "Destinations"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:187
+msgid "Tours"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:188
+msgid "Posts"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:193
+msgid "Related"
+msgstr ""
+
+#: includes/metaboxes/config-team.php:200
 msgid " related with this team"
-msgstr ""
-
-#: includes/partials/team.php:4
-msgid "General"
-msgstr ""
-
-#: includes/partials/team.php:6
-msgid "Search"
-msgstr ""
-
-#: includes/partials/team.php:8
-msgid "Placeholders"
-msgstr ""
-
-#: includes/partials/team.php:9
-msgid "Archives"
-msgstr ""
-
-#: includes/partials/team.php:10
-msgid "Single"
 msgstr ""
 
 #: includes/post-types/config-team.php:18
@@ -280,6 +235,12 @@ msgstr ""
 msgid "Use as profile picture"
 msgstr ""
 
+#: includes/taxonomies/config-role.php:18
+#: includes/taxonomies/config-role.php:21
+#: includes/taxonomies/config-role.php:28
+msgid "Roles"
+msgstr ""
+
 #: includes/taxonomies/config-role.php:20
 msgid "Search Roles"
 msgstr ""
@@ -306,8 +267,4 @@ msgstr ""
 
 #: includes/taxonomies/config-role.php:27
 msgid "New Role"
-msgstr ""
-
-#: templates/single-team.php:24
-msgid "Summary"
 msgstr ""
