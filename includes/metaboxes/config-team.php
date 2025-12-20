@@ -8,9 +8,7 @@
  * @link
  * @copyright 2017 LightSpeedDevelopment
  */
-
-global $lsx_to_team;
-
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $metabox = array(
 	'title'  => esc_html__( 'Tour Operator Plugin', 'to-team' ),
 	'pages'  => 'team',
