@@ -26,7 +26,7 @@ This release includes major plugin structure refactoring, field improvements, an
 - Removed incorrect `class-to-specials-templates.php` file
 
 ### Security
-- Tested with WordPress 6.7+
+- Tested with WordPress 6.9+
 - Tested with PHP 8.0+
 
 ## [[2.0.0]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.0.0) - 2025-05-09
