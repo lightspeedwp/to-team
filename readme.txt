@@ -5,7 +5,7 @@ Tags: lsx, tour operator, team, team members, our team
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -64,7 +64,12 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 
 == Screenshots ==
 
-== Changelog == 
+== Changelog ==
+
+= 2.2 =
+* Added Gutenberg block variations: featured team, related team members, post meta blocks (tagline, role, contact email, contact number, social links), post connection blocks (to accommodation, destination, tour), and gallery block.
+* Added related blocks for destination, accommodation, and tour post types.
+* Migrated build tooling from Gulp to wp-scripts.
 
 [Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/to-team/blob/master/changelog.md).
 
