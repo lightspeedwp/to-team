@@ -1,0 +1,10 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "textdomain": "to-team",
+    "name": "lsx-tour-operator/team-gallery",
+    "title": "Team Gallery",
+    "category": "lsx-tour-operator",
+    "description": "Display the gallery images for this team member.",
+    "editorScript": "file:index.js"
+}
