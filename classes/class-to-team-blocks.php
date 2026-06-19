@@ -13,6 +13,25 @@ class LSX_TO_Team_Blocks {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_block_json_files' ) );
+		add_filter( 'lsx_to_multi_field_wrappers', array( $this, 'register_multi_field_wrappers' ) );
+	}
+
+	/**
+	 * Register team block wrappers that group multiple meta fields.
+	 * The social-links wrapper should be hidden only when every social field is empty.
+	 *
+	 * @param array $wrappers
+	 * @return array
+	 */
+	public function register_multi_field_wrappers( $wrappers ) {
+		$wrappers['social-links'] = array(
+			'facebook',
+			'twitter',
+			'linkedin',
+			'pinterest',
+			'skype',
+		);
+		return $wrappers;
 	}
 
 	/**
