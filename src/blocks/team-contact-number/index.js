@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Team Contact Number', 'to-team') },
-                className: 'lsx-team-contact-number-wrapper',
+                className: 'lsx-contact-number-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

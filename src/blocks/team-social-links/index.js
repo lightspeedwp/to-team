@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Team Social Links', 'to-team') },
-                className: 'lsx-team-social-links-wrapper',
+                className: 'lsx-social-links-wrapper',
                 layout: { type: 'flex', flexWrap: 'wrap', verticalAlignment: 'middle' },
             },
             innerBlocks: [

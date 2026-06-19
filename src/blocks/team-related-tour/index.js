@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Related Team', 'to-team') },
-                className: 'lsx-team-related-tour-query-wrapper',
+                className: 'lsx-related-tour-query-wrapper',
                 layout: { type: 'constrained' },
             },
             isDefault: false,

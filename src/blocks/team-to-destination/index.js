@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Team to Destination', 'to-team') },
-                className: 'lsx-team-to-destination-wrapper',
+                className: 'lsx-to-destination-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

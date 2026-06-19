@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Team to Tour', 'to-team') },
-                className: 'lsx-team-to-tour-wrapper',
+                className: 'lsx-to-tour-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

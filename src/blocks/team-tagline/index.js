@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Team Tagline', 'to-team') },
-                className: 'lsx-team-tagline-wrapper',
+                className: 'lsx-tagline-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [
