@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-team",
+  "name": "lsx-tour-operator/team-contact-email",
+  "title": "Team Contact Email",
+  "category": "lsx-tour-operator",
+  "description": "Display the contact email for this team member.",
+  "editorScript": "file:index.js"
+}
