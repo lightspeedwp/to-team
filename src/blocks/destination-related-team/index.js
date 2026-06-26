@@ -1,7 +1,7 @@
 /**
- * Team Related Team Block Variation
+ * Destination Related Team Block Variation
  *
- * Registers a block variation for displaying team members related to the current team member.
+ * Registers a block variation for displaying team members related to the current destination.
  * Only available on team post types and team template screens.
  *
  * @since 2.2.0
@@ -12,26 +12,26 @@ import { registerForPostTypesAndTemplates } from '@utils/conditional-block-regis
 import { __ } from '@wordpress/i18n';
 
 /**
- * Register the team related team block variation
+ * Register the destination related team block variation
  */
-function registerTeamRelatedTeamVariation() {
+function registerDestinationRelatedTeamVariation() {
 	wp.blocks.registerBlockVariation('core/group', {
-		name: 'lsx-tour-operator/team-related-team',
-		title: __('Team Related Team', 'to-team'),
+		name: 'lsx-tour-operator/destination-related-team',
+		title: __('Related Team', 'to-team'),
 		icon: 'admin-users',
-		description: __('Displays team members related to this team member.', 'to-team'),
+		description: __('Displays team members related to this destination.', 'to-team'),
 		category: 'lsx-tour-operator',
 		keywords: [
 			__('team', 'to-team'),
+			__('destination', 'to-team'),
 			__('related', 'to-team'),
 			__('query', 'to-team'),
-			__('guide', 'to-team'),
 		],
 		attributes: {
 			metadata: {
-				name: __('Team Related Team', 'to-team'),
+				name: __('Related Team', 'to-team'),
 			},
-			className: 'lsx-team-related-team-query-wrapper',
+			className: 'lsx-destination-related-team-query-wrapper',
 			align: 'full',
 			layout: {
 				type: 'constrained',
@@ -58,7 +58,7 @@ function registerTeamRelatedTeamVariation() {
 						'core/heading',
 						{
 							textAlign: 'center',
-							content: __('Related Team Members', 'to-team'),
+							content: __('Related Team', 'to-team'),
 							level: 2,
 						},
 					],
@@ -94,7 +94,7 @@ function registerTeamRelatedTeamVariation() {
 							[
 								'core/post-template',
 								{
-									className: 'lsx-team-related-team-query',
+									className: 'lsx-destination-related-team-query',
 									layout: {
 										type: 'grid',
 										columnCount: 3,
@@ -135,7 +135,7 @@ function registerTeamRelatedTeamVariation() {
 							name: 'core/heading',
 							attributes: {
 								textAlign: 'center',
-								content: __('Related Team Members', 'to-team'),
+								content: __('Related Team', 'to-team'),
 								level: 2,
 							},
 						},
@@ -159,7 +159,7 @@ function registerTeamRelatedTeamVariation() {
 						{
 							name: 'core/group',
 							attributes: {
-								className: 'lsx-team-related-team-query',
+								className: 'lsx-destination-related-team-query',
 								layout: {
 									type: 'grid',
 									columnCount: 3,
@@ -366,9 +366,9 @@ function registerTeamRelatedTeamVariation() {
 		},
 		isActive: (blockAttributes) => {
 			return (
-				blockAttributes.className === 'lsx-team-related-team-query-wrapper' ||
+				blockAttributes.className === 'lsx-destination-related-team-query-wrapper' ||
 				(blockAttributes.className &&
-					blockAttributes.className.includes('lsx-team-related-team-query-wrapper'))
+					blockAttributes.className.includes('lsx-destination-related-team-query-wrapper'))
 			);
 		},
 	});
@@ -378,7 +378,7 @@ function registerTeamRelatedTeamVariation() {
 const conditionalRegister = registerForPostTypesAndTemplates(
 	['team'],
 	['team'],
-	registerTeamRelatedTeamVariation
+	registerDestinationRelatedTeamVariation
 );
 
 wp.domReady(conditionalRegister);
