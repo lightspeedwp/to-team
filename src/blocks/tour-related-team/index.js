@@ -1,5 +1,5 @@
 /**
- * Team Related Tour Block Variation
+ * Tour Related Team Block Variation
  *
  * @since 2.2.0
  * @package TO_Team
@@ -9,9 +9,9 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerTeamRelatedTourVariation = () => {
+    const registerTourRelatedTeamVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/team-related-tour',
+            name: 'lsx-tour-operator/tour-related-team',
             title: __('Related Team', 'to-team'),
             icon: 'admin-users',
             category: 'lsx-tour-operator',
@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Related Team', 'to-team') },
-                className: 'lsx-related-tour-query-wrapper',
+                className: 'lsx-tour-related-team-query-wrapper',
                 layout: { type: 'constrained' },
             },
             isDefault: false,
@@ -32,7 +32,7 @@ wp.domReady(() => {
     const conditionalRegister = registerForPostTypesAndTemplates(
         ['tour'],
         ['tour'],
-        registerTeamRelatedTourVariation
+        registerTourRelatedTeamVariation
     );
     conditionalRegister();
 });
