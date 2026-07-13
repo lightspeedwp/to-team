@@ -42,9 +42,9 @@ All scoped to `team` post type and template.
 
 | Block Name | Connection Key | Icon |
 |---|---|---|
-| `lsx-tour-operator/team-to-accommodation` | `accommodation_to_team` | `accommodationIcon` |
-| `lsx-tour-operator/team-to-destination` | `destination_to_team` | `destinationIcon` |
-| `lsx-tour-operator/team-to-tour` | `tour_to_team` | `tourIcon` |
+| `lsx-tour-operator/accommodation-to-team` | `accommodation_to_team` | `accommodationIcon` |
+| `lsx-tour-operator/destination-to-team` | `destination_to_team` | `destinationIcon` |
+| `lsx-tour-operator/tour-to-team` | `tour_to_team` | `tourIcon` |
 
 ### Gallery
 

@@ -1,5 +1,5 @@
 /**
- * Team to Accommodation Block Variation
+ * Accommodation to Team Block Variation
  *
  * @since 2.2.0
  * @package TO_Team
@@ -9,10 +9,10 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerTeamToAccommodationVariation = () => {
+    const registerAccommodationToTeamVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/team-to-accommodation',
-            title: __('Team to Accommodation', 'to-team'),
+            name: 'lsx-tour-operator/accommodation-to-team',
+            title: __('Accommodation to Team', 'to-team'),
             icon: 'admin-home',
             category: 'lsx-tour-operator',
             description: __('Displays the accommodations connected to this team member.', 'to-team'),
@@ -21,8 +21,8 @@ wp.domReady(() => {
                 return blockAttributes.className === variationAttributes.className;
             },
             attributes: {
-                metadata: { name: __('Team to Accommodation', 'to-team') },
-                className: 'lsx-to-accommodation-wrapper',
+                metadata: { name: __('Accommodation to Team', 'to-team') },
+                className: 'lsx-accommodation-to-team-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [
@@ -65,6 +65,6 @@ wp.domReady(() => {
         });
     };
 
-    const conditionalRegister = registerForPostTypesAndTemplates(['team'], ['team'], registerTeamToAccommodationVariation);
+    const conditionalRegister = registerForPostTypesAndTemplates(['team'], ['team'], registerAccommodationToTeamVariation);
     conditionalRegister();
 });

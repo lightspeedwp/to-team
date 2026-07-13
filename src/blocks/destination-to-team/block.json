@@ -2,8 +2,8 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "textdomain": "to-team",
-    "name": "lsx-tour-operator/team-to-destination",
-    "title": "Team to Destination",
+    "name": "lsx-tour-operator/destination-to-team",
+    "title": "Destination to Team",
     "category": "lsx-tour-operator",
     "description": "Displays the destinations connected to this team member.",
     "editorScript": "file:index.js"
