@@ -1,5 +1,23 @@
 # Change log
 
+## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - Unreleased
+
+### Description
+This release renames and rebuilds the team member block variations for consistency, and adds new "related" block variations for surfacing connected content on the team member edit screen.
+
+### Added
+- New block variations for surfacing content connected to a team member: `special-related-team`, `review-related-team`, and `post-related-team` (matching the existing `accommodation-related-team`, `destination-related-team`, and `tour-related-team` pattern)
+- `Team - Social Links` block variation, with custom field integration and editor styling
+
+### Updated
+- Renamed block folders to drop the redundant `team-` prefix (e.g. `team-contact-email` → `contact-email`, `team-gallery` → `gallery`, `team-role` → `role`, `team-social-links` → `social-links`, `team-tagline` → `tagline`) and updated their titles to `Team - <Field>` for consistency
+- Renamed the "-to-" connection blocks to lead with the connected post type (e.g. `team-to-accommodation` → `accommodation-to-team`, `team-to-destination` → `destination-to-team`, `team-to-tour` → `tour-to-team`), updating each block's registered name, title, and CSS class to match
+- Renamed `team-related-tour` → `tour-related-team` to match the `<post-type>-related-team` naming used by its siblings, and corrected its registration to the `team` post type
+- Updated `accommodation-related-team` and `destination-related-team` titles, descriptions, and pattern references to correctly describe accommodation/destination content, and fixed their `core/query` `postType` (previously hardcoded to `team`, which caused both queries to return no results)
+
+### Removed
+- `team-related-team` block variation (no longer needed)
+
 ## [[2.1]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.1) - 2025-12-20
 
 ### Description
