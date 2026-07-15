@@ -15,7 +15,7 @@ wp.domReady(() => {
     const registerTeamRelatedTeamVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
             name: 'lsx-tour-operator/team-related-team',
-            title: __('Team Related Team', 'to-team'),
+            title: __('Related Team', 'to-team'),
             icon: 'admin-users',
             description: __('Displays team members related to this team member.', 'to-team'),
             category: 'lsx-tour-operator',
@@ -27,7 +27,7 @@ wp.domReady(() => {
             ],
             attributes: {
                 metadata: {
-                    name: __('Team Related Team', 'to-team'),
+                    name: __('Related Team', 'to-team'),
                 },
                 className: 'lsx-team-related-team-query-wrapper',
                 align: 'full',

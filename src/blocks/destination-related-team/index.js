@@ -15,9 +15,9 @@ wp.domReady(() => {
     const registerDestinationRelatedTeamVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
             name: 'lsx-tour-operator/destination-related-team',
-            title: __('Related Team', 'to-team'),
+            title: __('Related Destination', 'to-team'),
             icon: 'admin-users',
-            description: __('Displays team members related to this destination.', 'to-team'),
+            description: __('Display destinations related to this team member.', 'to-team'),
             category: 'lsx-tour-operator',
             keywords: [
                 __('team', 'to-team'),
@@ -27,7 +27,7 @@ wp.domReady(() => {
             ],
             attributes: {
                 metadata: {
-                    name: __('Related Team', 'to-team'),
+                    name: __('Related Destination', 'to-team'),
                 },
                 className: 'lsx-destination-related-team-query-wrapper',
                 align: 'full',
@@ -56,7 +56,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Related Team', 'to-team'),
+                                content: __('Related Destination', 'to-team'),
                                 level: 2,
                             },
                         ],
@@ -82,7 +82,7 @@ wp.domReady(() => {
                                 },
                                 query: {
                                     perPage: 8,
-                                    postType: 'team',
+                                    postType: 'destination',
                                     order: 'asc',
                                     orderBy: 'date',
                                 },
@@ -102,7 +102,7 @@ wp.domReady(() => {
                                         [
                                             'core/pattern',
                                             {
-                                                slug: 'lsx-tour-operator/team-card',
+                                                slug: 'lsx-tour-operator/destination-card',
                                             },
                                         ],
                                     ],
@@ -131,7 +131,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Related Team', 'to-team'),
+                                    content: __('Related Destination', 'to-team'),
                                     level: 2,
                                 },
                             },

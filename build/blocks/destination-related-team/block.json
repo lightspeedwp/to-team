@@ -3,8 +3,8 @@
   "apiVersion": 3,
   "textdomain": "to-team",
   "name": "lsx-tour-operator/destination-related-team",
-  "title": "Related Team",
+  "title": "Team - Related Destination",
   "category": "lsx-tour-operator",
-  "description": "Display team members related to this destination.",
+  "description": "Display destination related to this team member.",
   "editorScript": "file:index.js"
 }
