@@ -78,7 +78,7 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related team query', 'to-team'),
+                                    name: __('Related destinations query', 'to-team'),
                                 },
                                 query: {
                                     perPage: 8,

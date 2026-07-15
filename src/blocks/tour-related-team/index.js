@@ -1,6 +1,9 @@
 /**
  * Tour Related Team Block Variation
  *
+ * Registers a block variation for displaying tours related to the current team member.
+ * Only available on team post types and team template screens.
+ *
  * @since 2.2.0
  * @package TO_Team
  */
@@ -14,24 +17,218 @@ wp.domReady(() => {
             name: 'lsx-tour-operator/tour-related-team',
             title: __('Related Tour', 'to-team'),
             icon: 'admin-users',
-            category: 'lsx-tour-operator',
             description: __('Display tours related to this team member.', 'to-team'),
-            keywords: [__('team', 'to-team'), __('tour', 'to-team'), __('related', 'to-team'), __('query', 'to-team')],
+            category: 'lsx-tour-operator',
+            keywords: [
+                __('team', 'to-team'),
+                __('tour', 'to-team'),
+                __('related', 'to-team'),
+                __('query', 'to-team'),
+            ],
+            attributes: {
+                metadata: {
+                    name: __('Related Tour', 'to-team'),
+                },
+                className: 'lsx-tour-related-team-query-wrapper',
+                align: 'full',
+                layout: {
+                    type: 'constrained',
+                },
+                tagName: 'section',
+            },
+            innerBlocks: [
+                [
+                    'core/group',
+                    {
+                        align: 'wide',
+                        layout: { type: 'flex', flexWrap: 'nowrap' },
+                    },
+                    [
+                        [
+                            'core/separator',
+                            {
+                                style: {
+                                    layout: { selfStretch: 'fill', flexSize: null },
+                                },
+                            },
+                        ],
+                        [
+                            'core/heading',
+                            {
+                                textAlign: 'center',
+                                content: __('Related Tour', 'to-team'),
+                                level: 2,
+                            },
+                        ],
+                        [
+                            'core/separator',
+                            {
+                                style: {
+                                    layout: { selfStretch: 'fill', flexSize: null },
+                                },
+                            },
+                        ],
+                    ],
+                ],
+                [
+                    'core/group',
+                    { align: 'wide', layout: { type: 'constrained' } },
+                    [
+                        [
+                            'core/query',
+                            {
+                                metadata: {
+                                    name: __('Related tours query', 'to-team'),
+                                },
+                                query: {
+                                    perPage: 8,
+                                    postType: 'tour',
+                                    order: 'asc',
+                                    orderBy: 'date',
+                                },
+                                align: 'wide',
+                            },
+                            [
+                                [
+                                    'core/post-template',
+                                    {
+                                        className: 'lsx-tour-related-team-query',
+                                        layout: {
+                                            type: 'grid',
+                                            columnCount: 3,
+                                        },
+                                    },
+                                    [
+                                        [
+                                            'core/pattern',
+                                            {
+                                                slug: 'lsx-tour-operator/tour-card',
+                                            },
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            example: {
+                innerBlocks: [
+                    {
+                        name: 'core/group',
+                        attributes: {
+                            align: 'wide',
+                            layout: { type: 'flex', flexWrap: 'nowrap' },
+                        },
+                        innerBlocks: [
+                            {
+                                name: 'core/separator',
+                                attributes: {
+                                    style: { layout: { selfStretch: 'fill', flexSize: null } },
+                                },
+                            },
+                            {
+                                name: 'core/heading',
+                                attributes: {
+                                    textAlign: 'center',
+                                    content: __('Related Tour', 'to-team'),
+                                    level: 2,
+                                },
+                            },
+                            {
+                                name: 'core/separator',
+                                attributes: {
+                                    style: { layout: { selfStretch: 'fill', flexSize: null } },
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        name: 'core/group',
+                        attributes: { align: 'wide', layout: { type: 'constrained' } },
+                        innerBlocks: [
+                            {
+                                name: 'core/group',
+                                attributes: {
+                                    className: 'lsx-tour-related-team-query',
+                                    layout: { type: 'grid', columnCount: 3 },
+                                },
+                                innerBlocks: [
+                                    {
+                                        name: 'core/group',
+                                        attributes: {
+                                            className: 'is-style-shadow-sm',
+                                            style: { spacing: { blockGap: '0px', padding: { top: '0px', bottom: '0px', left: '0px', right: '0px' } }, border: { radius: '8px' } },
+                                            backgroundColor: 'base',
+                                            layout: { type: 'constrained' },
+                                        },
+                                        innerBlocks: [
+                                            {
+                                                name: 'core/group',
+                                                attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
+                                                innerBlocks: [
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Sarah Johnson', 'to-team'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/group', attributes: { style: { spacing: { padding: { top: '5px', bottom: '10px', left: '5px', right: '5px' }, blockGap: '2px' }, border: { top: { width: '2px' }, bottom: { width: '2px' } } }, layout: { type: 'constrained' } }, innerBlocks: [ { name: 'core/paragraph', attributes: { content: '<strong>' + __('Role: Safari Guide', 'to-team') + '</strong>' } } ] },
+                                                    { name: 'core/paragraph', attributes: { content: __('Experienced safari guide with over 10 years leading tours across East Africa.', 'to-team'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        name: 'core/group',
+                                        attributes: {
+                                            className: 'is-style-shadow-sm',
+                                            style: { spacing: { blockGap: '0px', padding: { top: '0px', bottom: '0px', left: '0px', right: '0px' } }, border: { radius: '8px' } },
+                                            backgroundColor: 'base',
+                                            layout: { type: 'constrained' },
+                                        },
+                                        innerBlocks: [
+                                            {
+                                                name: 'core/group',
+                                                attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
+                                                innerBlocks: [
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Michael Chen', 'to-team'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/group', attributes: { style: { spacing: { padding: { top: '5px', bottom: '10px', left: '5px', right: '5px' }, blockGap: '2px' }, border: { top: { width: '2px' }, bottom: { width: '2px' } } }, layout: { type: 'constrained' } }, innerBlocks: [ { name: 'core/paragraph', attributes: { content: '<strong>' + __('Role: Wildlife Expert', 'to-team') + '</strong>' } } ] },
+                                                    { name: 'core/paragraph', attributes: { content: __('Wildlife biologist turned tour guide, passionate about conservation and sharing Africa\'s natural wonders.', 'to-team'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        name: 'core/group',
+                                        attributes: {
+                                            className: 'is-style-shadow-sm',
+                                            style: { spacing: { blockGap: '0px', padding: { top: '0px', bottom: '0px', left: '0px', right: '0px' } }, border: { radius: '8px' } },
+                                            backgroundColor: 'base',
+                                            layout: { type: 'constrained' },
+                                        },
+                                        innerBlocks: [
+                                            {
+                                                name: 'core/group',
+                                                attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
+                                                innerBlocks: [
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Amelia Williams', 'to-team'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/group', attributes: { style: { spacing: { padding: { top: '5px', bottom: '10px', left: '5px', right: '5px' }, blockGap: '2px' }, border: { top: { width: '2px' }, bottom: { width: '2px' } } }, layout: { type: 'constrained' } }, innerBlocks: [ { name: 'core/paragraph', attributes: { content: '<strong>' + __('Role: Tour Director', 'to-team') + '</strong>' } } ] },
+                                                    { name: 'core/paragraph', attributes: { content: __('Dedicated tour director ensuring every guest enjoys a seamless and unforgettable African adventure.', 'to-team'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
             isActive: (blockAttributes, variationAttributes) => {
                 return blockAttributes.className === variationAttributes.className;
             },
-            attributes: {
-                metadata: { name: __('Related Tour', 'to-team') },
-                className: 'lsx-tour-related-team-query-wrapper',
-                layout: { type: 'constrained' },
-            },
-            isDefault: false,
         });
     };
 
     const conditionalRegister = registerForPostTypesAndTemplates(
-        ['tour'],
-        ['tour'],
+        ['team'],
+        ['team'],
         registerTourRelatedTeamVariation
     );
     conditionalRegister();
