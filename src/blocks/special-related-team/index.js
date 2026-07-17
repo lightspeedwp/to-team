@@ -1,7 +1,7 @@
 /**
- * Accommodation Related Team Block Variation
+ * Special Related Team Block Variation
  *
- * Registers a block variation for displaying team members related to the current accommodation.
+ * Registers a block variation for displaying specials related to the current team member.
  * Only available on team post types and team template screens.
  *
  * @since 2.2.0
@@ -12,24 +12,24 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerAccommodationRelatedTeamVariation = () => {
+    const registerSpecialRelatedTeamVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/accommodation-related-team',
-            title: __('Related Accommodation', 'to-team'),
+            name: 'lsx-tour-operator/special-related-team',
+            title: __('Related Specials', 'to-team'),
             icon: 'admin-users',
-            description: __('Display accommodation related to this team member.', 'to-team'),
+            description: __('Display specials related to this team member.', 'to-team'),
             category: 'lsx-tour-operator',
             keywords: [
                 __('team', 'to-team'),
-                __('accommodation', 'to-team'),
+                __('special', 'to-team'),
                 __('related', 'to-team'),
                 __('query', 'to-team'),
             ],
             attributes: {
                 metadata: {
-                    name: __('Related Accommodation', 'to-team'),
+                    name: __('Related Specials', 'to-team'),
                 },
-                className: 'lsx-accommodation-related-team-query-wrapper',
+                className: 'lsx-special-related-team-query-wrapper',
                 align: 'full',
                 layout: {
                     type: 'constrained',
@@ -56,7 +56,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Related Accommodation', 'to-team'),
+                                content: __('Related Specials', 'to-team'),
                                 level: 2,
                             },
                         ],
@@ -78,11 +78,11 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related accommodation query', 'to-team'),
+                                    name: __('Related specials query', 'to-team'),
                                 },
                                 query: {
                                     perPage: 8,
-                                    postType: 'accommodation',
+                                    postType: 'special',
                                     order: 'asc',
                                     orderBy: 'date',
                                 },
@@ -92,7 +92,7 @@ wp.domReady(() => {
                                 [
                                     'core/post-template',
                                     {
-                                        className: 'lsx-accommodation-related-team-query',
+                                        className: 'lsx-special-related-team-query',
                                         layout: {
                                             type: 'grid',
                                             columnCount: 3,
@@ -102,7 +102,7 @@ wp.domReady(() => {
                                         [
                                             'core/pattern',
                                             {
-                                                slug: 'lsx-tour-operator/accommodation-card',
+                                                slug: 'lsx-tour-operator/special-card',
                                             },
                                         ],
                                     ],
@@ -131,7 +131,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Related Accommodation', 'to-team'),
+                                    content: __('Related Special', 'to-team'),
                                     level: 2,
                                 },
                             },
@@ -150,7 +150,7 @@ wp.domReady(() => {
                             {
                                 name: 'core/group',
                                 attributes: {
-                                    className: 'lsx-accommodation-related-team-query',
+                                    className: 'lsx-special-related-team-query',
                                     layout: { type: 'grid', columnCount: 3 },
                                 },
                                 innerBlocks: [
@@ -229,7 +229,7 @@ wp.domReady(() => {
     const conditionalRegister = registerForPostTypesAndTemplates(
         ['team'],
         ['team'],
-        registerAccommodationRelatedTeamVariation
+        registerSpecialRelatedTeamVariation
     );
     conditionalRegister();
 });

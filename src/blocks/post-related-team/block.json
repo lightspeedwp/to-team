@@ -2,9 +2,9 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "textdomain": "to-team",
-    "name": "lsx-tour-operator/tour-related-team",
-    "title": "Related Tour",
+    "name": "lsx-tour-operator/post-related-team",
+    "title": "Related Posts",
     "category": "lsx-tour-operator",
-    "description": "Display tour related to this team member.",
+    "description": "Display post related to this team member.",
     "editorScript": "file:index.js"
 }

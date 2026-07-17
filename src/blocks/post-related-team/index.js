@@ -1,7 +1,7 @@
 /**
- * Team Related Team Block Variation
+ * Post Related Team Block Variation
  *
- * Registers a block variation for displaying team members related to the current team member.
+ * Registers a block variation for displaying posts related to the current team member.
  * Only available on team post types and team template screens.
  *
  * @since 2.2.0
@@ -12,24 +12,24 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerTeamRelatedTeamVariation = () => {
+    const registerPostRelatedTeamVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/team-related-team',
-            title: __('Team Related Team', 'to-team'),
+            name: 'lsx-tour-operator/post-related-team',
+            title: __('Related Post', 'to-team'),
             icon: 'admin-users',
-            description: __('Displays team members related to this team member.', 'to-team'),
+            description: __('Display posts related to this team member.', 'to-team'),
             category: 'lsx-tour-operator',
             keywords: [
                 __('team', 'to-team'),
+                __('post', 'to-team'),
                 __('related', 'to-team'),
                 __('query', 'to-team'),
-                __('guide', 'to-team'),
             ],
             attributes: {
                 metadata: {
-                    name: __('Team Related Team', 'to-team'),
+                    name: __('Related Posts', 'to-team'),
                 },
-                className: 'lsx-team-related-team-query-wrapper',
+                className: 'lsx-post-related-team-query-wrapper',
                 align: 'full',
                 layout: {
                     type: 'constrained',
@@ -56,7 +56,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Related Team Members', 'to-team'),
+                                content: __('Related Posts', 'to-team'),
                                 level: 2,
                             },
                         ],
@@ -78,11 +78,11 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related team query', 'to-team'),
+                                    name: __('Related posts query', 'to-team'),
                                 },
                                 query: {
                                     perPage: 8,
-                                    postType: 'team',
+                                    postType: 'post',
                                     order: 'asc',
                                     orderBy: 'date',
                                 },
@@ -92,7 +92,7 @@ wp.domReady(() => {
                                 [
                                     'core/post-template',
                                     {
-                                        className: 'lsx-team-related-team-query',
+                                        className: 'lsx-post-related-team-query',
                                         layout: {
                                             type: 'grid',
                                             columnCount: 3,
@@ -102,7 +102,7 @@ wp.domReady(() => {
                                         [
                                             'core/pattern',
                                             {
-                                                slug: 'lsx-tour-operator/team-card',
+                                                slug: 'lsx-tour-operator/post-card',
                                             },
                                         ],
                                     ],
@@ -131,7 +131,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Related Team Members', 'to-team'),
+                                    content: __('Related Posts', 'to-team'),
                                     level: 2,
                                 },
                             },
@@ -150,7 +150,7 @@ wp.domReady(() => {
                             {
                                 name: 'core/group',
                                 attributes: {
-                                    className: 'lsx-team-related-team-query',
+                                    className: 'lsx-post-related-team-query',
                                     layout: { type: 'grid', columnCount: 3 },
                                 },
                                 innerBlocks: [
@@ -229,7 +229,7 @@ wp.domReady(() => {
     const conditionalRegister = registerForPostTypesAndTemplates(
         ['team'],
         ['team'],
-        registerTeamRelatedTeamVariation
+        registerPostRelatedTeamVariation
     );
     conditionalRegister();
 });
