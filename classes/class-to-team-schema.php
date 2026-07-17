@@ -32,7 +32,7 @@ class LSX_TO_Team_Schema extends LSX_TO_Schema_Graph_Piece {
 			'@type'            => 'Person',
 			'@id'              => $this->context->canonical . '#/schema/person/' . $this->post->ID,
 			'name'             => get_the_title( $this->post->ID ),
-			'description'      => wp_strip_all_tags( apply_filters( 'the_content', $this->post->post_content ) ),
+			'description'      => \lsx\schema\Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ),
 			'url'              => $this->post_url,
 			'mainEntityOfPage' => array(
 				'@id' => $this->context->canonical . WPSEO_Schema_IDs::WEBPAGE_HASH,
