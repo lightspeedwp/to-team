@@ -1,0 +1,10 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "textdomain": "to-team",
+    "name": "lsx-tour-operator/team-related-special",
+    "title": "Related Team",
+    "category": "lsx-tour-operator",
+    "description": "Display team related to this special.",
+    "editorScript": "file:index.js"
+}
