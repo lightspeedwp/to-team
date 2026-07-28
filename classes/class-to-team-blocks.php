@@ -149,7 +149,7 @@ class LSX_TO_Team_Blocks {
 	 * @return void
 	 */
 	public function register_block_patterns() {
-		$directory = LSX_TO_PATH . 'patterns/';
+		$directory = LSX_TO_TEAM_PATH . 'patterns/';
 
 		if ( ! is_dir( $directory ) ) {
 			return;
