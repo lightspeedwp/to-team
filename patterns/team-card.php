@@ -79,19 +79,7 @@ return array(
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:social-links {"metadata":{"name":"' . esc_attr__( 'Team - Social Links', 'to-team' ) . '"},"className":"lsx-team-social-links","iconColor":"primary","layout":{"type":"flex","justifyContent":"center"}} -->
-<ul class="wp-block-social-links has-icon-color lsx-team-social-links"><!-- wp:social-link {"service":"facebook","label":"' . esc_attr__( 'Facebook', 'to-team' ) . '","url":"#"} /-->
-
-<!-- wp:social-link {"service":"x","label":"' . esc_attr__( 'Twitter / X', 'to-team' ) . '","url":"#"} /-->
-
-<!-- wp:social-link {"service":"linkedin","label":"' . esc_attr__( 'LinkedIn', 'to-team' ) . '","url":"#"} /-->
-
-<!-- wp:social-link {"service":"pinterest","label":"' . esc_attr__( 'Pinterest', 'to-team' ) . '","url":"#"} /-->
-
-<!-- wp:social-link {"service":"skype","label":"' . esc_attr__( 'Skype', 'to-team' ) . '","url":"#"} /--></ul>
-<!-- /wp:social-links --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->',
 );
