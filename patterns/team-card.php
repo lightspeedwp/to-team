@@ -79,7 +79,9 @@ return array(
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:post-excerpt {"moreText":"Read more","fontSize":"medium"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->',
 );
