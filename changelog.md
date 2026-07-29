@@ -1,5 +1,20 @@
 # Change log
 
+## [2.2 — Schema] - 2026-07-29
+
+### Fixed
+- Schema: `@type` simplified from a single-item array to a plain `'Person'` string.
+- Schema: `@id` updated from `#person` to `#/schema/person/{id}` to avoid collisions on multi-person pages.
+- Schema: `name` now uses `get_the_title( $post->ID )` instead of `$post->post_title` directly.
+- Schema: `description` now uses `\lsx\schema\Helpers::strip_to_text()` on `apply_filters( 'the_content', … )` instead of a bare `wp_strip_all_tags()` on raw post content.
+- Schema: removed duplicate `memberOf` property (same reference as `worksFor`); `worksFor` is retained.
+- Schema: replaced the semantically incorrect `owns` property with `additionalProperty` `PropertyValue` entries via a new `add_associated_property()` helper — connected tours listed as "Associated Tours", connected accommodation as "Associated Accommodation".
+- Schema: `add_products()` renamed to `add_associated_products()` to reflect the corrected output type.
+
+### Added
+- Schema: new `add_same_as()` method that reads `facebook`, `twitter`, `googleplus`, `linkedin`, and `pinterest` custom fields and outputs them as a `sameAs` array on the `Person` node.
+- Schema: new `add_associated_property()` helper that builds a single `additionalProperty` `PropertyValue` from a list of related post IDs.
+
 ## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - Unreleased
 
 ### Description
