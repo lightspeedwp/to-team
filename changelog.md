@@ -1,5 +1,25 @@
 # Change log
 
+## [2.2.0] - 2026-07-29
+
+### Fixed
+- Security: escaped `tel:` and `mailto:` contact links in `lsx_to_team_contact_number()` and `lsx_to_team_contact_email()` template tags using `esc_url()` and `esc_html()`.
+- Security: escaped social profile URLs and icon class with `esc_url()` and `esc_attr()` in `lsx_to_team_social_profiles()`.
+- Security: added `ABSPATH` early-exit guard to all class files, config includes, template tags, and the team-card pattern.
+- Bug: fixed user array population in `config-team.php` — the `$users` array was being overwritten on each iteration instead of appended; `WP_User_Query` is now also scoped to the `team` edit screen to avoid unnecessary queries.
+- Bug: `glob()` call in `LSX_TO_Team_Blocks::register_blocks()` no longer iterates when the directory is empty or does not exist; prevents PHP warnings on fresh installs.
+- Bug: `parse_url()` replaced with `wp_parse_url()` in the contact-link URL normalisation method.
+- Bug: `posts_per_page` for Envira Gallery queries changed from string `'-1'` to integer `-1`.
+- Bug: taxonomy `rewrite` for the `role` taxonomy corrected from `array( 'role' )` to `array( 'slug' => 'role' )`.
+- i18n: `load_plugin_textdomain()` simplified to use WordPress auto-discovery (second and third arguments removed).
+- Code quality: inline `phpcs:ignore` comment updated to the modern `phpcs:ignore WordPress.CodeAnalysis.AssignmentInCondition.Found` format.
+- Docs: added missing docblocks for `lsx_to_maps_args()` and `lsx_to_has_maps_location()` in `class-to-team-frontend.php`.
+
+### Updated
+- `Requires Plugins: tour-operator` added to plugin header.
+- Version bumped to `2.2.0` in plugin header and `readme.txt`.
+- `readme.txt`: tested up to WordPress 7.0; stable tag updated to `2.2.0`; corrected theme name from "to Theme" to "LSX Theme"; fixed two incomplete FAQ question headings.
+
 ## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - Unreleased
 
 ### Description
