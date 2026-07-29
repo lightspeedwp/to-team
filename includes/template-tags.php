@@ -9,6 +9,10 @@
  * @copyright 2016 LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Outputs the current team members role, must be used in a loop.
  *

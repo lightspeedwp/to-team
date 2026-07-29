@@ -14,6 +14,10 @@
 
 // phpcs:ignoreFile PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 return array(
 	'title'         => __( 'Team Card', 'to-team' ),
 	'description'   => __( 'A card layout for displaying team members in query loops with photo, role, tagline, contact details and social links.', 'to-team' ),

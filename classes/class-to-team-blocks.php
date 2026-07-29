@@ -6,6 +6,11 @@
  * @author    LightSpeed
  * @license   GPL-3.0+
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Team_Blocks {
 
 	/**
@@ -136,7 +141,7 @@ class LSX_TO_Team_Blocks {
 			return 'mailto:' . antispambot( $url );
 		}
 
-		if ( ! parse_url( $url, PHP_URL_SCHEME ) && ! str_starts_with( $url, '//' ) && ! str_starts_with( $url, '#' ) ) {
+		if ( ! wp_parse_url( $url, PHP_URL_SCHEME ) && ! str_starts_with( $url, '//' ) && ! str_starts_with( $url, '#' ) ) {
 			return 'https://' . $url;
 		}
 

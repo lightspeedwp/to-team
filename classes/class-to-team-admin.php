@@ -9,6 +9,10 @@
  * @copyright 2017 LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Main plugin class.
  *
