@@ -3,13 +3,14 @@
  * Plugin Name:	Tour Operator Team
  * Plugin URI:	https://touroperator.solutions/plugins/team/
  * Description:	Real peoples' faces go a long way to building trust with your clients. The Team Extension allows your business's staff to be added as Team Members with their own profile which can be associated with specific destinations and tours.
- * Version:     2.2
+ * Version:     2.2.0
  * Author:      LightSpeed
  * Author URI: 	https://lightspeedwp.agency/
  * License: 	GPL3+
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: to-team
  * Domain Path: /languages/
+ * Requires Plugins: tour-operator
  */
 
 // If this file is called directly, abort.

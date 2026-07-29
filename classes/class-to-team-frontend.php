@@ -9,6 +9,10 @@
  * @copyright 2017 LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Main plugin class.
  *
@@ -71,6 +75,13 @@ class LSX_TO_Team_Frontend {
 		return $orderby;
 	}
 
+	/**
+	 * Filters the map args for team member singles to include connected accommodation.
+	 *
+	 * @param array $args    Current map arguments.
+	 * @param int   $post_id The current post ID.
+	 * @return array
+	 */
 	public function lsx_to_maps_args( $args, $post_id ) {
 		if ( is_singular( 'team' ) ) {
 			$accommodation_connected = get_post_meta( get_the_ID(), 'accommodation_to_team' );
@@ -89,6 +100,13 @@ class LSX_TO_Team_Frontend {
 		return $args;
 	}
 
+	/**
+	 * Filters whether a map location exists for team member singles.
+	 *
+	 * @param array|false $location Current location data or false.
+	 * @param int         $id       The current post ID.
+	 * @return array|false
+	 */
 	public function lsx_to_has_maps_location( $location, $id ) {
 		if ( is_singular( 'team' ) ) {
 			$accommodation_connected = get_post_meta( $id, 'accommodation_to_team' );
