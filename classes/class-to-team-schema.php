@@ -5,6 +5,10 @@
  * @package tour-operator
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Returns schema Person data for Team posts.
  *
