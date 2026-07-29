@@ -33,7 +33,7 @@ $taxonomy = array(
 		'exclude_from_search' => true,
 		'show_admin_column'   => true,
 		'query_var'           => true,
-		'rewrite'             => array( 'role' ),
+		'rewrite'             => array( 'slug' => 'role' ),
 	),
 );
 

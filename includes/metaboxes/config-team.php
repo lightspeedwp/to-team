@@ -155,7 +155,7 @@ if ( class_exists( 'Envira_Gallery' ) ) {
 		'query'      => array(
 			'post_type'      => 'envira',
 			'nopagin'        => true,
-			'posts_per_page' => '-1',
+			'posts_per_page' => -1,
 			'orderby'        => 'title',
 			'order'          => 'ASC',
 		),
@@ -171,7 +171,7 @@ if ( class_exists( 'Envira_Gallery' ) ) {
 			'query'      => array(
 				'post_type'      => 'envira',
 				'nopagin'        => true,
-				'posts_per_page' => '-1',
+				'posts_per_page' => -1,
 				'orderby'        => 'title',
 				'order'          => 'ASC',
 			),
