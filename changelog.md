@@ -1,6 +1,13 @@
 # Change log
 
-## [2.2.0] - 2026-07-29
+## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - 2026-07-29
+
+### Description
+This release renames and rebuilds the team member block variations for consistency, and adds new "related" block variations for surfacing connected content on the team member edit screen.
+
+### Added
+- New block variations for surfacing content connected to a team member: `special-related-team`, `review-related-team`, and `post-related-team` (matching the existing `accommodation-related-team`, `destination-related-team`, and `tour-related-team` pattern)
+- `Team - Social Links` block variation, with custom field integration and editor styling
 
 ### Fixed
 - Security: escaped `tel:` and `mailto:` contact links in `lsx_to_team_contact_number()` and `lsx_to_team_contact_email()` template tags using `esc_url()` and `esc_html()`.
@@ -20,23 +27,18 @@
 - Version bumped to `2.2.0` in plugin header and `readme.txt`.
 - `readme.txt`: tested up to WordPress 7.0; stable tag updated to `2.2.0`; corrected theme name from "to Theme" to "LSX Theme"; fixed two incomplete FAQ question headings.
 
-## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - Unreleased
+### Schema Fixes
+- Schema: `@type` simplified from a single-item array to a plain `'Person'` string.
+- Schema: `@id` updated from `#person` to `#/schema/person/{id}` to avoid collisions on multi-person pages.
+- Schema: `name` now uses `get_the_title( $post->ID )` instead of `$post->post_title` directly.
+- Schema: `description` now uses `\lsx\schema\Helpers::strip_to_text()` on `apply_filters( 'the_content', … )` instead of a bare `wp_strip_all_tags()` on raw post content.
+- Schema: removed duplicate `memberOf` property (same reference as `worksFor`); `worksFor` is retained.
+- Schema: replaced the semantically incorrect `owns` property with `additionalProperty` `PropertyValue` entries via a new `add_associated_property()` helper — connected tours listed as "Associated Tours", connected accommodation as "Associated Accommodation".
+- Schema: `add_products()` renamed to `add_associated_products()` to reflect the corrected output type.
 
-### Description
-This release renames and rebuilds the team member block variations for consistency, and adds new "related" block variations for surfacing connected content on the team member edit screen.
-
-### Added
-- New block variations for surfacing content connected to a team member: `special-related-team`, `review-related-team`, and `post-related-team` (matching the existing `accommodation-related-team`, `destination-related-team`, and `tour-related-team` pattern)
-- `Team - Social Links` block variation, with custom field integration and editor styling
-
-### Updated
-- Renamed block folders to drop the redundant `team-` prefix (e.g. `team-contact-email` → `contact-email`, `team-gallery` → `gallery`, `team-role` → `role`, `team-social-links` → `social-links`, `team-tagline` → `tagline`) and updated their titles to `Team - <Field>` for consistency
-- Renamed the "-to-" connection blocks to lead with the connected post type (e.g. `team-to-accommodation` → `accommodation-to-team`, `team-to-destination` → `destination-to-team`, `team-to-tour` → `tour-to-team`), updating each block's registered name, title, and CSS class to match
-- Renamed `team-related-tour` → `tour-related-team` to match the `<post-type>-related-team` naming used by its siblings, and corrected its registration to the `team` post type
-- Updated `accommodation-related-team` and `destination-related-team` titles, descriptions, and pattern references to correctly describe accommodation/destination content, and fixed their `core/query` `postType` (previously hardcoded to `team`, which caused both queries to return no results)
-
-### Removed
-- `team-related-team` block variation (no longer needed)
+### Schema Added
+- Schema: new `add_same_as()` method that reads `facebook`, `twitter`, `googleplus`, `linkedin`, and `pinterest` custom fields and outputs them as a `sameAs` array on the `Person` node.
+- Schema: new `add_associated_property()` helper that builds a single `additionalProperty` `PropertyValue` from a list of related post IDs.
 
 ## [[2.1]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.1) - 2025-12-20
 
