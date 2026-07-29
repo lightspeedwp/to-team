@@ -17,8 +17,8 @@ People like to see a face behind a business, it gives you a more personal, appro
 
 The Tour Operator Team plugin allows you to display your team profiles beautifully on your website. 
 
-= Works with the to Theme =
-Our theme [theme](https://lsx.design/) works perfectly with the Team Extension, improving internal linking, website SEO and user experience! 
+= Works with the LSX Theme =
+The [LSX Theme](https://lsx.design/) works perfectly with the Team Extension, improving internal linking, website SEO and user experience! 
 
 = It's free, and always will be. =
 We’re firm believers in open source - that’s why we’re releasing the Tour Operator Team plugin for free, forever. 

@@ -41,20 +41,22 @@ $metabox['fields'][] = array(
 	'type'	=> 'text',
 );
 
-$user_query = new WP_User_Query(
-	array(
-		'role__not_in' => 'Subscriber',
-	)
-);
-
-$users        = array();
-$user_results = $user_query->get_results();
-if ( ! empty( $user_results ) ) {
-	foreach ( $user_results as $user ) {
-		$users[] = array(
-			'name'  => $user->display_name,
-			'value' => $user->ID,
-		);
+$users          = array();
+$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+if ( $current_screen && 'team' === $current_screen->post_type ) {
+	$user_query   = new WP_User_Query(
+		array(
+			'role__not_in' => 'Subscriber',
+		)
+	);
+	$user_results = $user_query->get_results();
+	if ( ! empty( $user_results ) ) {
+		foreach ( $user_results as $user ) {
+			$users[] = array(
+				'name'  => $user->display_name,
+				'value' => $user->ID,
+			);
+		}
 	}
 }
 

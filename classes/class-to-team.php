@@ -184,7 +184,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 * Make TO last plugin to load.
 		 */
 		public function activated_plugin() {
-			// @codingStandardsIgnoreLine
+			// phpcs:ignore WordPress.CodeAnalysis.AssignmentInCondition.Found
 			if ( $plugins = get_option( 'active_plugins' ) ) {
 				$search = preg_grep( '/.*\/tour-operator\.php/', $plugins );
 				$key = array_search( $search, $plugins );
