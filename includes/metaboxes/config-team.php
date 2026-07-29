@@ -51,8 +51,8 @@ $users        = array();
 $user_results = $user_query->get_results();
 if ( ! empty( $user_results ) ) {
 	foreach ( $user_results as $user ) {
-		$users = array(
-			'name' => $user->display_name,
+		$users[] = array(
+			'name'  => $user->display_name,
 			'value' => $user->ID,
 		);
 	}

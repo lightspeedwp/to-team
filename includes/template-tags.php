@@ -39,7 +39,7 @@ function lsx_to_team_contact_number( $before = '', $after = '', $echo = true ) {
 	$contact_number = get_post_meta( get_the_ID(), 'contact_number', true );
 
 	if ( false !== $contact_number && '' !== $contact_number ) {
-		$contact_html = $before . '<a href="tel:+' . $contact_number . '">' . $contact_number . '</a>' . $after;
+		$contact_html = $before . '<a href="' . esc_url( 'tel:+' . $contact_number ) . '">' . esc_html( $contact_number ) . '</a>' . $after;
 
 		if ( $echo ) {
 			echo wp_kses_post( $contact_html );
@@ -64,7 +64,7 @@ function lsx_to_team_contact_email( $before = '', $after = '', $echo = true ) {
 	$contact_email = get_post_meta( get_the_ID(), 'contact_email', true );
 
 	if ( false !== $contact_email && '' !== $contact_email ) {
-		$contact_html = $before . '<a href="mailto:' . $contact_email . '">' . $contact_email . '</a>' . $after;
+		$contact_html = $before . '<a href="' . esc_url( 'mailto:' . $contact_email ) . '">' . esc_html( $contact_email ) . '</a>' . $after;
 
 		if ( $echo ) {
 			echo wp_kses_post( $contact_html );
@@ -144,7 +144,7 @@ function lsx_to_team_social_profiles( $before = '', $after = '', $echo = true ) 
 				break;
 			}
 
-			$social_profile_html .= '<a target="_blank" rel="noopener noreferrer" href="' . $meta_value . '"><i class="fa fa-' . $icon_class . '" aria-hidden="true"></i></a>';
+			$social_profile_html .= '<a target="_blank" rel="noopener noreferrer" href="' . esc_url( $meta_value ) . '"><i class="fa fa-' . esc_attr( $icon_class ) . '" aria-hidden="true"></i></a>';
 		}
 	}
 

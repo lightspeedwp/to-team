@@ -3,9 +3,9 @@ Contributors: feedmymedia, lightspeedwp, eleshar, krugazul
 Donate link: https://lightspeedwp.agency/donate/
 Tags: lsx, tour operator, team, team members, our team
 Requires at least: 6.7
-Tested up to: 6.9
+Tested up to: 6.7
 Requires PHP: 8.0
-Stable tag: 2.2
+Stable tag: 2.2.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -42,11 +42,11 @@ After you have downloaded the Tour Operator Team extension from WordPress.org:
 = Where can I find Tour Operator Team plugin documentation and user guides? =
 For help setting up and configuring the Team plugin please refer to our [user guide](https://touroperator.solutions/docs/team/)
 
-= Where can I get support or talk to other users =
+= Where can I get support or talk to other users? =
 
 Contact the [LightSpeed](https://lightspeedwp.agency/) for assistance via the [LSX support form](https://lightspeedwp.agency/lsx/support/).
 
-= Will the Tour Operator Team plugin work with my theme 
+= Will the Tour Operator Team plugin work with my theme? =
 Yes; the Tour Operator Team plugin will work with any theme, but may require some styling to make it match nicely. Please see our [codex](https://touroperator.solutions/docs/) for help.
 
 = Where can I report bugs or contribute to the project? =
@@ -62,11 +62,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 3. Tour Operator Team Widget
 4. LSX The Settings Panel for to Team
 
-== Screenshots ==
-
 == Changelog ==
 
-= 2.2 =
+= 2.2.0 =
 * Added Gutenberg block variations: featured team, related team members, post meta blocks (tagline, role, contact email, contact number, social links), post connection blocks (to accommodation, destination, tour), and gallery block.
 * Added related blocks for destination, accommodation, and tour post types.
 * Migrated build tooling from Gulp to wp-scripts.
