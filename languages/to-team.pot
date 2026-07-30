@@ -1,270 +1,1247 @@
-# Copyright (C) 2025 LightSpeed
+# Copyright (C) 2026 LightSpeed
 # This file is distributed under the GPL3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tour Operator Team 2.1\n"
+"Project-Id-Version: Tour Operator Team 2.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/to-team\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-12-20T07:44:38+00:00\n"
+"POT-Creation-Date: 2026-07-30T07:23:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: to-team\n"
 
 #. Plugin Name of the plugin
+#: to-team.php
 msgid "Tour Operator Team"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: to-team.php
 msgid "https://touroperator.solutions/plugins/team/"
 msgstr ""
 
 #. Description of the plugin
+#: to-team.php
 msgid "Real peoples' faces go a long way to building trust with your clients. The Team Extension allows your business's staff to be added as Team Members with their own profile which can be associated with specific destinations and tours."
 msgstr ""
 
 #. Author of the plugin
+#: to-team.php
 msgid "LightSpeed"
 msgstr ""
 
 #. Author URI of the plugin
+#: to-team.php
 msgid "https://lightspeedwp.agency/"
 msgstr ""
 
-#: classes/class-to-team-admin.php:120
+#: classes/class-to-team-admin.php:124
 msgid "Related Team members"
 msgstr ""
 
-#: classes/class-to-team-admin.php:157
+#: classes/class-to-team-admin.php:161
 msgid "Expert"
 msgstr ""
 
-#: classes/class-to-team-admin.php:161
+#: classes/class-to-team-admin.php:165
 msgid "None"
 msgstr ""
 
-#: classes/class-to-team-templates.php:41
+#: classes/class-to-team-schema.php:92
+msgid "Associated Accommodation"
+msgstr ""
+
+#: classes/class-to-team-schema.php:93
+msgid "Associated Tours"
+msgstr ""
+
+#: classes/class-to-team-templates.php:45
 msgid "Single Team Member"
 msgstr ""
 
-#: classes/class-to-team-templates.php:42
+#: classes/class-to-team-templates.php:46
 msgid "Displays a single team member"
 msgstr ""
 
-#: classes/class-to-team-templates.php:46
+#: classes/class-to-team-templates.php:50
 msgid "Team Members Archive"
 msgstr ""
 
-#: classes/class-to-team-templates.php:47
+#: classes/class-to-team-templates.php:51
 msgid "Displays all the team members."
 msgstr ""
 
-#: classes/class-to-team.php:105
-#: includes/post-types/config-team.php:16
-#: includes/post-types/config-team.php:22
-#: includes/post-types/config-team.php:28
+#: classes/class-to-team.php:112
+#: includes/post-types/config-team.php:20
+#: includes/post-types/config-team.php:26
+#: includes/post-types/config-team.php:32
 msgid "Team"
 msgstr ""
 
-#: classes/class-to-team.php:109
-#: includes/post-types/config-team.php:17
+#: classes/class-to-team.php:116
+#: includes/post-types/config-team.php:21
 msgid "Team Member"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:15
+#: includes/metaboxes/config-team.php:18
 msgid "Tour Operator Plugin"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:22
+#: includes/metaboxes/config-team.php:25
 msgid "Featured"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:28
+#: includes/metaboxes/config-team.php:31
 msgid "Disable Single"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:35
+#: includes/metaboxes/config-team.php:38
 msgid "Tagline"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:42
-#: includes/taxonomies/config-role.php:19
+#: includes/metaboxes/config-team.php:45
+#: includes/taxonomies/config-role.php:23
 msgid "Role"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:64
+#: includes/metaboxes/config-team.php:69
 msgid "Site User"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:73
+#: includes/metaboxes/config-team.php:78
 msgid "Contact"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:79
+#: includes/metaboxes/config-team.php:84
 msgid "Email"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:85
+#: includes/metaboxes/config-team.php:90
 msgid "Number (international format)"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:91
+#: includes/metaboxes/config-team.php:96
+#: src/blocks/social-links/index.js:29
 msgid "Skype"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:97
+#: includes/metaboxes/config-team.php:102
 msgid "Social Profiles"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:103
+#: includes/metaboxes/config-team.php:108
+#: src/blocks/social-links/index.js:25
 msgid "Facebook"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:109
+#: includes/metaboxes/config-team.php:114
 msgid "Twitter"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:115
+#: includes/metaboxes/config-team.php:120
 msgid "Google Plus"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:121
+#: includes/metaboxes/config-team.php:126
+#: src/blocks/social-links/index.js:27
 msgid "LinkedIn"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:127
+#: includes/metaboxes/config-team.php:132
+#: src/blocks/social-links/index.js:28
 msgid "Pinterest"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:133
+#: includes/metaboxes/config-team.php:138
 msgid "Media"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:138
+#: includes/metaboxes/config-team.php:143
 msgid "Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:139
+#: includes/metaboxes/config-team.php:144
 msgid "Add images related to the accommodation to be displayed in the Accommodation's gallery."
 msgstr ""
 
-#: includes/metaboxes/config-team.php:145
+#: includes/metaboxes/config-team.php:150
 msgid "Add new image"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:153
+#: includes/metaboxes/config-team.php:158
 msgid "Envira Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:169
+#: includes/metaboxes/config-team.php:174
 msgid "Envira Video Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:185
+#: includes/metaboxes/config-team.php:190
 msgid "Accommodation"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:186
+#: includes/metaboxes/config-team.php:191
 msgid "Destinations"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:187
+#: includes/metaboxes/config-team.php:192
 msgid "Tours"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:188
+#: includes/metaboxes/config-team.php:193
 msgid "Posts"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:193
+#: includes/metaboxes/config-team.php:198
 msgid "Related"
 msgstr ""
 
-#: includes/metaboxes/config-team.php:200
+#: includes/metaboxes/config-team.php:205
 msgid " related with this team"
 msgstr ""
 
-#: includes/post-types/config-team.php:18
+#: includes/post-types/config-team.php:22
 msgid "Add New"
 msgstr ""
 
-#: includes/post-types/config-team.php:19
+#: includes/post-types/config-team.php:23
 msgid "Add New Team Member"
 msgstr ""
 
-#: includes/post-types/config-team.php:20
+#: includes/post-types/config-team.php:24
 msgid "Edit"
 msgstr ""
 
-#: includes/post-types/config-team.php:21
+#: includes/post-types/config-team.php:25
 msgid "New"
 msgstr ""
 
-#: includes/post-types/config-team.php:23
+#: includes/post-types/config-team.php:27
 msgid "View"
 msgstr ""
 
-#: includes/post-types/config-team.php:24
+#: includes/post-types/config-team.php:28
 msgid "Search the Team"
 msgstr ""
 
-#: includes/post-types/config-team.php:25
+#: includes/post-types/config-team.php:29
 msgid "No team member found"
 msgstr ""
 
-#: includes/post-types/config-team.php:26
+#: includes/post-types/config-team.php:30
 msgid "No team member found in Trash"
 msgstr ""
 
-#: includes/post-types/config-team.php:29
+#: includes/post-types/config-team.php:33
 msgid "Profile Picture"
 msgstr ""
 
-#: includes/post-types/config-team.php:30
+#: includes/post-types/config-team.php:34
 msgid "Set Profile Picture"
 msgstr ""
 
-#: includes/post-types/config-team.php:31
+#: includes/post-types/config-team.php:35
 msgid "Remove profile picture"
 msgstr ""
 
-#: includes/post-types/config-team.php:32
+#: includes/post-types/config-team.php:36
 msgid "Use as profile picture"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:18
-#: includes/taxonomies/config-role.php:21
-#: includes/taxonomies/config-role.php:28
+#: includes/taxonomies/config-role.php:22
+#: includes/taxonomies/config-role.php:25
+#: includes/taxonomies/config-role.php:32
 msgid "Roles"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:20
+#: includes/taxonomies/config-role.php:24
 msgid "Search Roles"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:22
+#: includes/taxonomies/config-role.php:26
 msgid "Parent"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:23
+#: includes/taxonomies/config-role.php:27
 msgid "Parent:"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:24
+#: includes/taxonomies/config-role.php:28
 msgid "Edit Role"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:25
+#: includes/taxonomies/config-role.php:29
 msgid "Update Role"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:26
+#: includes/taxonomies/config-role.php:30
 msgid "Add New Role"
 msgstr ""
 
-#: includes/taxonomies/config-role.php:27
+#: includes/taxonomies/config-role.php:31
 msgid "New Role"
+msgstr ""
+
+#: patterns/team-card.php:22
+#: patterns/team-card.php:36
+#: patterns/team-card.php:37
+msgid "Team Card"
+msgstr ""
+
+#: patterns/team-card.php:23
+msgid "A card layout for displaying team members in query loops with photo, role, tagline, contact details and social links."
+msgstr ""
+
+#: patterns/team-card.php:26
+#: src/blocks/accommodation-related-team/index.js:23
+#: src/blocks/accommodation-to-team/index.js:19
+#: src/blocks/contact-email/index.js:19
+#: src/blocks/contact-number/index.js:19
+#: src/blocks/destination-related-team/index.js:23
+#: src/blocks/destination-to-team/index.js:19
+#: src/blocks/featured-team/index.js:19
+#: src/blocks/gallery/index.js:22
+#: src/blocks/post-related-team/index.js:23
+#: src/blocks/review-related-team/index.js:23
+#: src/blocks/role/index.js:19
+#: src/blocks/social-links/index.js:40
+#: src/blocks/special-related-team/index.js:23
+#: src/blocks/tagline/index.js:19
+#: src/blocks/team-related-review/index.js:24
+#: src/blocks/team-related-special/index.js:24
+#: src/blocks/tour-related-team/index.js:23
+#: src/blocks/tour-to-team/index.js:19
+msgid "team"
+msgstr ""
+
+#: patterns/team-card.php:27
+msgid "profile"
+msgstr ""
+
+#: patterns/team-card.php:28
+#: src/blocks/social-links/index.js:40
+msgid "social"
+msgstr ""
+
+#: patterns/team-card.php:29
+msgid "staff"
+msgstr ""
+
+#: patterns/team-card.php:30
+#: src/blocks/featured-team/index.js:19
+msgid "guide"
+msgstr ""
+
+#: patterns/team-card.php:39
+msgid "Content"
+msgstr ""
+
+#: patterns/team-card.php:40
+msgid "Name"
+msgstr ""
+
+#: patterns/team-card.php:44
+#: src/blocks/tagline/index.js:15
+#: src/blocks/tagline/index.js:24
+msgid "Team - Tagline"
+msgstr ""
+
+#: patterns/team-card.php:50
+msgid "Team Details"
+msgstr ""
+
+#: patterns/team-card.php:50
+#: patterns/team-card.php:51
+msgid "Team member details"
+msgstr ""
+
+#: patterns/team-card.php:51
+#: src/blocks/role/index.js:15
+#: src/blocks/role/index.js:24
+msgid "Team - Role"
+msgstr ""
+
+#: patterns/team-card.php:57
+#: src/blocks/role/index.js:46
+msgid "Role:"
+msgstr ""
+
+#: patterns/team-card.php:63
+#: src/blocks/contact-email/index.js:15
+#: src/blocks/contact-email/index.js:24
+msgid "Team - Contact Email"
+msgstr ""
+
+#: patterns/team-card.php:69
+#: src/blocks/contact-email/index.js:46
+msgid "Email:"
+msgstr ""
+
+#: patterns/team-card.php:75
+#: src/blocks/contact-number/index.js:15
+#: src/blocks/contact-number/index.js:24
+msgid "Team - Contact Number"
+msgstr ""
+
+#: patterns/team-card.php:81
+#: src/blocks/contact-number/index.js:46
+msgid "Phone:"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:18
+#: src/blocks/accommodation-related-team/index.js:30
+#: src/blocks/accommodation-related-team/index.js:59
+#: src/blocks/accommodation-related-team/index.js:134
+msgid "Related Accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:20
+msgid "Display accommodation related to this team member."
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:24
+#: src/blocks/accommodation-to-team/index.js:19
+msgid "accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:25
+#: src/blocks/destination-related-team/index.js:25
+#: src/blocks/post-related-review/index.js:25
+#: src/blocks/post-related-special/index.js:25
+#: src/blocks/post-related-team/index.js:25
+#: src/blocks/review-related-special/index.js:25
+#: src/blocks/review-related-team/index.js:25
+#: src/blocks/special-related-review/index.js:25
+#: src/blocks/special-related-team/index.js:25
+#: src/blocks/team-related-review/index.js:25
+#: src/blocks/team-related-special/index.js:25
+#: src/blocks/tour-related-team/index.js:25
+msgid "related"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:26
+#: src/blocks/destination-related-team/index.js:26
+#: src/blocks/featured-team/index.js:19
+#: src/blocks/post-related-review/index.js:26
+#: src/blocks/post-related-special/index.js:26
+#: src/blocks/post-related-team/index.js:26
+#: src/blocks/review-related-special/index.js:26
+#: src/blocks/review-related-team/index.js:26
+#: src/blocks/special-related-review/index.js:26
+#: src/blocks/special-related-team/index.js:26
+#: src/blocks/team-related-review/index.js:26
+#: src/blocks/team-related-special/index.js:26
+#: src/blocks/tour-related-team/index.js:26
+msgid "query"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:81
+msgid "Related accommodation query"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:170
+#: src/blocks/destination-related-team/index.js:170
+#: src/blocks/post-related-team/index.js:170
+#: src/blocks/review-related-special/index.js:153
+#: src/blocks/review-related-team/index.js:170
+#: src/blocks/special-related-team/index.js:170
+#: src/blocks/team-related-review/index.js:147
+#: src/blocks/team-related-special/index.js:147
+#: src/blocks/tour-related-team/index.js:170
+msgid "Sarah Johnson"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:171
+#: src/blocks/destination-related-team/index.js:171
+#: src/blocks/post-related-team/index.js:171
+#: src/blocks/review-related-team/index.js:171
+#: src/blocks/special-related-team/index.js:171
+#: src/blocks/tour-related-team/index.js:171
+msgid "Role: Safari Guide"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:172
+#: src/blocks/destination-related-team/index.js:172
+#: src/blocks/post-related-team/index.js:172
+#: src/blocks/review-related-team/index.js:172
+#: src/blocks/special-related-team/index.js:172
+#: src/blocks/team-related-review/index.js:148
+#: src/blocks/tour-related-team/index.js:172
+msgid "Experienced safari guide with over 10 years leading tours across East Africa."
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:190
+#: src/blocks/destination-related-team/index.js:190
+#: src/blocks/post-related-team/index.js:190
+#: src/blocks/review-related-special/index.js:172
+#: src/blocks/review-related-team/index.js:190
+#: src/blocks/special-related-team/index.js:190
+#: src/blocks/team-related-review/index.js:158
+#: src/blocks/team-related-special/index.js:158
+#: src/blocks/tour-related-team/index.js:190
+msgid "Michael Chen"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:191
+#: src/blocks/destination-related-team/index.js:191
+#: src/blocks/post-related-team/index.js:191
+#: src/blocks/review-related-team/index.js:191
+#: src/blocks/special-related-team/index.js:191
+#: src/blocks/tour-related-team/index.js:191
+msgid "Role: Wildlife Expert"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:192
+#: src/blocks/destination-related-team/index.js:192
+#: src/blocks/post-related-team/index.js:192
+#: src/blocks/review-related-team/index.js:192
+#: src/blocks/special-related-team/index.js:192
+#: src/blocks/tour-related-team/index.js:192
+msgid "Wildlife biologist turned tour guide, passionate about conservation and sharing Africa's natural wonders."
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:210
+#: src/blocks/destination-related-team/index.js:210
+#: src/blocks/post-related-team/index.js:210
+#: src/blocks/review-related-team/index.js:210
+#: src/blocks/special-related-team/index.js:210
+#: src/blocks/tour-related-team/index.js:210
+msgid "Amelia Williams"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:211
+#: src/blocks/destination-related-team/index.js:211
+#: src/blocks/post-related-team/index.js:211
+#: src/blocks/review-related-team/index.js:211
+#: src/blocks/special-related-team/index.js:211
+#: src/blocks/tour-related-team/index.js:211
+msgid "Role: Tour Director"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/index.js:212
+#: src/blocks/destination-related-team/index.js:212
+#: src/blocks/post-related-team/index.js:212
+#: src/blocks/review-related-team/index.js:212
+#: src/blocks/special-related-team/index.js:212
+#: src/blocks/tour-related-team/index.js:212
+msgid "Dedicated tour director ensuring every guest enjoys a seamless and unforgettable African adventure."
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:15
+#: src/blocks/accommodation-to-team/index.js:24
+msgid "Accommodation to Team"
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:18
+msgid "Displays the accommodations connected to this team member."
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:19
+#: src/blocks/destination-to-team/index.js:19
+#: src/blocks/tour-to-team/index.js:19
+msgid "connection"
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:19
+msgid "lodging"
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:46
+msgid "Accommodation:"
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:60
+msgid "Accommodation: "
+msgstr ""
+
+#: src/blocks/accommodation-to-team/index.js:60
+msgid "Safari Lodge"
+msgstr ""
+
+#: src/blocks/contact-email/index.js:18
+msgid "Display the contact email for this team member."
+msgstr ""
+
+#: src/blocks/contact-email/index.js:19
+msgid "email"
+msgstr ""
+
+#: src/blocks/contact-email/index.js:19
+#: src/blocks/contact-number/index.js:19
+msgid "contact"
+msgstr ""
+
+#: src/blocks/contact-email/index.js:60
+msgid "Email: "
+msgstr ""
+
+#: src/blocks/contact-email/index.js:60
+msgid "guide@safarico.com"
+msgstr ""
+
+#: src/blocks/contact-number/index.js:18
+msgid "Display the contact number for this team member."
+msgstr ""
+
+#: src/blocks/contact-number/index.js:19
+msgid "phone"
+msgstr ""
+
+#: src/blocks/contact-number/index.js:19
+msgid "number"
+msgstr ""
+
+#: src/blocks/contact-number/index.js:60
+msgid "Phone: "
+msgstr ""
+
+#: src/blocks/contact-number/index.js:60
+msgid "+27 21 555 0100"
+msgstr ""
+
+#: src/blocks/destination-related-team/index.js:18
+#: src/blocks/destination-related-team/index.js:30
+#: src/blocks/destination-related-team/index.js:59
+#: src/blocks/destination-related-team/index.js:134
+msgid "Related Destination"
+msgstr ""
+
+#: src/blocks/destination-related-team/index.js:20
+msgid "Display destinations related to this team member."
+msgstr ""
+
+#: src/blocks/destination-related-team/index.js:24
+#: src/blocks/destination-to-team/index.js:19
+msgid "destination"
+msgstr ""
+
+#: src/blocks/destination-related-team/index.js:81
+msgid "Related destinations query"
+msgstr ""
+
+#: src/blocks/destination-to-team/index.js:15
+#: src/blocks/destination-to-team/index.js:24
+msgid "Destination to Team"
+msgstr ""
+
+#: src/blocks/destination-to-team/index.js:18
+msgid "Displays the destinations connected to this team member."
+msgstr ""
+
+#: src/blocks/destination-to-team/index.js:19
+msgid "location"
+msgstr ""
+
+#: src/blocks/destination-to-team/index.js:46
+msgid "Destination:"
+msgstr ""
+
+#: src/blocks/destination-to-team/index.js:60
+msgid "Destination: "
+msgstr ""
+
+#: src/blocks/destination-to-team/index.js:60
+msgid "Cape Town"
+msgstr ""
+
+#: src/blocks/featured-team/index.js:15
+#: src/blocks/featured-team/index.js:24
+msgid "Featured Team"
+msgstr ""
+
+#: src/blocks/featured-team/index.js:18
+msgid "Display a featured team member query."
+msgstr ""
+
+#: src/blocks/featured-team/index.js:19
+msgid "featured"
+msgstr ""
+
+#: src/blocks/gallery/index.js:18
+#: src/blocks/gallery/index.js:25
+msgid "Team - Gallery"
+msgstr ""
+
+#: src/blocks/gallery/index.js:21
+msgid "Display the gallery images for this team member."
+msgstr ""
+
+#: src/blocks/gallery/index.js:22
+msgid "gallery"
+msgstr ""
+
+#: src/blocks/gallery/index.js:22
+msgid "images"
+msgstr ""
+
+#: src/blocks/gallery/index.js:22
+msgid "photos"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:18
+#: src/blocks/post-related-review/index.js:30
+#: src/blocks/post-related-review/index.js:55
+#: src/blocks/post-related-review/index.js:119
+#: src/blocks/post-related-special/index.js:18
+#: src/blocks/post-related-special/index.js:30
+#: src/blocks/post-related-special/index.js:55
+#: src/blocks/post-related-special/index.js:119
+#: src/blocks/post-related-team/index.js:30
+#: src/blocks/post-related-team/index.js:59
+#: src/blocks/post-related-team/index.js:134
+msgid "Related Posts"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:20
+msgid "Display post related to this review."
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:23
+#: src/blocks/review-related-special/index.js:23
+#: src/blocks/review-related-team/index.js:24
+#: src/blocks/special-related-review/index.js:23
+#: src/blocks/team-related-review/index.js:23
+msgid "review"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:24
+#: src/blocks/post-related-special/index.js:24
+#: src/blocks/post-related-team/index.js:24
+msgid "post"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:73
+msgid "Related post query"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:147
+msgid "Top 10 Safari Tips"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:148
+msgid "Everything you need to know before heading out on your first African safari."
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:158
+msgid "Best Time to Visit East Africa"
+msgstr ""
+
+#: src/blocks/post-related-review/index.js:159
+msgid "A season-by-season guide to planning the perfect trip."
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:20
+msgid "Display posts related to this special."
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:23
+#: src/blocks/review-related-special/index.js:24
+#: src/blocks/special-related-review/index.js:24
+#: src/blocks/special-related-team/index.js:24
+#: src/blocks/team-related-special/index.js:23
+msgid "special"
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:73
+#: src/blocks/post-related-team/index.js:81
+msgid "Related posts query"
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:153
+msgid "Top 5 Reasons to Book This Special"
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:154
+msgid "A blog post highlighting the value of this limited-time offer."
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:172
+msgid "Behind the Deal: How This Special Came Together"
+msgstr ""
+
+#: src/blocks/post-related-special/index.js:173
+msgid "An inside look at the planning behind this special."
+msgstr ""
+
+#: src/blocks/post-related-team/index.js:18
+msgid "Related Post"
+msgstr ""
+
+#: src/blocks/post-related-team/index.js:20
+msgid "Display posts related to this team member."
+msgstr ""
+
+#: src/blocks/review-related-special/index.js:18
+#: src/blocks/review-related-special/index.js:30
+#: src/blocks/review-related-special/index.js:55
+#: src/blocks/review-related-special/index.js:119
+#: src/blocks/review-related-team/index.js:18
+#: src/blocks/review-related-team/index.js:30
+#: src/blocks/review-related-team/index.js:59
+msgid "Related Reviews"
+msgstr ""
+
+#: src/blocks/review-related-special/index.js:20
+msgid "Display reviews related to this special."
+msgstr ""
+
+#: src/blocks/review-related-special/index.js:73
+#: src/blocks/review-related-team/index.js:81
+msgid "Related reviews query"
+msgstr ""
+
+#: src/blocks/review-related-special/index.js:154
+msgid "\"This special offer made our dream safari affordable. Every detail was perfectly arranged.\""
+msgstr ""
+
+#: src/blocks/review-related-special/index.js:173
+msgid "\"Great value for money thanks to this special. Would book again in a heartbeat.\""
+msgstr ""
+
+#: src/blocks/review-related-team/index.js:20
+msgid "Display reviews related to this team member."
+msgstr ""
+
+#: src/blocks/review-related-team/index.js:134
+msgid "Related Review"
+msgstr ""
+
+#: src/blocks/role/index.js:18
+msgid "Display the role for this team member."
+msgstr ""
+
+#: src/blocks/role/index.js:19
+msgid "role"
+msgstr ""
+
+#: src/blocks/role/index.js:19
+msgid "position"
+msgstr ""
+
+#: src/blocks/role/index.js:19
+msgid "job"
+msgstr ""
+
+#: src/blocks/role/index.js:60
+msgid "Role: "
+msgstr ""
+
+#: src/blocks/role/index.js:60
+msgid "Senior Safari Guide"
+msgstr ""
+
+#: src/blocks/social-links/index.js:26
+msgid "Twitter / X"
+msgstr ""
+
+#: src/blocks/social-links/index.js:36
+#: src/blocks/social-links/index.js:45
+msgid "Team - Social Links"
+msgstr ""
+
+#: src/blocks/social-links/index.js:39
+msgid "Display the social media links for this team member."
+msgstr ""
+
+#: src/blocks/social-links/index.js:40
+msgid "facebook"
+msgstr ""
+
+#: src/blocks/social-links/index.js:40
+msgid "twitter"
+msgstr ""
+
+#: src/blocks/social-links/index.js:40
+msgid "linkedin"
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:18
+#: src/blocks/special-related-review/index.js:30
+#: src/blocks/special-related-review/index.js:55
+#: src/blocks/special-related-review/index.js:119
+#: src/blocks/special-related-team/index.js:18
+#: src/blocks/special-related-team/index.js:30
+#: src/blocks/special-related-team/index.js:59
+msgid "Related Specials"
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:20
+msgid "Display special related to this review."
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:73
+msgid "Related special query"
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:147
+msgid "Early Bird Safari Discount"
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:148
+msgid "Save 20% when you book your African safari at least three months in advance."
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:158
+msgid "Honeymoon Package Offer"
+msgstr ""
+
+#: src/blocks/special-related-review/index.js:159
+msgid "A romantic getaway package including a complimentary spa treatment and private dinner."
+msgstr ""
+
+#: src/blocks/special-related-team/index.js:20
+msgid "Display specials related to this team member."
+msgstr ""
+
+#: src/blocks/special-related-team/index.js:81
+msgid "Related specials query"
+msgstr ""
+
+#: src/blocks/special-related-team/index.js:134
+msgid "Related Special"
+msgstr ""
+
+#: src/blocks/tagline/index.js:18
+msgid "Display the tagline for this team member."
+msgstr ""
+
+#: src/blocks/tagline/index.js:19
+msgid "tagline"
+msgstr ""
+
+#: src/blocks/tagline/index.js:19
+msgid "subtitle"
+msgstr ""
+
+#: src/blocks/tagline/index.js:46
+msgid "Tagline:"
+msgstr ""
+
+#: src/blocks/tagline/index.js:60
+msgid "Tagline: "
+msgstr ""
+
+#: src/blocks/tagline/index.js:60
+msgid "Expert safari guide with 20 years experience"
+msgstr ""
+
+#: src/blocks/team-related-review/index.js:18
+#: src/blocks/team-related-review/index.js:30
+#: src/blocks/team-related-review/index.js:55
+#: src/blocks/team-related-review/index.js:119
+#: src/blocks/team-related-special/index.js:18
+#: src/blocks/team-related-special/index.js:30
+#: src/blocks/team-related-special/index.js:55
+#: src/blocks/team-related-special/index.js:119
+msgid "Related Team"
+msgstr ""
+
+#: src/blocks/team-related-review/index.js:20
+msgid "Display team related to this review."
+msgstr ""
+
+#: src/blocks/team-related-review/index.js:73
+#: src/blocks/team-related-special/index.js:73
+msgid "Related team query"
+msgstr ""
+
+#: src/blocks/team-related-review/index.js:159
+msgid "Wildlife biologist turned tour guide, passionate about conservation."
+msgstr ""
+
+#: src/blocks/team-related-special/index.js:20
+msgid "Display team related to this special."
+msgstr ""
+
+#: src/blocks/team-related-special/index.js:148
+msgid "Experienced safari guide who put together this special."
+msgstr ""
+
+#: src/blocks/team-related-special/index.js:159
+msgid "Wildlife biologist and tour guide featured in this special."
+msgstr ""
+
+#: src/blocks/tour-related-team/index.js:18
+#: src/blocks/tour-related-team/index.js:30
+#: src/blocks/tour-related-team/index.js:59
+#: src/blocks/tour-related-team/index.js:134
+msgid "Related Tour"
+msgstr ""
+
+#: src/blocks/tour-related-team/index.js:20
+msgid "Display tours related to this team member."
+msgstr ""
+
+#: src/blocks/tour-related-team/index.js:24
+#: src/blocks/tour-to-team/index.js:19
+msgid "tour"
+msgstr ""
+
+#: src/blocks/tour-related-team/index.js:81
+msgid "Related tours query"
+msgstr ""
+
+#: src/blocks/tour-to-team/index.js:15
+#: src/blocks/tour-to-team/index.js:24
+msgid "Tour to Team"
+msgstr ""
+
+#: src/blocks/tour-to-team/index.js:18
+msgid "Displays the tours connected to this team member."
+msgstr ""
+
+#: src/blocks/tour-to-team/index.js:19
+msgid "itinerary"
+msgstr ""
+
+#: src/blocks/tour-to-team/index.js:46
+msgid "Tour:"
+msgstr ""
+
+#: src/blocks/tour-to-team/index.js:60
+msgid "Tour: "
+msgstr ""
+
+#: src/blocks/tour-to-team/index.js:60
+msgid "Big Five Safari"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/block.json
+msgctxt "block title"
+msgid "Team - Related Accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-team/block.json
+msgctxt "block description"
+msgid "Display accommodation related to this team member."
+msgstr ""
+
+#: src/blocks/accommodation-to-team/block.json
+msgctxt "block title"
+msgid "Accommodation to Team"
+msgstr ""
+
+#: src/blocks/accommodation-to-team/block.json
+msgctxt "block description"
+msgid "Displays the accommodations connected to this team member."
+msgstr ""
+
+#: src/blocks/contact-email/block.json
+msgctxt "block title"
+msgid "Team - Contact Email"
+msgstr ""
+
+#: src/blocks/contact-email/block.json
+msgctxt "block description"
+msgid "Display the contact email for this team member."
+msgstr ""
+
+#: src/blocks/contact-number/block.json
+msgctxt "block title"
+msgid "Team - Contact Number"
+msgstr ""
+
+#: src/blocks/contact-number/block.json
+msgctxt "block description"
+msgid "Display the contact number for this team member."
+msgstr ""
+
+#: src/blocks/destination-related-team/block.json
+msgctxt "block title"
+msgid "Team - Related Destination"
+msgstr ""
+
+#: src/blocks/destination-related-team/block.json
+msgctxt "block description"
+msgid "Display destination related to this team member."
+msgstr ""
+
+#: src/blocks/destination-to-team/block.json
+msgctxt "block title"
+msgid "Destination to Team"
+msgstr ""
+
+#: src/blocks/destination-to-team/block.json
+msgctxt "block description"
+msgid "Displays the destinations connected to this team member."
+msgstr ""
+
+#: src/blocks/featured-team/block.json
+msgctxt "block title"
+msgid "Featured Team"
+msgstr ""
+
+#: src/blocks/featured-team/block.json
+msgctxt "block description"
+msgid "Display a featured team member query."
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block title"
+msgid "Team - Gallery"
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block description"
+msgid "Display the gallery images for this team member."
+msgstr ""
+
+#: src/blocks/post-related-review/block.json
+#: src/blocks/post-related-special/block.json
+#: src/blocks/post-related-team/block.json
+msgctxt "block title"
+msgid "Related Posts"
+msgstr ""
+
+#: src/blocks/post-related-review/block.json
+msgctxt "block description"
+msgid "Display post related to this review."
+msgstr ""
+
+#: src/blocks/post-related-review/block.json
+#: src/blocks/special-related-review/block.json
+#: src/blocks/team-related-review/block.json
+msgctxt "block keyword"
+msgid "review"
+msgstr ""
+
+#: src/blocks/post-related-review/block.json
+msgctxt "block keyword"
+msgid "post"
+msgstr ""
+
+#: src/blocks/post-related-review/block.json
+#: src/blocks/special-related-review/block.json
+#: src/blocks/team-related-review/block.json
+msgctxt "block keyword"
+msgid "related"
+msgstr ""
+
+#: src/blocks/post-related-review/block.json
+#: src/blocks/special-related-review/block.json
+#: src/blocks/team-related-review/block.json
+msgctxt "block keyword"
+msgid "query"
+msgstr ""
+
+#: src/blocks/post-related-special/block.json
+msgctxt "block description"
+msgid "Display post related to this special."
+msgstr ""
+
+#: src/blocks/post-related-team/block.json
+msgctxt "block description"
+msgid "Display post related to this team member."
+msgstr ""
+
+#: src/blocks/review-related-special/block.json
+#: src/blocks/review-related-team/block.json
+msgctxt "block title"
+msgid "Related Reviews"
+msgstr ""
+
+#: src/blocks/review-related-special/block.json
+msgctxt "block description"
+msgid "Display review related to this special."
+msgstr ""
+
+#: src/blocks/review-related-team/block.json
+msgctxt "block description"
+msgid "Display review related to this team member."
+msgstr ""
+
+#: src/blocks/role/block.json
+msgctxt "block title"
+msgid "Team - Role"
+msgstr ""
+
+#: src/blocks/role/block.json
+msgctxt "block description"
+msgid "Display the role for this team member."
+msgstr ""
+
+#: src/blocks/social-links/block.json
+msgctxt "block title"
+msgid "Team - Social Links"
+msgstr ""
+
+#: src/blocks/social-links/block.json
+msgctxt "block description"
+msgid "Display the social media links for this team member."
+msgstr ""
+
+#: src/blocks/special-related-review/block.json
+#: src/blocks/special-related-team/block.json
+msgctxt "block title"
+msgid "Related Specials"
+msgstr ""
+
+#: src/blocks/special-related-review/block.json
+msgctxt "block description"
+msgid "Display special related to this review."
+msgstr ""
+
+#: src/blocks/special-related-review/block.json
+msgctxt "block keyword"
+msgid "special"
+msgstr ""
+
+#: src/blocks/special-related-team/block.json
+msgctxt "block description"
+msgid "Display special related to this team member."
+msgstr ""
+
+#: src/blocks/tagline/block.json
+msgctxt "block title"
+msgid "Team - Tagline"
+msgstr ""
+
+#: src/blocks/tagline/block.json
+msgctxt "block description"
+msgid "Display the tagline for this team member."
+msgstr ""
+
+#: src/blocks/team-related-review/block.json
+#: src/blocks/team-related-special/block.json
+msgctxt "block title"
+msgid "Related Team"
+msgstr ""
+
+#: src/blocks/team-related-review/block.json
+msgctxt "block description"
+msgid "Display team related to this review."
+msgstr ""
+
+#: src/blocks/team-related-review/block.json
+msgctxt "block keyword"
+msgid "team"
+msgstr ""
+
+#: src/blocks/team-related-special/block.json
+msgctxt "block description"
+msgid "Display team related to this special."
+msgstr ""
+
+#: src/blocks/tour-related-team/block.json
+msgctxt "block title"
+msgid "Related Tour"
+msgstr ""
+
+#: src/blocks/tour-related-team/block.json
+msgctxt "block description"
+msgid "Display tour related to this team member."
+msgstr ""
+
+#: src/blocks/tour-to-team/block.json
+msgctxt "block title"
+msgid "Tour to Team"
+msgstr ""
+
+#: src/blocks/tour-to-team/block.json
+msgctxt "block description"
+msgid "Displays the tours connected to this team member."
 msgstr ""
