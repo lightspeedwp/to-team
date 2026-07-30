@@ -8,11 +8,13 @@ This release renames and rebuilds the team member block variations for consisten
 ### Added
 - New block variations for surfacing content connected to a team member: `special-related-team`, `review-related-team`, and `post-related-team` (matching the existing `accommodation-related-team`, `destination-related-team`, and `tour-related-team` pattern)
 - `Team - Social Links` block variation, with custom field integration and editor styling
+- Hero section (featured-image cover with post/archive title and tagline) added to `templates/archive-team.html` and `templates/single-team.html`
+- Archive description content section added above the team query loop in `templates/archive-team.html`
 
 ### Fixed
 - Security: escaped `tel:` and `mailto:` contact links in `lsx_to_team_contact_number()` and `lsx_to_team_contact_email()` template tags using `esc_url()` and `esc_html()`.
 - Security: escaped social profile URLs and icon class with `esc_url()` and `esc_attr()` in `lsx_to_team_social_profiles()`.
-- Security: added `ABSPATH` early-exit guard to all class files, config includes, template tags, and the team-card pattern.
+- Security: added `ABSPATH` early-exit guard to all class files, config includes, template tags, and the team-card pattern, including `class-to-team-schema.php`.
 - Bug: fixed user array population in `config-team.php` — the `$users` array was being overwritten on each iteration instead of appended; `WP_User_Query` is now also scoped to the `team` edit screen to avoid unnecessary queries.
 - Bug: `glob()` call in `LSX_TO_Team_Blocks::register_blocks()` no longer iterates when the directory is empty or does not exist; prevents PHP warnings on fresh installs.
 - Bug: `parse_url()` replaced with `wp_parse_url()` in the contact-link URL normalisation method.
@@ -21,11 +23,15 @@ This release renames and rebuilds the team member block variations for consisten
 - i18n: `load_plugin_textdomain()` simplified to use WordPress auto-discovery (second and third arguments removed).
 - Code quality: inline `phpcs:ignore` comment updated to the modern `phpcs:ignore WordPress.CodeAnalysis.AssignmentInCondition.Found` format.
 - Docs: added missing docblocks for `lsx_to_maps_args()` and `lsx_to_has_maps_location()` in `class-to-team-frontend.php`.
+- Copy: shortened the team archive description text in `templates/archive-team.html`.
 
 ### Updated
 - `Requires Plugins: tour-operator` added to plugin header.
 - Version bumped to `2.2.0` in plugin header and `readme.txt`.
 - `readme.txt`: tested up to WordPress 7.0; stable tag updated to `2.2.0`; corrected theme name from "to Theme" to "LSX Theme"; fixed two incomplete FAQ question headings.
+- Breadcrumbs on `templates/archive-team.html` and `templates/single-team.html` rebuilt as a full-width, `primary`-coloured band using the `yoast-seo/breadcrumbs` block, replacing the shared `breadcrumbs` template part on the archive template and the previous `primary-900` styling on the single template.
+- Sticky menu on `templates/single-team.html` restyled for improved accessibility and visual consistency (contrast background/text colours, active/hover states, medium font size).
+- Section padding across `templates/single-team.html` (About, Accommodation, Tours, Destinations, Reviews, Specials) unified to `var:preset|spacing|50` for consistent vertical rhythm.
 
 ### Schema Fixes
 - Schema: `@type` simplified from a single-item array to a plain `'Person'` string.

@@ -68,6 +68,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 * Added Gutenberg block variations: featured team, related team members, post meta blocks (tagline, role, contact email, contact number, social links), post connection blocks (to accommodation, destination, tour), and gallery block.
 * Added related blocks for destination, accommodation, and tour post types.
 * Migrated build tooling from Gulp to wp-scripts.
+* Added hero and description sections, restyled breadcrumbs, and unified section spacing on the team archive and single templates.
+* Security and bug fixes: escaped contact and social links, added missing ABSPATH guards, and corrected user query, gallery, and role taxonomy issues.
 
 [Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/to-team/blob/master/changelog.md).
 
