@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-team",
+  "name": "lsx-tour-operator/team-social-links",
+  "title": "Team - Social Links",
+  "category": "lsx-tour-operator",
+  "description": "Display the social media links for this team member.",
+  "editorScript": "file:index.js",
+  "editorStyle": "file:editor.css"
+}

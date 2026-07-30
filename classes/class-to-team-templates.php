@@ -6,6 +6,10 @@
  * @version 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Team_Templates {
 
 	/**

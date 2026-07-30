@@ -1,0 +1,142 @@
+{
+	"type": "postType",
+	"postType": "team",
+	"slug": "team",
+	"label": "Team Member",
+	"pluralLabel": "Team Members",
+	"icon": "id-alt",
+	"hasArchive": "team",
+	"hierarchical": false,
+	"showInRest": true,
+	"showInMenu": "tour-operator",
+	"menuPosition": 33,
+	"template": [],
+	"fields": [
+		{
+			"slug": "featured",
+			"type": "checkbox",
+			"label": "Featured",
+			"description": "Mark this team member as featured.",
+			"visible": true
+		},
+		{
+			"slug": "disable_single",
+			"type": "checkbox",
+			"label": "Disable Single",
+			"description": "Disable the single post view for this team member.",
+			"visible": true
+		},
+		{
+			"slug": "tagline",
+			"type": "string",
+			"label": "Tagline",
+			"description": "",
+			"visible": true
+		},
+		{
+			"slug": "role",
+			"type": "string",
+			"label": "Role",
+			"description": "The job title or role of this team member.",
+			"visible": true
+		},
+		{
+			"slug": "site_user",
+			"type": "select",
+			"label": "Site User",
+			"description": "Link this team member to a WordPress user account.",
+			"visible": false
+		},
+		{
+			"slug": "contact_email",
+			"type": "string",
+			"label": "Email",
+			"description": "Contact email address for this team member.",
+			"visible": true
+		},
+		{
+			"slug": "contact_number",
+			"type": "string",
+			"label": "Contact Number",
+			"description": "Phone number for this team member (international format).",
+			"visible": true
+		},
+		{
+			"slug": "skype",
+			"type": "string",
+			"label": "Skype",
+			"description": "Skype handle for this team member.",
+			"visible": true
+		},
+		{
+			"slug": "facebook",
+			"type": "string",
+			"label": "Facebook",
+			"description": "Facebook profile URL.",
+			"visible": true
+		},
+		{
+			"slug": "twitter",
+			"type": "string",
+			"label": "Twitter / X",
+			"description": "Twitter / X profile URL.",
+			"visible": true
+		},
+		{
+			"slug": "googleplus",
+			"type": "string",
+			"label": "Google+",
+			"description": "Google+ profile URL (legacy).",
+			"visible": false
+		},
+		{
+			"slug": "linkedin",
+			"type": "string",
+			"label": "LinkedIn",
+			"description": "LinkedIn profile URL.",
+			"visible": true
+		},
+		{
+			"slug": "pinterest",
+			"type": "string",
+			"label": "Pinterest",
+			"description": "Pinterest profile URL.",
+			"visible": true
+		},
+		{
+			"slug": "gallery",
+			"type": "file_list",
+			"label": "Gallery",
+			"description": "Additional images for this team member.",
+			"visible": true
+		},
+		{
+			"slug": "accommodation_to_team",
+			"type": "multiselect",
+			"label": "Related Accommodation",
+			"description": "Accommodation posts this team member is connected to.",
+			"visible": true
+		},
+		{
+			"slug": "destination_to_team",
+			"type": "multiselect",
+			"label": "Related Destinations",
+			"description": "Destination posts this team member is connected to.",
+			"visible": true
+		},
+		{
+			"slug": "tour_to_team",
+			"type": "multiselect",
+			"label": "Related Tours",
+			"description": "Tour posts this team member is connected to.",
+			"visible": true
+		},
+		{
+			"slug": "post_to_team",
+			"type": "multiselect",
+			"label": "Related Posts",
+			"description": "Blog posts this team member is connected to.",
+			"visible": true
+		}
+	]
+}

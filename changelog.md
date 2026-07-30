@@ -1,5 +1,51 @@
 # Change log
 
+## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - 2026-07-29
+
+### Description
+This release renames and rebuilds the team member block variations for consistency, and adds new "related" block variations for surfacing connected content on the team member edit screen.
+
+### Added
+- New block variations for surfacing content connected to a team member: `special-related-team`, `review-related-team`, and `post-related-team` (matching the existing `accommodation-related-team`, `destination-related-team`, and `tour-related-team` pattern)
+- `Team - Social Links` block variation, with custom field integration and editor styling
+- Hero section (featured-image cover with post/archive title and tagline) added to `templates/archive-team.html` and `templates/single-team.html`
+- Archive description content section added above the team query loop in `templates/archive-team.html`
+
+### Fixed
+- Security: escaped `tel:` and `mailto:` contact links in `lsx_to_team_contact_number()` and `lsx_to_team_contact_email()` template tags using `esc_url()` and `esc_html()`.
+- Security: escaped social profile URLs and icon class with `esc_url()` and `esc_attr()` in `lsx_to_team_social_profiles()`.
+- Security: added `ABSPATH` early-exit guard to all class files, config includes, template tags, and the team-card pattern, including `class-to-team-schema.php`.
+- Bug: fixed user array population in `config-team.php` — the `$users` array was being overwritten on each iteration instead of appended; `WP_User_Query` is now also scoped to the `team` edit screen to avoid unnecessary queries.
+- Bug: `glob()` call in `LSX_TO_Team_Blocks::register_blocks()` no longer iterates when the directory is empty or does not exist; prevents PHP warnings on fresh installs.
+- Bug: `parse_url()` replaced with `wp_parse_url()` in the contact-link URL normalisation method.
+- Bug: `posts_per_page` for Envira Gallery queries changed from string `'-1'` to integer `-1`.
+- Bug: taxonomy `rewrite` for the `role` taxonomy corrected from `array( 'role' )` to `array( 'slug' => 'role' )`.
+- i18n: `load_plugin_textdomain()` simplified to use WordPress auto-discovery (second and third arguments removed).
+- Code quality: inline `phpcs:ignore` comment updated to the modern `phpcs:ignore WordPress.CodeAnalysis.AssignmentInCondition.Found` format.
+- Docs: added missing docblocks for `lsx_to_maps_args()` and `lsx_to_has_maps_location()` in `class-to-team-frontend.php`.
+- Copy: shortened the team archive description text in `templates/archive-team.html`.
+
+### Updated
+- `Requires Plugins: tour-operator` added to plugin header.
+- Version bumped to `2.2.0` in plugin header and `readme.txt`.
+- `readme.txt`: tested up to WordPress 7.0; stable tag updated to `2.2.0`; corrected theme name from "to Theme" to "LSX Theme"; fixed two incomplete FAQ question headings.
+- Breadcrumbs on `templates/archive-team.html` and `templates/single-team.html` rebuilt as a full-width, `primary`-coloured band using the `yoast-seo/breadcrumbs` block, replacing the shared `breadcrumbs` template part on the archive template and the previous `primary-900` styling on the single template.
+- Sticky menu on `templates/single-team.html` restyled for improved accessibility and visual consistency (contrast background/text colours, active/hover states, medium font size).
+- Section padding across `templates/single-team.html` (About, Accommodation, Tours, Destinations, Reviews, Specials) unified to `var:preset|spacing|50` for consistent vertical rhythm.
+
+### Schema Fixes
+- Schema: `@type` simplified from a single-item array to a plain `'Person'` string.
+- Schema: `@id` updated from `#person` to `#/schema/person/{id}` to avoid collisions on multi-person pages.
+- Schema: `name` now uses `get_the_title( $post->ID )` instead of `$post->post_title` directly.
+- Schema: `description` now uses `\lsx\schema\Helpers::strip_to_text()` on `apply_filters( 'the_content', … )` instead of a bare `wp_strip_all_tags()` on raw post content.
+- Schema: removed duplicate `memberOf` property (same reference as `worksFor`); `worksFor` is retained.
+- Schema: replaced the semantically incorrect `owns` property with `additionalProperty` `PropertyValue` entries via a new `add_associated_property()` helper — connected tours listed as "Associated Tours", connected accommodation as "Associated Accommodation".
+- Schema: `add_products()` renamed to `add_associated_products()` to reflect the corrected output type.
+
+### Schema Added
+- Schema: new `add_same_as()` method that reads `facebook`, `twitter`, `googleplus`, `linkedin`, and `pinterest` custom fields and outputs them as a `sameAs` array on the `Person` node.
+- Schema: new `add_associated_property()` helper that builds a single `additionalProperty` `PropertyValue` from a list of related post IDs.
+
 ## [[2.1]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.1) - 2025-12-20
 
 ### Description

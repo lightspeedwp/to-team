@@ -1,0 +1,22 @@
+/**
+ * Editor styles for the Team - Social Links block variation.
+ *
+ * The icon URLs are driven entirely by the team member's custom fields on the
+ * front end, so the per-icon "Edit social link" URL control is hidden here to
+ * avoid implying it has any effect.
+ */
+.lsx-team-social-links {
+	.wp-block-social-link {
+		.block-editor-block-toolbar [aria-label="Edit social link"] {
+			display: none;
+		}
+	}
+
+	// core/social-links always allows inserting more icons (it hardcodes its
+	// own templateLock to false), so the "+" appender is hidden here as a
+	// best-effort deterrent. Removal of existing icons is blocked properly
+	// via each icon's `lock.remove` attribute.
+	.block-list-appender {
+		display: none;
+	}
+}
