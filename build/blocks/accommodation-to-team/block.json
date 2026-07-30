@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-team",
+  "name": "lsx-tour-operator/accommodation-to-team",
+  "title": "Accommodation to Team",
+  "category": "lsx-tour-operator",
+  "description": "Displays the accommodations connected to this team member.",
+  "editorScript": "file:index.js"
+}

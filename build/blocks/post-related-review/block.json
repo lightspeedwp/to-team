@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-team",
+  "name": "lsx-tour-operator/post-related-review",
+  "title": "Related Posts",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Display post related to this review.",
+  "icon": "star-filled",
+  "keywords": [
+    "review",
+    "post",
+    "related",
+    "query"
+  ]
+}

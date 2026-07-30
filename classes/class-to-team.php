@@ -9,6 +9,10 @@
  * @copyright {year} LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! class_exists( 'LSX_TO_Team' ) ) {
 
 	/**
@@ -83,7 +87,10 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 			require_once LSX_TO_TEAM_PATH . '/includes/template-tags.php';
 			
 			require_once LSX_TO_TEAM_PATH . '/classes/class-to-team-templates.php';
-			
+
+			require_once LSX_TO_TEAM_PATH . '/classes/class-to-team-blocks.php';
+			new LSX_TO_Team_Blocks();
+
 			// flush_rewrite_rules.
 			register_activation_hook( LSX_TO_TEAM_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
@@ -94,7 +101,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 * Load the plugin text domain for translation.
 		 */
 		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-team', false, basename( LSX_TO_TEAM_PATH ) . '/languages' );
+			load_plugin_textdomain( 'to-team' );
 		}
 
 		/**
@@ -181,7 +188,7 @@ if ( ! class_exists( 'LSX_TO_Team' ) ) {
 		 * Make TO last plugin to load.
 		 */
 		public function activated_plugin() {
-			// @codingStandardsIgnoreLine
+			// phpcs:ignore WordPress.CodeAnalysis.AssignmentInCondition.Found
 			if ( $plugins = get_option( 'active_plugins' ) ) {
 				$search = preg_grep( '/.*\/tour-operator\.php/', $plugins );
 				$key = array_search( $search, $plugins );

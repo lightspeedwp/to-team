@@ -9,6 +9,10 @@
  * @copyright 2017 LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $taxonomy = array(
 	'object_types'  => 'team',
 	'menu_position' => 77,
@@ -33,7 +37,7 @@ $taxonomy = array(
 		'exclude_from_search' => true,
 		'show_admin_column'   => true,
 		'query_var'           => true,
-		'rewrite'             => array( 'role' ),
+		'rewrite'             => array( 'slug' => 'role' ),
 	),
 );
 

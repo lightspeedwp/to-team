@@ -3,9 +3,9 @@ Contributors: feedmymedia, lightspeedwp, eleshar, krugazul
 Donate link: https://lightspeedwp.agency/donate/
 Tags: lsx, tour operator, team, team members, our team
 Requires at least: 6.7
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 2.1
+Stable tag: 2.2.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -17,8 +17,8 @@ People like to see a face behind a business, it gives you a more personal, appro
 
 The Tour Operator Team plugin allows you to display your team profiles beautifully on your website. 
 
-= Works with the to Theme =
-Our theme [theme](https://lsx.design/) works perfectly with the Team Extension, improving internal linking, website SEO and user experience! 
+= Works with the LSX Theme =
+The [LSX Theme](https://lsx.design/) works perfectly with the Team Extension, improving internal linking, website SEO and user experience! 
 
 = It's free, and always will be. =
 We’re firm believers in open source - that’s why we’re releasing the Tour Operator Team plugin for free, forever. 
@@ -42,11 +42,11 @@ After you have downloaded the Tour Operator Team extension from WordPress.org:
 = Where can I find Tour Operator Team plugin documentation and user guides? =
 For help setting up and configuring the Team plugin please refer to our [user guide](https://touroperator.solutions/docs/team/)
 
-= Where can I get support or talk to other users =
+= Where can I get support or talk to other users? =
 
 Contact the [LightSpeed](https://lightspeedwp.agency/) for assistance via the [LSX support form](https://lightspeedwp.agency/lsx/support/).
 
-= Will the Tour Operator Team plugin work with my theme 
+= Will the Tour Operator Team plugin work with my theme? =
 Yes; the Tour Operator Team plugin will work with any theme, but may require some styling to make it match nicely. Please see our [codex](https://touroperator.solutions/docs/) for help.
 
 = Where can I report bugs or contribute to the project? =
@@ -62,9 +62,14 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 3. Tour Operator Team Widget
 4. LSX The Settings Panel for to Team
 
-== Screenshots ==
+== Changelog ==
 
-== Changelog == 
+= 2.2.0 =
+* Added Gutenberg block variations: featured team, related team members, post meta blocks (tagline, role, contact email, contact number, social links), post connection blocks (to accommodation, destination, tour), and gallery block.
+* Added related blocks for destination, accommodation, and tour post types.
+* Migrated build tooling from Gulp to wp-scripts.
+* Added hero and description sections, restyled breadcrumbs, and unified section spacing on the team archive and single templates.
+* Security and bug fixes: escaped contact and social links, added missing ABSPATH guards, and corrected user query, gallery, and role taxonomy issues.
 
 [Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/to-team/blob/master/changelog.md).
 

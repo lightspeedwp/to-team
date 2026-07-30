@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-team",
+  "name": "lsx-tour-operator/featured-team",
+  "title": "Featured Team",
+  "category": "lsx-tour-operator",
+  "description": "Display a featured team member query.",
+  "editorScript": "file:index.js"
+}

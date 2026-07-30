@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-team",
+  "name": "lsx-tour-operator/special-related-review",
+  "title": "Related Specials",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Display special related to this review.",
+  "icon": "star-filled",
+  "keywords": [
+    "review",
+    "special",
+    "related",
+    "query"
+  ]
+}
