@@ -1,5 +1,18 @@
 # Change log
 
+## Unreleased
+
+### Fixed
+- Schema: rebuilt the Team `Person` schema piece as a self-contained class on the Tour Operator core 2.2 schema helpers. It no longer depends on the legacy `LSX_TO_Schema_Graph_Piece` base class, which core is removing; without this change, team pages emit no Person schema with the new core. ([TO-171](https://linear.app/lightspeedwp/issue/TO-171))
+- Schema: the Team schema is only registered when the core 2.2 schema helpers are available, so older core versions get no Team schema rather than a fatal error, and a standalone JSON-LD block is printed when Yoast SEO is inactive.
+- Schema: `sameAs` only lists full http(s) profile URLs, once each. Handles, the defunct Google+ field and Skype are excluded.
+- Schema: `email` is only output when it is a valid address. `jobTitle` excludes "Uncategorized" and separates roles with ", ".
+- Schema: "Associated Tours" and "Associated Accommodation" only list published items, once each, as plain text.
+- Schema: `makesOffer` is no longer output, as it is not part of the approved Schema 2.0 mapping.
+
+### Added
+- PHPUnit regression tests for the Team schema (`composer test`). PHPUnit dev dependency updated to `^10.5`.
+
 ## [[2.2]](https://github.com/lightspeeddevelopment/to-team/releases/tag/2.2) - 2026-07-29
 
 ### Description
