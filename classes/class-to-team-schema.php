@@ -54,6 +54,16 @@ class LSX_TO_Team_Schema {
 	protected $canonical;
 
 	/**
+	 * Social profile meta keys that may hold a public profile URL.
+	 *
+	 * The defunct Google+ field and the Skype field (an account name, not a
+	 * URL) are deliberately excluded.
+	 *
+	 * @var string[]
+	 */
+	const SOCIAL_FIELDS = array( 'facebook', 'twitter', 'linkedin', 'pinterest' );
+
+	/**
 	 * Constructor.
 	 *
 	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context|\WPSEO_Schema_Context|null $context Yoast context, or null when Yoast is inactive.
@@ -83,7 +93,7 @@ class LSX_TO_Team_Schema {
 		$data = array(
 			'@type'            => 'Person',
 			'@id'              => $this->canonical . '#/schema/person/' . $this->post_id,
-			'name'             => get_the_title( $this->post_id ),
+			'name'             => $this->get_plain_title( $this->post_id ),
 			'url'              => $this->canonical,
 			'mainEntityOfPage' => array( '@id' => $this->canonical ),
 		);
@@ -125,7 +135,18 @@ class LSX_TO_Team_Schema {
 	}
 
 	/**
-	 * Adds jobTitle from the role taxonomy terms.
+	 * Gets a post title as plain text, with texturised entities decoded.
+	 *
+	 * @param int $post_id Post ID.
+	 * @return string
+	 */
+	protected function get_plain_title( $post_id ) {
+		return Helpers::strip_to_text( get_the_title( $post_id ) );
+	}
+
+	/**
+	 * Adds jobTitle as a single text value from the role taxonomy terms,
+	 * excluding the default "Uncategorized" term.
 	 *
 	 * @param array $data Person data.
 	 * @return array
@@ -138,29 +159,34 @@ class LSX_TO_Team_Schema {
 
 		$names = array();
 		foreach ( $terms as $term ) {
-			$names[] = $term->name;
+			// Compare against the WordPress core translation of the default term.
+			// phpcs:ignore WordPress.WP.I18n.MissingArgDomainDefault
+			if ( __( 'Uncategorized' ) !== $term->name ) {
+				$names[] = Helpers::strip_to_text( $term->name );
+			}
 		}
 
+		$names = array_filter( array_unique( $names ) );
 		if ( ! empty( $names ) ) {
-			$data['jobTitle'] = implode( ',', $names );
+			$data['jobTitle'] = implode( ', ', $names );
 		}
 
 		return $data;
 	}
 
 	/**
-	 * Adds the email and telephone contact details.
+	 * Adds the email (only when well-formed) and telephone contact details.
 	 *
 	 * @param array $data Person data.
 	 * @return array
 	 */
 	protected function add_contact_details( array $data ) {
-		$email = Helpers::get_meta( $this->post_id, 'contact_email' );
-		if ( '' !== $email ) {
-			$data['email'] = $email;
+		$email = trim( Helpers::get_meta( $this->post_id, 'contact_email' ) );
+		if ( '' !== $email && is_email( $email ) ) {
+			$data['email'] = sanitize_email( $email );
 		}
 
-		$telephone = Helpers::get_meta( $this->post_id, 'contact_number' );
+		$telephone = sanitize_text_field( Helpers::get_meta( $this->post_id, 'contact_number' ) );
 		if ( '' !== $telephone ) {
 			$data['telephone'] = $telephone;
 		}
@@ -169,17 +195,26 @@ class LSX_TO_Team_Schema {
 	}
 
 	/**
-	 * Adds the sameAs entries for any populated social profile fields.
+	 * Adds sameAs from the social profile fields. Only absolute http(s) URLs
+	 * are used, so handles such as "@name" are skipped. Duplicates are removed.
 	 *
 	 * @param array $data Person data.
 	 * @return array
 	 */
 	protected function add_same_as( array $data ) {
+		/**
+		 * Filter the social profile meta keys used for the Person sameAs list.
+		 *
+		 * @param string[] $fields  Meta keys.
+		 * @param int      $post_id Current team post ID.
+		 */
+		$fields  = (array) apply_filters( 'lsx_to_team_schema_social_fields', self::SOCIAL_FIELDS, $this->post_id );
 		$same_as = array();
-		foreach ( array( 'facebook', 'twitter', 'googleplus', 'linkedin', 'pinterest' ) as $field ) {
-			$value = Helpers::get_meta( $this->post_id, $field );
-			if ( '' !== $value ) {
-				$same_as[] = $value;
+
+		foreach ( $fields as $field ) {
+			$url = $this->get_profile_url( Helpers::get_meta( $this->post_id, $field ) );
+			if ( '' !== $url && ! in_array( $url, $same_as, true ) ) {
+				$same_as[] = $url;
 			}
 		}
 
@@ -188,6 +223,26 @@ class LSX_TO_Team_Schema {
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Returns a value as a clean absolute http(s) URL, or an empty string.
+	 *
+	 * @param string $value Raw field value.
+	 * @return string
+	 */
+	protected function get_profile_url( $value ) {
+		$value = trim( (string) $value );
+		if ( '' === $value || false === filter_var( $value, FILTER_VALIDATE_URL ) ) {
+			return '';
+		}
+
+		$scheme = strtolower( (string) wp_parse_url( $value, PHP_URL_SCHEME ) );
+		if ( 'http' !== $scheme && 'https' !== $scheme ) {
+			return '';
+		}
+
+		return esc_url_raw( $value );
 	}
 
 	/**
@@ -204,6 +259,7 @@ class LSX_TO_Team_Schema {
 
 	/**
 	 * Builds a single additionalProperty entry from a list of related post IDs.
+	 * Only published posts are included, each once.
 	 *
 	 * @param array  $data     Person data.
 	 * @param string $meta_key The meta key storing the related post IDs.
@@ -212,8 +268,12 @@ class LSX_TO_Team_Schema {
 	 */
 	protected function add_associated_property( array $data, $meta_key, $label ) {
 		$titles = array();
-		foreach ( Helpers::get_meta_array( $this->post_id, $meta_key ) as $related_id ) {
-			$title = get_the_title( (int) $related_id );
+		$ids    = array_unique( array_map( 'intval', Helpers::get_meta_array( $this->post_id, $meta_key ) ) );
+		foreach ( $ids as $related_id ) {
+			if ( $related_id < 1 || 'publish' !== get_post_status( $related_id ) ) {
+				continue;
+			}
+			$title = $this->get_plain_title( $related_id );
 			if ( '' !== $title ) {
 				$titles[] = $title;
 			}
