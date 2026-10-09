@@ -37,6 +37,7 @@ Other gaps found during the audit:
 
 - **Inherited `makesOffer` output**: The Person node calls the shared core "offers" builder under the `makesOffer` key. When a Special is linked to a team member, that builder emits an Offer with a mis-cased `PriceSpecification` plain string, which is the defect TO-217 removes from Specials. `makesOffer` is not part of the approved Team mapping and implies the person is the seller.
 - **Core version dependency**: The schema piece relies on shared helpers that ship only with Tour Operator core 2.2+. The loader checks only for the older base class, which core 2.1 also provides, so running this extension with core 2.1 would cause a fatal error on Team pages.
+- **Legacy base classes removed from core** *(added 2026-10-09)*: Core commit `f62d3b5dd` deletes the legacy schema base class and utilities that the Team piece extends. With that core build, Team pages currently emit **no Person node at all**, which was confirmed on the local site. The piece must therefore stop depending on those legacy classes (see FR-012 and [plan.md](./plan.md) R1).
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -141,7 +142,7 @@ A reviewer approving the PR needs repeatable evidence that the output matches th
 - **FR-009**: Linked tours and accommodation MUST be expressed as `additionalProperty` values labelled "Associated Tours" and "Associated Accommodation". Only published items are included, duplicates are removed, and `owns` MUST NOT be emitted.
 - **FR-010**: The image MUST continue to be emitted through the shared schema image utility.
 - **FR-011**: The Person node MUST NOT emit `makesOffer` from linked Specials. *(Default chosen: `makesOffer` is not in the approved Team mapping, implies the person sells the product, and currently carries the TO-217 price-specification defect. Confirm in `/speckit-clarify`.)*
-- **FR-012**: The Team schema piece MUST only register when the Tour Operator core schema helpers it depends on are available. Otherwise it MUST register nothing and raise no errors.
+- **FR-012**: The Team schema piece MUST only register when the Tour Operator core schema helpers it depends on are available. Otherwise it MUST register nothing and raise no errors. It MUST NOT depend on the legacy core schema base classes, and it MUST emit the Person node both with and without Yoast SEO active.
 - **FR-013**: The plugin MUST include at least one automated regression check covering FR-001, FR-003, FR-004/FR-005, FR-007 and FR-009.
 - **FR-014**: The PR MUST include documented manual QA evidence for one fully populated Team post: validator results and the captured JSON-LD.
 - **FR-015**: Front-end display of team contact details and social links, including blocks and template tags, MUST NOT change as a result of this work.
