@@ -4,7 +4,7 @@
 
 **Created**: 2026-10-09
 
-**Status**: Draft
+**Status**: Implemented, external QA pending (2026-10-09)
 
 **Tracking**: [TO-171](https://linear.app/lightspeedwp/issue/TO-171/align-team-schema-with-approved-schema-20-mappings) · [lightspeedwp/to-team#124](https://github.com/lightspeedwp/to-team/issues/124)
 
@@ -38,6 +38,32 @@ Other gaps found during the audit:
 - **Inherited `makesOffer` output**: The Person node calls the shared core "offers" builder under the `makesOffer` key. When a Special is linked to a team member, that builder emits an Offer with a mis-cased `PriceSpecification` plain string, which is the defect TO-217 removes from Specials. `makesOffer` is not part of the approved Team mapping and implies the person is the seller.
 - **Core version dependency**: The schema piece relies on shared helpers that ship only with Tour Operator core 2.2+. The loader checks only for the older base class, which core 2.1 also provides, so running this extension with core 2.1 would cause a fatal error on Team pages.
 - **Legacy base classes removed from core** *(added 2026-10-09)*: Core commit `f62d3b5dd` deletes the legacy schema base class and utilities that the Team piece extends. With that core build, Team pages currently emit **no Person node at all**, which was confirmed on the local site. The piece must therefore stop depending on those legacy classes (see FR-012 and [plan.md](./plan.md) R1).
+
+## Implementation Status (2026-10-09)
+
+The baseline table above records the starting point. Every gap marked there has been closed on this branch.
+
+### Requirements
+
+- [x] FR-001: string `Person` `@type`, unique `@id`
+- [x] FR-002: plain-text name and description, `url`, `mainEntityOfPage`
+- [x] FR-003: `worksFor` kept, `memberOf` removed
+- [x] FR-004 / FR-005: `jobTitle` as one string, joined with ", ", excluding "Uncategorized"
+- [x] FR-006: `email` only when valid; `telephone` as entered
+- [x] FR-007 / FR-008: `sameAs` limited to unique http(s) URLs, excluding Google+ and Skype
+- [x] FR-009: associated tours and accommodation as `additionalProperty` (published, unique), with no `owns`
+- [x] FR-010: image via the Yoast primary image or the featured image
+- [x] FR-011: no `makesOffer`
+- [x] FR-012: self-contained piece (no legacy base class), registered only when core 2.2 helpers exist, standalone output without Yoast
+- [x] FR-013: PHPUnit regression tests (14 tests)
+- [x] FR-015: front-end display unchanged (schema files only)
+- [ ] FR-014: manual QA. The local capture is done (see [quickstart.md](./quickstart.md)); external validators, the no-Yoast check and the core 2.1 check are still outstanding
+
+### Key commits
+
+- `8e7cb2f`: rebuild the Person piece without the legacy core base class
+- `671585a`: sameAs, email, jobTitle and related-item fixes
+- `f9fdd33`: regression tests
 
 ## User Scenarios & Testing *(mandatory)*
 
