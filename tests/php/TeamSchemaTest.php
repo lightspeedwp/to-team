@@ -141,7 +141,7 @@ class TeamSchemaTest extends TestCase {
 		$this->assertArrayNotHasKey( 'sameAs', $this->generate() );
 	}
 
-	public function test_associated_items_use_additional_property_with_published_unique_items() {
+	public function test_associated_items_are_known_about_published_and_unique() {
 		lsx_to_test_add_post( 20, array( 'post_title' => 'Cape &#8211; Safari', 'post_type' => 'tour' ) );
 		lsx_to_test_add_post( 21, array( 'post_title' => 'Draft Tour', 'post_type' => 'tour', 'post_status' => 'draft' ) );
 		lsx_to_test_add_post( 30, array( 'post_title' => 'Ben&#8217;s Lodge', 'post_type' => 'accommodation' ) );
@@ -158,18 +158,19 @@ class TeamSchemaTest extends TestCase {
 		$this->assertSame(
 			array(
 				array(
-					'@type' => 'PropertyValue',
-					'name'  => 'Associated Accommodation',
-					'value' => "Ben\u{2019}s Lodge",
+					'@type' => 'TouristTrip',
+					'name'  => "Cape \u{2013} Safari",
+					'url'   => get_permalink( 20 ),
 				),
 				array(
-					'@type' => 'PropertyValue',
-					'name'  => 'Associated Tours',
-					'value' => "Cape \u{2013} Safari",
+					'@type' => 'LodgingBusiness',
+					'name'  => "Ben\u{2019}s Lodge",
+					'url'   => get_permalink( 30 ),
 				),
 			),
-			$data['additionalProperty']
+			$data['knowsAbout']
 		);
+		$this->assertArrayNotHasKey( 'additionalProperty', $data );
 	}
 
 	public function test_no_offers_are_emitted_for_linked_specials() {
