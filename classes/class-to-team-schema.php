@@ -262,44 +262,51 @@ class LSX_TO_Team_Schema {
 	}
 
 	/**
-	 * Adds the associated tours and accommodation as additionalProperty values.
+	 * Adds the associated tours and accommodation as knowsAbout nodes, since
+	 * additionalProperty is not valid on a Person.
 	 *
 	 * @param array $data Person data.
 	 * @return array
 	 */
 	protected function add_associated_products( array $data ) {
-		$data = $this->add_associated_property( $data, 'accommodation_to_team', __( 'Associated Accommodation', 'to-team' ) );
-		$data = $this->add_associated_property( $data, 'tour_to_team', __( 'Associated Tours', 'to-team' ) );
+		$items = array_merge(
+			$this->get_associated_items( 'tour_to_team', 'TouristTrip' ),
+			$this->get_associated_items( 'accommodation_to_team', 'LodgingBusiness' )
+		);
+
+		if ( ! empty( $items ) ) {
+			$data['knowsAbout'] = $items;
+		}
+
 		return $data;
 	}
 
 	/**
-	 * Builds a single additionalProperty entry from a list of related post IDs.
+	 * Builds typed nodes, with name and URL, from a list of related post IDs.
 	 * Only published posts are included, each once.
 	 *
-	 * @param array  $data     Person data.
 	 * @param string $meta_key The meta key storing the related post IDs.
-	 * @param string $label    The additionalProperty name.
-	 * @return array
+	 * @param string $type     Schema.org type for the nodes.
+	 * @return array[]
 	 */
-	protected function add_associated_property( array $data, $meta_key, $label ) {
-		$titles = array();
-		$ids    = array_unique( array_map( 'intval', Helpers::get_meta_array( $this->post_id, $meta_key ) ) );
+	protected function get_associated_items( $meta_key, $type ) {
+		$items = array();
+		$ids   = array_unique( array_map( 'intval', Helpers::get_meta_array( $this->post_id, $meta_key ) ) );
 		foreach ( $ids as $related_id ) {
 			if ( $related_id < 1 || 'publish' !== get_post_status( $related_id ) ) {
 				continue;
 			}
 			$title = $this->get_plain_title( $related_id );
 			if ( '' !== $title ) {
-				$titles[] = $title;
+				$items[] = array(
+					'@type' => $type,
+					'name'  => $title,
+					'url'   => (string) get_permalink( $related_id ),
+				);
 			}
 		}
 
-		if ( ! empty( $titles ) ) {
-			$data['additionalProperty'][] = Helpers::make_property_value( $label, implode( ', ', $titles ) );
-		}
-
-		return $data;
+		return $items;
 	}
 
 	/**
