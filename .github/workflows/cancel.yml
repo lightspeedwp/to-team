@@ -1,5 +1,7 @@
 name: Cancel
 on: pull_request
+permissions:
+  actions: write
 jobs:
   cancel:
     name: 'Cancel Previous Runs'
@@ -7,7 +9,11 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: Get all workflow ids and set to env variable
-        run: echo ::set-env name=WORKFLOW_IDS_TO_CANCEL::$(curl https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows -s | jq -r '.workflows | map(.id|tostring) | join(",")')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ids=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows" --jq '.workflows | map(.id|tostring) | join(",")')
+          echo "WORKFLOW_IDS_TO_CANCEL=${ids}" >> "$GITHUB_ENV"
 
       - uses: styfle/cancel-workflow-action@0.13.1
         with:

@@ -7,7 +7,7 @@
 - Schema: the Team schema is only registered when the core 2.2 schema helpers are available, so older core versions get no Team schema rather than a fatal error, and a standalone JSON-LD block is printed when Yoast SEO is inactive.
 - Schema: `sameAs` only lists full http(s) profile URLs, once each. Handles, the defunct Google+ field and Skype are excluded.
 - Schema: `email` is only output when it is a valid address. `jobTitle` excludes "Uncategorized" and separates roles with ", ".
-- Schema: "Associated Tours" and "Associated Accommodation" only list published items, once each, as plain text.
+- Schema: associated tours and accommodation are output as `knowsAbout` nodes (`TouristTrip` and `LodgingBusiness`, with name and URL) instead of "Associated Tours" and "Associated Accommodation" `additionalProperty` values, which are not valid on a Person. Only published items are listed, once each. ([TO-171](https://linear.app/lightspeedwp/issue/TO-171))
 - Schema: `makesOffer` is no longer output, as it is not part of the approved Schema 2.0 mapping.
 
 ### Added
