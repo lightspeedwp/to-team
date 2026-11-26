@@ -2,18 +2,35 @@ name: PHP syntax
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, develop ]
+
+# Cancel a superseded run on the same branch or pull request.
+concurrency:
+  group: php-syntax-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   build:
+    name: PHP syntax
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@master
-    - name: Checking PHP syntax error
-      uses: overtrue/phplint@master
-      with:
-        path: .
-        options: --exclude=*.log
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - name: Check PHP syntax
+        run: |
+          find . -name '*.php' -not -path './vendor/*' -not -path './node_modules/*' -print0 \
+            | xargs -0 -n1 -P4 php -l
